@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Field, Form, Formik } from 'formik';
 import Error from '../Error/Error';
@@ -10,13 +10,16 @@ import AgreeTermOfServiceInput from '../AgreeTermOfServiceInput/AgreeTermOfServi
 import CONSTANTS from '../../constants';
 import Schems from '../../utils/validators/validationSchems';
 
-class RegistrationForm extends React.Component {
-  componentWillUnmount () {
-    this.props.authClear();
-  }
 
-  clicked = values => {
-    this.props.register({
+const RegistrationForm = (props) => {
+  useEffect(() => {
+    return () => {
+      props.authClear();
+    }; //eslint-disable-next-line
+  }, []);
+
+  const clicked = values => {
+    props.register({
       data: {
         firstName: values.firstName,
         lastName: values.lastName,
@@ -25,12 +28,11 @@ class RegistrationForm extends React.Component {
         password: values.password,
         role: values.role,
       },
-      history: this.props.history,
+      history: props.history,
     });
   };
 
-  render () {
-    const { submitting, auth, authClear } = this.props;
+    const { submitting, auth, authClear } = props;
     const { error } = auth;
     const formInputClasses = {
       container: styles.inputContainer,
@@ -63,7 +65,7 @@ class RegistrationForm extends React.Component {
             role: CONSTANTS.CUSTOMER,
             agreeOfTerms: false,
           }}
-          onSubmit={this.clicked}
+          onSubmit={clicked}
           validationSchema={Schems.RegistrationSchem}
         >
           <Form>
@@ -152,7 +154,6 @@ class RegistrationForm extends React.Component {
       </div>
     );
   }
-}
 
 const mapStateToProps = state => ({
   auth: state.auth,

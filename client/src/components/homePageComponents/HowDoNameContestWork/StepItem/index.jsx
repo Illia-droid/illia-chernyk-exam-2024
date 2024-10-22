@@ -14,8 +14,8 @@ const StepItem = (props) => {
     },
   } = props;
 
-  const renderStepDescription = (step) => (
-    <p>
+  const renderStepDescription = (step, i) => (
+    <p key={i}>
       <i className="fas fa-check" />
       <span>{step}</span>
     </p>
