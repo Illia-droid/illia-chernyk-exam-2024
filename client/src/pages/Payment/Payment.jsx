@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
-import { pay, clearPaymentStore } from '../../store/slices/paymentSlice';
 import PayForm from '../../components/PayForm/PayForm';
-import styles from './Payment.module.sass';
-import CONSTANTS from '../../constants';
 import Error from '../../components/Error/Error';
 import Logo from '../../components/Logo';
+import { pay, clearPaymentStore } from '../../store/slices/paymentSlice';
+import styles from './Payment.module.sass';
+import CONSTANTS from '../../constants';
 
 const Payment = (props) => {
   const pay = (values) => {
@@ -16,6 +16,10 @@ const Payment = (props) => {
       contestArray.push({ ...contests[key] })
     );
     const { number, expiry, cvc } = values;
+    const price =
+      contestArray.length === 1
+        ? 100
+        : contestArray.length * 100 * (1 - contestArray.length / 10);
     const data = new FormData();
     for (let i = 0; i < contestArray.length; i++) {
       data.append('files', contestArray[i].file);
@@ -25,7 +29,7 @@ const Payment = (props) => {
     data.append('expiry', expiry);
     data.append('cvc', cvc);
     data.append('contests', JSON.stringify(contestArray));
-    data.append('price', '100');
+    data.append('price', price);
     props.pay({
       data: {
         formData: data,
@@ -39,6 +43,13 @@ const Payment = (props) => {
   };
 
   const { contests } = props.contestCreationStore;
+
+  const calculatedPrice =
+    Object.keys(contests).length === 1
+      ? 100
+      : Object.keys(contests).length *
+        100 *
+        (1 - Object.keys(contests).length / 10);
   const { error } = props.payment;
   const { clearPaymentStore } = props;
   if (isEmpty(contests)) {
@@ -63,17 +74,22 @@ const Payment = (props) => {
               clearError={clearPaymentStore}
             />
           )}
-          <PayForm sendRequest={pay} back={goBack} isPayForOrder />
+          <PayForm
+            sendRequest={pay}
+            back={goBack}
+            calculatedPrice={calculatedPrice}
+            isPayForOrder
+          />
         </div>
         <div className={styles.orderInfoContainer}>
           <span className={styles.orderHeader}>Order Summary</span>
           <div className={styles.packageInfoContainer}>
             <span className={styles.packageName}>Package Name: Standard</span>
-            <span className={styles.packagePrice}>$100 USD</span>
+            <span className={styles.packagePrice}>${calculatedPrice} USD</span>
           </div>
           <div className={styles.resultPriceContainer}>
             <span>Total:</span>
-            <span>$100.00 USD</span>
+            <span>${calculatedPrice} USD</span>
           </div>
           <a href="http://www.google.com">Have a promo code?</a>
         </div>

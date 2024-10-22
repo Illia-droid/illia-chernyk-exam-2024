@@ -17,17 +17,17 @@ const PayForm = (props) => {
     props.sendRequest(values);
   };
 
-  const { focusOnElement, isPayForOrder } = props;
+  const { focusOnElement, isPayForOrder, calculatedPrice } = props;
   return (
     <div className={styles.payFormContainer}>
       <span className={styles.headerInfo}>Payment Information</span>
       <Formik
         initialValues={{
           focusOnElement: '',
-          name: '',
-          number: '',
-          cvc: '',
-          expiry: '',
+          name: 'yriy',
+          number: '4111111111111111',
+          cvc: '505',
+          expiry: '09/23',
         }}
         onSubmit={pay}
         validationSchema={Schems.PaymentSchema}
@@ -82,7 +82,7 @@ const PayForm = (props) => {
                   <span>Card Number</span>
                   <PayInput
                     isInputMask
-                    mask="9999 9999 9999 9999 999"
+                    mask="9999 9999 9999 9999"
                     name="number"
                     classes={{
                       container: styles.inputContainer,
@@ -138,7 +138,7 @@ const PayForm = (props) => {
       </Formik>
       {isPayForOrder && (
         <div className={styles.totalSum}>
-          <span>Total: $100.00</span>
+          <span>Total: ${calculatedPrice}</span>
         </div>
       )}
       <div className={styles.buttonsContainer}>
