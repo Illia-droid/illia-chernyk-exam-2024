@@ -81,7 +81,7 @@ const ContestForm = (props) => {
           innerRef={props.formRef}
           enableReinitialize
         >
-          <Form>
+          <Form encType="multipart/form-data">
             <div className={styles.inputContainer}>
               <span className={styles.inputHeader}>Title of contest</span>
               <FormInput
@@ -148,7 +148,6 @@ const ContestForm = (props) => {
                 fileInput: styles.fileInput,
                 warning: styles.warning,
               }}
-              type="file"
             />
             {props.isEditContest ? (
               <button type="submit" className={styles.changeData}>

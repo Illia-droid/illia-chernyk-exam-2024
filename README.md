@@ -16,4 +16,8 @@
     a. Fix images uploading:
         * use multipart/form-data;
         * change images path in constants
-        * fixed logic of function ImageUpload
+        * fixed logic of functional component ImageUpload
+    b. Fix files uploading:
+        * use multipart/form-data;  
+        * fixed logic of functional component FieldFileInput
+        ?? need to fix warning in console "A non-serializable value was detected" ?? 
