@@ -1,0 +1,23 @@
+[
+  {
+    "images": {
+      "inactive": "sponsors/Forbes-inactive.png",
+      "active": "sponsors/Forbes-active.png"
+    },
+    "alt": "forbes"
+  },
+  {
+    "images": {
+      "inactive": "sponsors/the_next_web_inactive.png",
+      "active": "sponsors/the_next_web_active.png"
+    },
+    "alt": "web"
+  },
+  {
+    "images": {
+      "inactive": "sponsors/mashable-inactive.png",
+      "active": "sponsors/mashable-active.png"
+    },
+    "alt": "mashable"
+  }
+]

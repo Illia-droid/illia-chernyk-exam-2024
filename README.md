@@ -5,4 +5,10 @@
     a. Create WhySquadhelp component;
     b. Create HowDoNameContestWork component;
     c. Rename Home.jsx => index.jsx and corrected path;
+    d. Create AdvInfo component;
 
+** All that remains is to fix the styles and dashboard buttons
+
+============================================================================================
+
+5.
