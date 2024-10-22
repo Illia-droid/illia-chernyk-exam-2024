@@ -11,4 +11,9 @@
 
 ============================================================================================
 
-5.  Refactor class components to functional ( exept HOCs )
+5. Refactor class components to functional ( exept HOCs )
+6. Fix files uploading:
+    a. Fix images uploading:
+        * use multipart/form-data;
+        * change images path in constants
+        * fixed logic of function ImageUpload
