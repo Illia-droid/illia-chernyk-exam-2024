@@ -1,0 +1,36 @@
+[
+  {
+    "classNameWrapper": "whiteContainer",
+    "classItemRow": "stepReverse",
+    "stepName": "Step 1: Launch a Naming Contest",
+    "stepDescription": [
+      "Start your project right with our proven Naming Brief template",
+      "We’ll walk you through exactly what you need to share about your project in order to get an awesome Name"
+    ],
+    "src": "gif/1-compressed.gif",
+    "alt": "compressed"
+  },
+  {
+    "classNameWrapper": "greenContainer",
+    "classItemRow": "step",
+    "stepName": "Step 2: Ideas start pouring in within minutes",
+    "stepDescription": [
+      "100s of naming experts start submitting name ideas",
+      "Names automatically checked for URL availabilit"
+    ],
+    "src": "gif/2-compressed-new.gif",
+    "alt": "compressed"
+  },
+  {
+    "classNameWrapper": "greyContainer",
+    "classItemRow": "stepReverse",
+    "stepName": "Step 3: Rate Entries & Brainstorm with Creatives",
+    "stepDescription": [
+      "Provide instant feedback on Names",
+      "Send private feedback or public messages to all creatives",
+      "The more entries you rate - the submissions get better and better"
+    ],
+    "src": "gif/3-compressed.gif",
+    "alt": "compressed"
+  }
+]

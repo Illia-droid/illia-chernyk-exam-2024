@@ -9,7 +9,7 @@ import StartContestPage from './pages/StartContestPage/StartContestPage';
 import Dashboard from './pages/Dashboard/Dashboard';
 import PrivateHoc from './components/PrivateHoc/PrivateHoc';
 import NotFound from './components/NotFound/NotFound';
-import Home from './pages/Home/Home';
+import Home from './pages/Home';
 import OnlyNotAuthorizedUserHoc from './components/OnlyNotAuthorizedUserHoc/OnlyNotAuthorizedUserHoc';
 import ContestPage from './pages/ContestPage/ContestPage';
 import UserProfile from './pages/UserProfile/UserProfile';
