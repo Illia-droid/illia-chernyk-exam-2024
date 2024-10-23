@@ -40,18 +40,9 @@ const CustomerDashboard = (props) => {
   };
 
   const setContestList = () => {
-    const array = [];
-    const { contests } = props;
-    for (let i = 0; i < contests.length; i++) {
-      array.push(
-        <ContestBox
-          data={contests[i]}
-          key={contests[i].id}
-          goToExtended={goToExtended}
-        />
-      );
-    }
-    return array;
+    return props.contests.map((contest) => (
+      <ContestBox data={contest} key={contest.id} goToExtended={goToExtended} />
+    ));
   };
 
   const tryToGetContest = () => {

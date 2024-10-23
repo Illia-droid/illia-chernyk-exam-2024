@@ -33,3 +33,10 @@
 8. Refactor HOCs:
         * organized HOCs into one folder and set up exports;
         * changed names and replaced it in App.js.
+        * fixed the application crash and as a result of going to a page that required authorization, now you go to the Login page;
+
+9. Fix dashboards:
+    a. prepared for role of Moderator and rename* Dashboard.jsx to index.jsx + pathes;
+    b. Fix customer`s dashboard:
+        * rename*;
+        *
