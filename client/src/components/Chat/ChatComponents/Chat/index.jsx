@@ -2,21 +2,22 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import DialogListContainer from '../../DialogComponents/DialogListContainer/DialogListContainer';
-import styles from './Chat.module.sass';
-import Dialog from '../../DialogComponents/Dialog/Dialog';
+import Dialog from '../../DialogComponents/Dialog';
+import CatalogListContainer from '../../CatalogComponents/CatalogListContainer/CatalogListContainer';
+import CatalogCreation from '../../CatalogComponents/CatalogCreation/CatalogCreation';
+import CatalogListHeader from '../../CatalogComponents/CatalogListHeader/CatalogListHeader';
+import ChatError from '../../../ChatError/ChatError';
 import {
   changeChatShow,
   setPreviewChatMode,
   changeShowModeCatalog,
   clearChatError,
   getPreviewChat,
+  backToDialogList,
 } from '../../../../store/slices/chatSlice';
 import { chatController } from '../../../../api/ws/socketController';
+import styles from './Chat.module.sass';
 import CONSTANTS from '../../../../constants';
-import CatalogListContainer from '../../CatalogComponents/CatalogListContainer/CatalogListContainer';
-import CatalogCreation from '../../CatalogComponents/CatalogCreation/CatalogCreation';
-import CatalogListHeader from '../../CatalogComponents/CatalogListHeader/CatalogListHeader';
-import ChatError from '../../../ChatError/ChatError';
 
 const Chat = (props) => {
   useEffect(() => {
@@ -24,6 +25,7 @@ const Chat = (props) => {
     props.getPreviewChat();
     return () => {
       chatController.unsubscribeChat(props.userStore.data.id);
+      props.backToDialogList();
     }; //eslint-disable-next-line
   }, []);
 
@@ -90,8 +92,7 @@ const Chat = (props) => {
     );
   };
 
-  const { isExpanded, isShow, isShowCatalogCreation, error } =
-    props.chatStore;
+  const { isExpanded, isShow, isShowCatalogCreation, error } = props.chatStore;
   const { id } = props.userStore.data;
   const { changeShow, getPreviewChat } = props;
   return (
@@ -117,6 +118,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   changeShow: () => dispatch(changeChatShow()),
+  backToDialogList: () => dispatch(backToDialogList()),
   setChatPreviewMode: (mode) => dispatch(setPreviewChatMode(mode)),
   changeShowModeCatalog: () => dispatch(changeShowModeCatalog()),
   clearChatError: () => dispatch(clearChatError()),

@@ -43,3 +43,12 @@
         * refactor customer`s dashboard.
     c.  Fix creator`s dashboard:   
         * fixed filters in CreatorDashboard;
+
+10. Fix chat:
+    a. Fix sending and rendering messages in chat:
+        * rename*;
+        * add back to dialog list when unmounting;
+        * fixed scrolling to the last message when sending a new one and when rendering a chat;
+        * fixed favorite chat;
+        * fixed duplicate messages;
+        

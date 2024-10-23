@@ -336,7 +336,6 @@ const reducers = {
       messagesPreview.push(preview);
     }
     state.messagesPreview = messagesPreview;
-    state.messages = [...state.messages, payload.message];
   },
 
   backToDialogList: state => {
