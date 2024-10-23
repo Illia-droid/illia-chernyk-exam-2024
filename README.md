@@ -27,4 +27,9 @@
         * commented out expiry in validation scheme;
         * fixed PayInput mask;
         * fixed price display depending on count of contests 
-        * added a discount depending on bundle(1-$100, 2-$160(20%), 3-$210(30%));       
+        * added a discount depending on bundle(1-$100, 2-$160(20%), 3-$210(30%));
+
+
+8. Refactor HOCs:
+        * organized HOCs into one folder and set up exports;
+        * changed names and replaced it in App.js.
