@@ -7,7 +7,7 @@ import {
   setNewCustomerFilter,
 } from '../../store/slices/contestsSlice';
 import CONSTANTS from '../../constants';
-import ContestsContainer from '../ContestsContainer/ContestsContainer';
+import ContestsContainer from '../ContestsContainer';
 import ContestBox from '../ContestBox/ContestBox';
 import styles from './CustomerDashboard.module.sass';
 import TryAgain from '../TryAgain/TryAgain';
@@ -41,7 +41,7 @@ const CustomerDashboard = (props) => {
 
   const setContestList = () => {
     return props.contests.map((contest) => (
-      <ContestBox data={contest} key={contest.id} goToExtended={goToExtended} />
+      <ContestBox key={contest.id} data={contest} goToExtended={goToExtended} />
     ));
   };
 
@@ -50,43 +50,32 @@ const CustomerDashboard = (props) => {
     getContests();
   };
 
+  const renderFilter = (filterStatus, filterLabel) => {
+    const isActive = filterStatus === props.customerFilter;
+    return (
+      <div
+        onClick={() => {
+          if (!isActive) {
+            props.newFilter(filterStatus);
+          }
+        }}
+        className={classNames({
+          [styles.activeFilter]: isActive,
+          [styles.filter]: !isActive,
+        })}
+      >
+        {filterLabel}
+      </div>
+    );
+  };
+
   const { error, haveMore } = props;
-  const { customerFilter } = props;
   return (
     <div className={styles.mainContainer}>
       <div className={styles.filterContainer}>
-        <div
-          onClick={() => props.newFilter(CONSTANTS.CONTEST_STATUS_ACTIVE)}
-          className={classNames({
-            [styles.activeFilter]:
-              CONSTANTS.CONTEST_STATUS_ACTIVE === customerFilter,
-            [styles.filter]: CONSTANTS.CONTEST_STATUS_ACTIVE !== customerFilter,
-          })}
-        >
-          Active Contests
-        </div>
-        <div
-          onClick={() => props.newFilter(CONSTANTS.CONTEST_STATUS_FINISHED)}
-          className={classNames({
-            [styles.activeFilter]:
-              CONSTANTS.CONTEST_STATUS_FINISHED === customerFilter,
-            [styles.filter]:
-              CONSTANTS.CONTEST_STATUS_FINISHED !== customerFilter,
-          })}
-        >
-          Completed contests
-        </div>
-        <div
-          onClick={() => props.newFilter(CONSTANTS.CONTEST_STATUS_PENDING)}
-          className={classNames({
-            [styles.activeFilter]:
-              CONSTANTS.CONTEST_STATUS_PENDING === customerFilter,
-            [styles.filter]:
-              CONSTANTS.CONTEST_STATUS_PENDING !== customerFilter,
-          })}
-        >
-          Inactive contests
-        </div>
+        {renderFilter(CONSTANTS.CONTEST_STATUS_ACTIVE, 'Active Contests')}
+        {renderFilter(CONSTANTS.CONTEST_STATUS_FINISHED, 'Completed contests')}
+        {renderFilter(CONSTANTS.CONTEST_STATUS_PENDING, 'Inactive contests')}
       </div>
       <div className={styles.contestsContainer}>
         {error ? (
@@ -95,7 +84,6 @@ const CustomerDashboard = (props) => {
           <ContestsContainer
             isFetching={props.isFetching}
             loadMore={loadMore}
-            history={props.history}
             haveMore={haveMore}
           >
             {setContestList()}
