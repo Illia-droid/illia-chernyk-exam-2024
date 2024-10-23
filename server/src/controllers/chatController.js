@@ -17,6 +17,7 @@ module.exports.addMessage = async (req, res, next) => {
       {
         participants,
       },
+      { participants, blackList: [false, false] },
       {
         upsert: true,
         new: true,
