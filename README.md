@@ -39,4 +39,7 @@
     a. prepared for role of Moderator and rename* Dashboard.jsx to index.jsx + pathes;
     b. Fix customer`s dashboard:
         * rename*;
-        * fixed logic of CustomerDashboard component (there is no constant rerendering of identical contests);
+        * fixed logic of ContestsContainer component (there is no constant rerendering of identical contests);
+        * refactor customer`s dashboard.
+    c.  Fix creator`s dashboard:   
+        * fixed filters in CreatorDashboard;

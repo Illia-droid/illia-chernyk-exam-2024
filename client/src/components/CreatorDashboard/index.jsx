@@ -28,6 +28,15 @@ const types = [
 ];
 
 const CreatorDashboard = (props) => {
+  useEffect(() => {
+    props.getDataForContest();
+    if (parseUrlForParams(props.location.search) && !props.contests.length)
+      getContests(props.creatorFilter);
+    return () => {
+      props.clearContestsList();
+    }; //eslint-disable-next-line
+  }, [props.location.search]);
+
   const renderSelectType = () => {
     const array = [];
     const { creatorFilter } = props;
@@ -87,18 +96,6 @@ const CreatorDashboard = (props) => {
       </select>
     );
   };
-
-  // componentWillReceiveProps(nextProps, nextContext) {
-  //   if (nextProps.location.search !== props.location.search) {
-  //     parseUrlForParams(nextProps.location.search);
-  //   }
-  // }
-
-  useEffect(() => {
-    props.getDataForContest();
-    if (parseUrlForParams(props.location.search) && !props.contests.length)
-      getContests(props.creatorFilter); //eslint-disable-next-line
-  }, []);
 
   const getContests = (filter) => {
     props.getContests({
@@ -167,18 +164,9 @@ const CreatorDashboard = (props) => {
   };
 
   const setContestList = () => {
-    const array = [];
-    const { contests } = props;
-    for (let i = 0; i < contests.length; i++) {
-      array.push(
-        <ContestBox
-          data={contests[i]}
-          key={contests[i].id}
-          goToExtended={goToExtended}
-        />
-      );
-    }
-    return array;
+    return props.contests.map((contest) => (
+      <ContestBox key={contest.id} data={contest} goToExtended={goToExtended} />
+    ));
   };
 
   const goToExtended = (contestId) => {

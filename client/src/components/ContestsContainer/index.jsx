@@ -4,8 +4,6 @@ import Spinner from '../Spinner/Spinner';
 
 const ContestsContainer = (props) => {
   const { isFetching, children, loadMore, haveMore } = props;
-  console.log('children', children);
-
   const observerRef = useRef();
   useEffect(() => {
     const observer = new IntersectionObserver(
