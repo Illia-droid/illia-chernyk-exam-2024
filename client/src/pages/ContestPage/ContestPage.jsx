@@ -132,7 +132,6 @@ const ContestPage = (props) => {
   } = contestByIdStore;
   return (
     <div>
-      {/* <Chat/> */}
       {isShowOnFull && (
         <LightBox
           mainSrc={`${CONSTANTS.publicURL}${imagePath}`}

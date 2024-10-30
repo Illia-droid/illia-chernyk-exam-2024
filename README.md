@@ -52,3 +52,6 @@
         * fixed favorite chat;
         * fixed duplicate messages;
         
+11. Fix offers:
+        * fixed rendering of button "Send offer";
+        * Fixed function resolveOffer(returns the winning offer, not the first offer in the array).      
