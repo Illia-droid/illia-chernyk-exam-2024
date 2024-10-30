@@ -25,6 +25,7 @@ const PayForm = (props) => {
         initialValues={{
           focusOnElement: '',
           name: 'yriy',
+          sum: '',
           number: '4111111111111111',
           cvc: '505',
           expiry: '09/23',

@@ -54,4 +54,7 @@
         
 11. Fix offers:
         * fixed rendering of button "Send offer";
-        * Fixed function resolveOffer(returns the winning offer, not the first offer in the array).      
+        * fixed function resolveOffer (returns the winning offer, not the first offer in the array).      
+
+12. Fix cashout:
+        * added an initialian value for "sum" input (fixed warning in console - now this input is controlled).
