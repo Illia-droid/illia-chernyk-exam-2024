@@ -1,32 +1,25 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from '../../../store/slices/userSlice';
 import Spinner from '../../Spinner/Spinner';
 
 const withNotAuth = (Component) => {
-  class HocForLoginSignUp extends React.Component {
-    componentDidMount() {
-      this.props.checkAuth(this.props.history.replace);
-    }
+  return (props) => {
+    const { history } = props;
+    const { isFetching, data } = useSelector((state) => state.userStore);
+    const dispatch = useDispatch();
 
-    render() {
-      if (this.props.isFetching) {
-        return <Spinner />;
-      }
-      if (!this.props.data) {
-        return <Component history={this.props.history} />;
-      }
-      return null;
-    }
-  }
+    useEffect(() => {
+      dispatch(getUser(history.replace)); //eslint-disable-next-line
+    }, []);
 
-  const mapStateToProps = (state) => state.userStore;
-
-  const mapDispatchToProps = (dispatch) => ({
-    checkAuth: (replace) => dispatch(getUser(replace)),
-  });
-
-  return connect(mapStateToProps, mapDispatchToProps)(HocForLoginSignUp);
+    return (
+      <>
+        {isFetching && <Spinner />}
+        {!data && <Component history={history} />};
+      </>
+    );
+  };
 };
 
 export default withNotAuth;
