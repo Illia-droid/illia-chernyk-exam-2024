@@ -35,6 +35,7 @@
         * changed names and replaced it in App.js.
         * fixed the application crash and as a result of going to a page that required authorization, now you go to the Login page;
         * refactored HOCs from class to functional components. 
+        * added additionalProps in withAuth HOC for correct operation of creating constests.
 
 9. Fix dashboards:
     a. prepared for role of Moderator and rename* Dashboard.jsx to index.jsx + pathes;

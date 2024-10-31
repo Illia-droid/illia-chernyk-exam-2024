@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from '../../../store/slices/userSlice';
 import Spinner from '../../Spinner/Spinner';
 
-const withAuth = (Component) => {
+const withAuth = (Component, additionalProps) => {
   return (props) => {
     const { history, match } = props;
     const { isFetching, data } = useSelector((state) => state.userStore);
@@ -18,7 +18,14 @@ const withAuth = (Component) => {
     return (
       <>
         {isFetching && <Spinner />}
-        {data && <Component history={history} match={match} {...props} />}
+        {data && (
+          <Component
+            history={history}
+            match={match}
+            {...props}
+            {...additionalProps}
+          />
+        )}
       </>
     );
   };
