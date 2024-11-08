@@ -1,0 +1,41 @@
+{
+  "bundleData": [
+    {
+      "path": ["Name.png"],
+      "header": "Name",
+      "describe": "Get up and running with the perfect name."
+    },
+    {
+      "path": ["Logo.png"],
+      "header": "Logo",
+      "describe": "Kickstart your venture with a unique, memorable logo."
+    },
+    {
+      "path": ["Tagline.png"],
+      "header": "Tagline",
+      "describe": "Connect deeply with your target audience with an on-target tagline."
+    }
+  ],
+  "combinedBundleData": [
+    {
+      "path": ["Name.png", "Logo.png"],
+      "header": "Name+Logo",
+      "describe": "Get the essentials needed to establish your brand together and save."
+    },
+    {
+      "path": ["Name.png", "Tagline.png"],
+      "header": "Name+Tagline",
+      "describe": "Communicate your vision with the perfect Name/Tagline combo."
+    },
+    {
+      "path": ["Logo.png", "Tagline.png"],
+      "header": "Tagline+Logo",
+      "describe": "Description for Logo + Tagline will come here."
+    },
+    {
+      "path": ["Name.png", "Logo.png", "Tagline.png"],
+      "header": "Name+Tagline+Logo",
+      "describe": "Establish your entire brand identity and save with this bundle."
+    }
+  ]
+}

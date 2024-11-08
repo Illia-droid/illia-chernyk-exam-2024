@@ -60,3 +60,11 @@
 
 12. Fix cashout:
         * added an initialian value for "sum" input (fixed warning in console - now this input is controlled).
+
+13. Client refactoring:
+     a. Page components refactoring:
+        * rename*;
+        * refactoring connect() with hooks useDispatch() and useSelector();
+        * optimization of functions, destructuring of constants;
+        * using json files for data;
+

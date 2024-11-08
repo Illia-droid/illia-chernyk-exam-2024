@@ -1,21 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-
-import SlideBar from '../../components/SlideBar/SlideBar';
-import Footer from '../../components/Footer/Footer';
-import Header from '../../components/Header/Header';
-import Spinner from '../../components/Spinner/Spinner';
+import { useSelector } from 'react-redux';
+import SlideBar from '../../components/SlideBar';
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+import Spinner from '../../components/Spinner';
 import WhySquadhelp from '../../components/homePageComponents/WhySquadhelp';
 import HowDoNameContestWork from '../../components/homePageComponents/HowDoNameContestWork';
 import AdvInfo from '../../components/homePageComponents/AdvInfo';
-
 import CONSTANTS from '../../constants';
-import carouselConstants from '../../carouselConstants';
-
+import CAROULES_CONSTANTS from '../../carouselConstants';
 import styles from './Home.module.sass';
 
-const Home = (props) => {
+const { HEADER_ANIMATION_TEXT } = CONSTANTS;
+const {
+  MAIN_SLIDER_IMAGES,
+  MAIN_SLIDER,
+  EXAMPLE_SLIDER_IMAGES,
+  EXAMPLE_SLIDER,
+  FEEDBACK_SLIDER_IMAGES,
+  FEEDBACK_SLIDER,
+} = CAROULES_CONSTANTS;
+
+const Home = () => {
+  const { isFetching } = useSelector((state) => state.userStore);
   const [index, setIndex] = useState(0);
   const [styleName, setStyle] = useState(styles.headline__static);
 
@@ -30,11 +38,7 @@ const Home = (props) => {
     };
   });
 
-  const { isFetching } = props;
-  const text =
-    CONSTANTS.HEADER_ANIMATION_TEXT[
-      index % CONSTANTS.HEADER_ANIMATION_TEXT.length
-    ];
+  const text = HEADER_ANIMATION_TEXT[index % HEADER_ANIMATION_TEXT.length];
   return (
     <>
       <Header />
@@ -62,15 +66,13 @@ const Home = (props) => {
             </div>
             <div className={styles.greyContainer}>
               <SlideBar
-                images={carouselConstants.mainSliderImages}
-                carouselType={carouselConstants.MAIN_SLIDER}
+                images={MAIN_SLIDER_IMAGES}
+                carouselType={MAIN_SLIDER}
               />
             </div>
-
             <WhySquadhelp />
             <AdvInfo />
             <HowDoNameContestWork />
-
             <div className={styles.headerBar}>
               <h3>Names For Sale</h3>
               <p className={styles.blueUnderline}>
@@ -81,8 +83,8 @@ const Home = (props) => {
               </p>
             </div>
             <SlideBar
-              images={carouselConstants.exampleSliderImages}
-              carouselType={carouselConstants.EXAMPLE_SLIDER}
+              images={EXAMPLE_SLIDER_IMAGES}
+              carouselType={EXAMPLE_SLIDER}
             />
             <div className={styles.button}>
               <Link className={styles.button__link} to="/dashboard">
@@ -92,8 +94,8 @@ const Home = (props) => {
             <div className={styles.blueContainer}>
               <h2 className={styles.whiteUnderline}>What our customers say</h2>
               <SlideBar
-                images={carouselConstants.feedbackSliderImages}
-                carouselType={carouselConstants.FEEDBACK_SLIDER}
+                images={FEEDBACK_SLIDER_IMAGES}
+                carouselType={FEEDBACK_SLIDER}
               />
             </div>
           </div>
@@ -104,9 +106,4 @@ const Home = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  const { isFetching } = state.userStore;
-  return { isFetching };
-};
-
-export default connect(mapStateToProps, null)(Home);
+export default Home;
