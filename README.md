@@ -66,12 +66,13 @@
         * rename*;
         * refactoring connect() with hooks useDispatch() and useSelector();
         * optimization of functions, destructuring of constants;
-        * using json files for data;
+        * using json files for data.
      b. Components refactoring:
         * rename*;
         * refactoring connect() with hooks useDispatch() and useSelector();
         * optimization of functions, destructuring of constants;
-        * using json file for data;
-     c. Fix App.js BrowserRouter warning (custom history)   
-     d. Optimize constants  
+        * using json file for data.
+     c. Fix App.js BrowserRouter warning (custom history). 
+     d. Optimize constants.
+     e. Move functions to utilities.
 
