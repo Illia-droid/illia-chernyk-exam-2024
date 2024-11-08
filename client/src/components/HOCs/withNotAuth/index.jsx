@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from '../../../store/slices/userSlice';
-import Spinner from '../../Spinner/Spinner';
+import Spinner from '../../Spinner';
 
 const withNotAuth = (Component) => {
-  return (props) => {
-    const { history } = props;
+  return ({ history }) => {
     const { isFetching, data } = useSelector((state) => state.userStore);
     const dispatch = useDispatch();
 

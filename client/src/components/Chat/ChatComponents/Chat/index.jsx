@@ -1,44 +1,76 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
-import DialogListContainer from '../../DialogComponents/DialogListContainer/DialogListContainer';
-import Dialog from '../../DialogComponents/Dialog';
-import CatalogListContainer from '../../CatalogComponents/CatalogListContainer/CatalogListContainer';
-import CatalogCreation from '../../CatalogComponents/CatalogCreation/CatalogCreation';
-import CatalogListHeader from '../../CatalogComponents/CatalogListHeader/CatalogListHeader';
-import ChatError from '../../../ChatError/ChatError';
 import {
   changeChatShow,
   setPreviewChatMode,
-  changeShowModeCatalog,
   clearChatError,
   getPreviewChat,
   backToDialogList,
 } from '../../../../store/slices/chatSlice';
 import { chatController } from '../../../../api/ws/socketController';
-import styles from './Chat.module.sass';
+import DialogListContainer from '../../DialogComponents/DialogListContainer';
+import Dialog from '../../DialogComponents/Dialog';
+import CatalogListContainer from '../../CatalogComponents/CatalogListContainer';
+import CatalogCreation from '../../CatalogComponents/CatalogCreation';
+import CatalogListHeader from '../../CatalogComponents/CatalogListHeader';
+import ChatError from '../../../ChatError';
 import CONSTANTS from '../../../../constants';
+import styles from './Chat.module.sass';
 
-const Chat = (props) => {
+const {
+  NORMAL_PREVIEW_CHAT_MODE,
+  FAVORITE_PREVIEW_CHAT_MODE,
+  BLOCKED_PREVIEW_CHAT_MODE,
+  CATALOG_PREVIEW_CHAT_MODE,
+} = CONSTANTS;
+
+const previewModes = [
+  { label: 'Normal', mode: NORMAL_PREVIEW_CHAT_MODE },
+  { label: 'Favorite', mode: FAVORITE_PREVIEW_CHAT_MODE },
+  { label: 'Blocked', mode: BLOCKED_PREVIEW_CHAT_MODE },
+  { label: 'Catalog', mode: CATALOG_PREVIEW_CHAT_MODE },
+];
+
+const Chat = () => {
+  const dispatch = useDispatch();
+  const { chatStore, userStore } = useSelector((state) => state);
+  const {
+    chatMode,
+    isShowChatsInCatalog,
+    isExpanded,
+    isShow,
+    isShowCatalogCreation,
+    error,
+  } = chatStore;
+  const { id } = userStore.data;
+
   useEffect(() => {
-    chatController.subscribeChat(props.userStore.data.id);
-    props.getPreviewChat();
+    chatController.subscribeChat(id);
+    getChatPreview();
     return () => {
-      chatController.unsubscribeChat(props.userStore.data.id);
-      props.backToDialogList();
+      chatController.unsubscribeChat(id);
+      dispatch(clearChatError());
+      dispatch(backToDialogList());
     }; //eslint-disable-next-line
   }, []);
 
+  const getChatPreview = () => dispatch(getPreviewChat());
+  const toggleChat = () => dispatch(changeChatShow());
+  const setChatPreviewMode = (mode) => dispatch(setPreviewChatMode(mode));
+
+  const renderPreviewButtons = ({ label, mode }) => (
+    <span
+      key={mode}
+      onClick={() => setChatPreviewMode(mode)}
+      className={classNames(styles.button, {
+        [styles.activeButton]: chatMode === mode,
+      })}
+    >
+      {label}
+    </span>
+  );
   const renderDialogList = () => {
-    const { setChatPreviewMode } = props;
-    const { chatMode, isShowChatsInCatalog } = props.chatStore;
-    const { id } = props.userStore.data;
-    const {
-      NORMAL_PREVIEW_CHAT_MODE,
-      FAVORITE_PREVIEW_CHAT_MODE,
-      BLOCKED_PREVIEW_CHAT_MODE,
-      CATALOG_PREVIEW_CHAT_MODE,
-    } = CONSTANTS;
     return (
       <div>
         {isShowChatsInCatalog && <CatalogListHeader />}
@@ -49,38 +81,7 @@ const Chat = (props) => {
         )}
         {!isShowChatsInCatalog && (
           <div className={styles.buttonsContainer}>
-            <span
-              onClick={() => setChatPreviewMode(NORMAL_PREVIEW_CHAT_MODE)}
-              className={classNames(styles.button, {
-                [styles.activeButton]: chatMode === NORMAL_PREVIEW_CHAT_MODE,
-              })}
-            >
-              Normal
-            </span>
-            <span
-              onClick={() => setChatPreviewMode(FAVORITE_PREVIEW_CHAT_MODE)}
-              className={classNames(styles.button, {
-                [styles.activeButton]: chatMode === FAVORITE_PREVIEW_CHAT_MODE,
-              })}
-            >
-              Favorite
-            </span>
-            <span
-              onClick={() => setChatPreviewMode(BLOCKED_PREVIEW_CHAT_MODE)}
-              className={classNames(styles.button, {
-                [styles.activeButton]: chatMode === BLOCKED_PREVIEW_CHAT_MODE,
-              })}
-            >
-              Blocked
-            </span>
-            <span
-              onClick={() => setChatPreviewMode(CATALOG_PREVIEW_CHAT_MODE)}
-              className={classNames(styles.button, {
-                [styles.activeButton]: chatMode === CATALOG_PREVIEW_CHAT_MODE,
-              })}
-            >
-              Catalog
-            </span>
+            {previewModes.map(renderPreviewButtons)}
           </div>
         )}
         {chatMode === CATALOG_PREVIEW_CHAT_MODE ? (
@@ -92,37 +93,20 @@ const Chat = (props) => {
     );
   };
 
-  const { isExpanded, isShow, isShowCatalogCreation, error } = props.chatStore;
-  const { id } = props.userStore.data;
-  const { changeShow, getPreviewChat } = props;
   return (
     <div
       className={classNames(styles.chatContainer, {
         [styles.showChat]: isShow,
       })}
     >
-      {error && <ChatError getData={getPreviewChat} />}
+      {error && <ChatError getData={getChatPreview} />}
       {isShowCatalogCreation && <CatalogCreation />}
       {isExpanded ? <Dialog userId={id} /> : renderDialogList()}
-      <div className={styles.toggleChat} onClick={() => changeShow()}>
+      <div className={styles.toggleChat} onClick={toggleChat}>
         {isShow ? 'Hide Chat' : 'Show Chat'}
       </div>
     </div>
   );
 };
 
-const mapStateToProps = (state) => {
-  const { chatStore, userStore } = state;
-  return { chatStore, userStore };
-};
-
-const mapDispatchToProps = (dispatch) => ({
-  changeShow: () => dispatch(changeChatShow()),
-  backToDialogList: () => dispatch(backToDialogList()),
-  setChatPreviewMode: (mode) => dispatch(setPreviewChatMode(mode)),
-  changeShowModeCatalog: () => dispatch(changeShowModeCatalog()),
-  clearChatError: () => dispatch(clearChatError()),
-  getPreviewChat: () => dispatch(getPreviewChat()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Chat);
+export default Chat;

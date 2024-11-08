@@ -67,4 +67,9 @@
         * refactoring connect() with hooks useDispatch() and useSelector();
         * optimization of functions, destructuring of constants;
         * using json files for data;
+     b. components refactoring:
+        * rename*;
+        * refactoring connect() with hooks useDispatch() and useSelector();
+        * optimization of functions, destructuring of constants;
+        * using json file for data;   
 

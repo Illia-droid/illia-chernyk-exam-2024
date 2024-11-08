@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './StepItem.module.sass';
 import CONSTANTS from '../../../../constants';
 
+const { STATIC_IMAGES_PATH } = CONSTANTS;
+
 const StepItem = (props) => {
   const {
     item: {
@@ -27,7 +29,7 @@ const StepItem = (props) => {
           <h3>{stepName}</h3>
           {stepDescription.map(renderStepDescription)}
         </div>
-        <img src={`${CONSTANTS.STATIC_IMAGES_PATH}${src}`} alt={alt} />
+        <img src={`${STATIC_IMAGES_PATH}${src}`} alt={alt} />
       </div>
     </div>
   );

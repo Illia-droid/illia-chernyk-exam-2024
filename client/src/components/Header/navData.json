@@ -1,0 +1,83 @@
+{
+  "nav": [
+    {
+      "title": "NAME IDEAS",
+      "links": [
+        { "name": "BEAUTY", "url": "http://www.google.com" },
+        { "name": "CONSULTING", "url": "http://www.google.com" },
+        { "name": "E-COMMERCE", "url": "http://www.google.com" },
+        { "name": "FASHION & CLOTHING", "url": "http://www.google.com" },
+        { "name": "FINANCE", "url": "http://www.google.com" },
+        { "name": "REAL ESTATE", "url": "http://www.google.com" },
+        { "name": "TECH", "url": "http://www.google.com" },
+        {
+          "name": "MORE CATEGORIES",
+          "url": "http://www.google.com",
+          "last": true
+        }
+      ]
+    },
+    {
+      "title": "CONTESTS",
+      "links": [
+        { "name": "HOW IT WORKS", "url": "http://www.google.com" },
+        { "name": "PRICING", "url": "http://www.google.com" },
+        { "name": "AGENCY SERVICE", "url": "http://www.google.com" },
+        { "name": "ACTIVE CONTESTS", "url": "http://www.google.com" },
+        { "name": "WINNERS", "url": "http://www.google.com" },
+        { "name": "LEADERBOARD", "url": "http://www.google.com" },
+        {
+          "name": "BECOME A CREATIVE",
+          "url": "http://www.google.com",
+          "last": true
+        }
+      ]
+    },
+    {
+      "title": "OUR WORK",
+      "links": [
+        { "name": "NAMES", "url": "http://www.google.com" },
+        { "name": "TAGLINES", "url": "http://www.google.com" },
+        { "name": "LOGOS", "url": "http://www.google.com" },
+        { "name": "TESTIMONIALS", "url": "http://www.google.com", "last": true }
+      ]
+    },
+    {
+      "title": "NAMES FOR SALE",
+      "links": [
+        { "name": "POPULAR NAMES", "url": "http://www.google.com" },
+        { "name": "SHORT NAMES", "url": "http://www.google.com" },
+        { "name": "INTRIGUING NAMES", "url": "http://www.google.com" },
+        { "name": "NAMES BY CATEGORY", "url": "http://www.google.com" },
+        { "name": "VISUAL NAME SEARCH", "url": "http://www.google.com" },
+        {
+          "name": "SELL YOUR DOMAINS",
+          "url": "http://www.google.com",
+          "last": true
+        }
+      ]
+    },
+    {
+      "title": "BLOG",
+      "links": [
+        { "name": "ULTIMATE NAMING GUIDE", "url": "http://www.google.com" },
+        {
+          "name": "POETIC DEVICES IN BUSINESS NAMING",
+          "url": "http://www.google.com"
+        },
+        { "name": "CROWDED BAR THEORY", "url": "http://www.google.com" },
+        { "name": "ALL ARTICLES", "url": "http://www.google.com", "last": true }
+      ]
+    }
+  ],
+  "user": [
+    { "name": "View Dashboard", "url": "/dashboard" },
+    { "name": "My Account", "url": "/account" },
+    { "name": "Messages", "url": "http://www.google.com" },
+    { "name": "Affiliate Dashboard", "url": "http://www.google.com" }
+  ],
+  "notAuthUser": [
+    { "name": "LOGIN", "url": "/login" },
+    { "name": "SIGN UP", "url": "/registration" }
+  ]
+}

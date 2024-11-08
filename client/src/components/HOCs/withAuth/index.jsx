@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from '../../../store/slices/userSlice';
-import Spinner from '../../Spinner/Spinner';
+import Spinner from '../../Spinner';
 
 const withAuth = (Component, additionalProps) => {
   return (props) => {

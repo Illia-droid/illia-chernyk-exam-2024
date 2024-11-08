@@ -5,15 +5,17 @@ import dataSponsors from './dataSponsors.json';
 import dataStats from './dataStats.json';
 import CONSTANTS from '../../../constants';
 
+const { STATIC_IMAGES_PATH } = CONSTANTS;
+
 const AdvInfo = () => {
   const renderSponsors = (sponsor, i) => (
     <div key={i} className={styles.images}>
       <img
-        src={`${CONSTANTS.STATIC_IMAGES_PATH}${sponsor.images.inactive}`}
+        src={`${STATIC_IMAGES_PATH}${sponsor.images.inactive}`}
         alt={sponsor.alt}
       />
       <img
-        src={`${CONSTANTS.STATIC_IMAGES_PATH}${sponsor.images.active}`}
+        src={`${STATIC_IMAGES_PATH}${sponsor.images.active}`}
         alt={sponsor.alt}
       />
     </div>

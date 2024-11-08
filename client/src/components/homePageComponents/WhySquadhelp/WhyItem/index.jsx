@@ -1,14 +1,14 @@
 import React from 'react';
-import styles from './WhyItem.module.sass';
 import CONSTANTS from '../../../../constants';
+import styles from './WhyItem.module.sass';
 
-const WhyItem = (props) => {
-  const {
-    item: { src, alt, title, content },
-  } = props;
+const { STATIC_IMAGES_PATH } = CONSTANTS;
+
+const WhyItem = ({ item }) => {
+  const { src, alt, title, content } = item;
   return (
     <div className={styles.card}>
-      <img src={`${CONSTANTS.STATIC_IMAGES_PATH}${src}`} alt={alt} />
+      <img src={`${STATIC_IMAGES_PATH}${src}`} alt={alt} />
       <h3>{title}</h3>
       <p>{content}</p>
     </div>

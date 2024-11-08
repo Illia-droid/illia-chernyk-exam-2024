@@ -1,0 +1,60 @@
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Form, Formik } from 'formik';
+import { sendMessage } from '../../../../store/slices/chatSlice';
+import FormInput from '../../../FormInput';
+import Schems from '../../../../utils/validators/validationSchems';
+import CONSTANTS from '../../../../constants';
+import styles from './ChatInput.module.sass';
+
+const { STATIC_IMAGES_PATH } = CONSTANTS;
+
+const ChatInput = () => {
+  const dispatch = useDispatch();
+  const { interlocutor } = useSelector((state) => state.chatStore);
+
+  const handleSubmit = (values, { resetForm }) => {
+    dispatch(
+      sendMessage({
+        messageBody: values.message,
+        recipient: interlocutor.id,
+        interlocutor,
+      })
+    );
+    resetForm();
+  };
+
+  return (
+    <div className={styles.inputContainer}>
+      <Formik
+        onSubmit={handleSubmit}
+        initialValues={{ message: '' }}
+        validationSchema={Schems.MessageSchema}
+        validateOnBlur={false}
+      >
+        {({ values }) => (
+          <Form className={styles.form}>
+            <FormInput
+              name="message"
+              type="text"
+              label="message"
+              classes={{
+                container: styles.container,
+                input: styles.input,
+                notValid: styles.notValid,
+              }}
+              isMessage
+            />
+            {values.message && (
+              <button type="submit">
+                <img src={`${STATIC_IMAGES_PATH}send.png`} alt="send Message" />
+              </button>
+            )}
+          </Form>
+        )}
+      </Formik>
+    </div>
+  );
+};
+
+export default ChatInput;

@@ -1,41 +1,44 @@
 import React, { useRef, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import Spinner from '../Spinner';
 import styles from './ContestContainer.module.sass';
-import Spinner from '../Spinner/Spinner';
+import ContestBox from './ContestBox';
 
-const ContestsContainer = (props) => {
-  const { isFetching, children, loadMore, haveMore } = props;
+const ContestsContainer = ({ isFetching, loadMore, haveMore, history }) => {
+  const { contests } = useSelector((state) => state.contestsList);
   const observerRef = useRef();
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && haveMore && !isFetching) {
-          loadMore(children.length);
+          loadMore(contests.length);
         }
       },
       { threshold: 1.0 }
     );
-    if (observerRef.current) {
-      observer.observe(observerRef.current);
+    const currentObserverRef = observerRef.current;
+    if (currentObserverRef) {
+      observer.observe(currentObserverRef);
     }
     return () => {
-      if (observerRef.current) {
-        observer.unobserve(observerRef.current);
+      if (currentObserverRef) {
+        observer.unobserve(currentObserverRef);
       }
     };
-  }, [children.length, haveMore, isFetching, loadMore]);
-  if (!isFetching && children.length === 0) {
-    return <div className={styles.notFound}>Nothing found</div>;
-  }
+  }, [contests.length, haveMore, isFetching, loadMore]);
+
   return (
-    <div>
-      {children}
-      {isFetching && (
-        <div className={styles.spinnerContainer}>
-          <Spinner />
-        </div>
+    <section>
+      {isFetching && <Spinner />}
+      {!isFetching && contests.length === 0 && (
+        <div className={styles.notFound}>Nothing found</div>
       )}
-      <div ref={observerRef} className={styles.observer}></div>
-    </div>
+      {contests.map((contest) => (
+        <ContestBox key={contest.id} data={contest} history={history} />
+      ))}
+      <div ref={observerRef}></div>
+    </section>
   );
 };
 
