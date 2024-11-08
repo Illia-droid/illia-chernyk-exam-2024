@@ -3,11 +3,12 @@ import http from '../interceptor';
 export const registerRequest = (data) => http.post('registration', data);
 export const loginRequest = (data) => http.post('login', data);
 export const getUser = () => http.post('getUser');
-export const updateContest = (data) => http.post('updateContest', data, {
-  headers: {
-    'Content-Type': 'multipart/form-data',
-  },
-} );
+export const updateContest = (data) =>
+  http.post('updateContest', data, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
 export const setNewOffer = (data) => http.post('setNewOffer', data);
 export const setOfferStatus = (data) => http.post('setOfferStatus', data);
 export const downloadContestFile = (data) =>
@@ -46,24 +47,7 @@ export const getCustomersContests = (data) =>
     }
   );
 
-export const getActiveContests = ({
-  offset,
-  limit,
-  typeIndex,
-  contestId,
-  industry,
-  awardSort,
-  ownEntries,
-}) =>
-  http.post('getAllContests', {
-    offset,
-    limit,
-    typeIndex,
-    contestId,
-    industry,
-    awardSort,
-    ownEntries,
-  });
+export const getActiveContests = (data) => http.post('getAllContests', data);
 
 export const getContestById = (data) =>
   http.get('getContestById', {

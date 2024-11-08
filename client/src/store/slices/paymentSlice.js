@@ -10,6 +10,7 @@ import {
   rejectedReducer,
 } from '../../utils/store';
 
+const { USER_INFO_MODE } = CONSTANTS;
 const PAYMENT_SLICE_NAME = 'payment';
 
 const initialState = {
@@ -32,7 +33,7 @@ export const cashOut = decorateAsyncThunk({
   thunk: async (payload, { dispatch }) => {
     const { data } = await restController.cashOut(payload);
     dispatch(updateUser.fulfilled(data));
-    dispatch(changeProfileViewMode(CONSTANTS.USER_INFO_MODE));
+    dispatch(changeProfileViewMode(USER_INFO_MODE));
   },
 });
 
@@ -43,7 +44,7 @@ const reducers = {
   clearPaymentStore: () => initialState,
 };
 
-const extraReducers = builder => {
+const extraReducers = (builder) => {
   builder.addCase(pay.pending, pendingReducer);
   builder.addCase(pay.fulfilled, () => initialState);
   builder.addCase(pay.rejected, rejectedReducer);

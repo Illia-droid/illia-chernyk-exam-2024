@@ -75,4 +75,5 @@
      c. Fix App.js BrowserRouter warning (custom history). 
      d. Optimize constants.
      e. Move functions to utilities.
+     f. Destructuring of constants & formatting code
 

@@ -8,6 +8,9 @@ import {
   rejectedReducer,
 } from '../../utils/store';
 
+const {
+  AUTH_MODE: { LOGIN },
+} = CONSTANTS;
 const AUTH_SLICE_NAME = 'auth';
 
 const initialState = {
@@ -18,7 +21,7 @@ const initialState = {
 export const checkAuth = decorateAsyncThunk({
   key: `${AUTH_SLICE_NAME}/checkAuth`,
   thunk: async ({ data: authInfo, history, authMode }) => {
-    authMode === CONSTANTS.AUTH_MODE.LOGIN
+    authMode === LOGIN
       ? await restController.loginRequest(authInfo)
       : await restController.registerRequest(authInfo);
     history.replace('/');
@@ -26,13 +29,13 @@ export const checkAuth = decorateAsyncThunk({
 });
 
 const reducers = {
-  clearAuthError: state => {
+  clearAuthError: (state) => {
     state.error = null;
   },
   clearAuth: () => initialState,
 };
 
-const extraReducers = builder => {
+const extraReducers = (builder) => {
   builder.addCase(checkAuth.pending, pendingReducer);
   builder.addCase(checkAuth.fulfilled, fulfilledReducer);
   builder.addCase(checkAuth.rejected, rejectedReducer);
