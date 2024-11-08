@@ -1,26 +1,27 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import LoginPage from './pages/LoginPage/LoginPage';
-import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
-import Payment from './pages/Payment/Payment';
-import StartContestPage from './pages/StartContestPage/StartContestPage';
-import Dashboard from './pages/Dashboard';
-
-import NotFound from './components/NotFound/NotFound';
-import Home from './pages/Home';
-import { withAuth, withNotAuth } from './components/HOCs';
-import ContestPage from './pages/ContestPage/ContestPage';
-import UserProfile from './pages/UserProfile/UserProfile';
 import 'react-toastify/dist/ReactToastify.css';
-import ContestCreationPage from './pages/ContestCreation/ContestCreationPage';
+import { withAuth, withNotAuth } from './components/HOCs';
+import NotFound from './components/NotFound';
+import ChatContainer from './components/Chat/ChatComponents/ChatContainer';
+import RegistrationPage from './pages/RegistrationPage';
+import Payment from './pages/Payment';
+import StartContestPage from './pages/StartContestPage';
+import Dashboard from './pages/Dashboard';
+import Home from './pages/Home';
+import LoginPage from './pages/LoginPage';
+import ContestPage from './pages/ContestPage';
+import UserProfile from './pages/UserProfile';
+import ContestCreationPage from './pages/ContestCreationPage';
 import CONSTANTS from './constants';
-import browserHistory from './browserHistory';
-import ChatContainer from './components/Chat/ChatComponents/ChatContainer/ChatContainer';
 import './App.css';
+
+const { NAME_CONTEST, TAGLINE_CONTEST, LOGO_CONTEST } = CONSTANTS;
+
 const App = () => {
   return (
-    <Router history={browserHistory}>
+    <BrowserRouter>
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -50,7 +51,7 @@ const App = () => {
           exact
           path="/startContest/nameContest"
           component={withAuth(ContestCreationPage, {
-            contestType: CONSTANTS.NAME_CONTEST,
+            contestType: NAME_CONTEST,
             title: 'Company Name',
           })}
         />
@@ -58,7 +59,7 @@ const App = () => {
           exact
           path="/startContest/taglineContest"
           component={withAuth(ContestCreationPage, {
-            contestType: CONSTANTS.TAGLINE_CONTEST,
+            contestType: TAGLINE_CONTEST,
             title: 'TAGLINE',
           })}
         />
@@ -66,7 +67,7 @@ const App = () => {
           exact
           path="/startContest/logoContest"
           component={withAuth(ContestCreationPage, {
-            contestType: CONSTANTS.LOGO_CONTEST,
+            contestType: LOGO_CONTEST,
             title: 'LOGO',
           })}
         />
@@ -76,7 +77,7 @@ const App = () => {
         <Route component={NotFound} />
       </Switch>
       <ChatContainer />
-    </Router>
+    </BrowserRouter>
   );
 };
 
