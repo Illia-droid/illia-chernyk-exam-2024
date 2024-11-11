@@ -1,3 +1,5 @@
+@use '/src/common/styles/colors' as *
+
 =innerContainer
   display: flex
   flex-direction: column
@@ -46,11 +48,11 @@
 
 .whiteContainer
   +innerContainer
-  background-color: white
+  background-color: $whiteColor
 
 .greenContainer
   +innerContainer
-  background-color: #28d2d0
+  background-color: $turquoiseColor
 
 .step
   display: flex
@@ -58,7 +60,7 @@
   justify-content: space-around
   align-items: center
   padding: 40px 0
-  color: #fff
+  color: $whiteColor
 
   div
     +stepCard

@@ -1,14 +1,21 @@
+@import '../../common/styles/_colors.sass'
+
 .updateContainer
   margin: 40px 0
   display: flex
   flex-direction: column
   align-items: center
   justify-content: flex-start
+  width: 80%
+  @media(max-width: 1000px)
+    width: 70%
+  @media(max-width: 420px)
+    width: 50% 
 
   button
     align-self: flex-end
-    background-color: #4e618d
-    color: white
+    background-color: $blueDarkerGrayColor
+    color: $whiteColor
     border-radius: 6px
     padding: 5px 10px
     font-size: 16px
@@ -16,7 +23,7 @@
     border: none
 
     &:hover
-      background-color: #f27e51
+      background-color: $lightOrange
 
   .imageUploadContainer
     display: flex
@@ -44,20 +51,20 @@
         display: none
         border: none
         border-radius: 8px
-        color: white
+        color: $whiteColor
         background-color: #66afe9
 
       label
         padding: 5px 10px
-        color: white
-        background-color: #455a89
+        color: $whiteColor
+        background-color: $blueGrayColor
         border-radius: 4px
         align-self: flex-start
         cursor: pointer
 
         &:hover
-          color: white
-          background-color: #f27e51
+          color: $whiteColor
+          background-color: $lightOrange
 
   .container
     display: flex

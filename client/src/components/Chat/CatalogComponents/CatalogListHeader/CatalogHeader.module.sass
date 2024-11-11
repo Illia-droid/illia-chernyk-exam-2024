@@ -1,11 +1,13 @@
+@use '/src/common/styles/colors' as *
+
 .headerContainer
   height: 50px
-  background-color: #4e618d
+  background-color: $blueDarkerGrayColor
   display: flex
   align-items: center
   justify-content: flex-start
   padding-left: 15px
-  border-bottom: 1px solid #f3f3f3
+  border-bottom: 1px solid $lightGrayColor
   z-index: 600
 
   button
@@ -18,7 +20,7 @@
   i
     cursor: pointer
     font-size: 24px
-    color: white
+    color: $whiteColor
     transition: font-size 0.2s
 
     &:hover
@@ -32,7 +34,7 @@
 
     span
       font-size: 18px
-      color: white
+      color: $whiteColor
 
     i
       font-size: 12px
@@ -68,17 +70,17 @@
         flex-direction: row
         justify-content: center
         align-items: center
-        color: white
+        color: $whiteColor
         border: 1px solid #b72522
         text-align: center
 
       .input
         margin: 0 15px
-        background-color: white
+        background-color: $whiteColor
         border: none
         width: 140px
         border-radius: 4px
-        color: #9ca8b7
+        color: $grayBlueColor
         font-size: 16px
         padding: 4px
         outline: none

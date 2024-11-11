@@ -1,3 +1,5 @@
+@use '/src/common/styles/colors' as *
+
 .container
   display: flex
   justify-content: center
@@ -9,7 +11,7 @@
     margin-right: 8px
     font-size: 20px
     font-weight: 600
-    color: #4e618d
+    color: $blueDarkerGrayColor
 
   i
     right: -24px
@@ -17,7 +19,7 @@
     font-size: 24px
     cursor: pointer
     transition: font-size 0.2s
-    color: #4e618d
+    color: $blueDarkerGrayColor
 
     &:hover
       animation: rot 0.4s infinite linear

@@ -1,3 +1,5 @@
+@use '/src/common/styles/colors' as *
+
 @mixin stepCard
   display: flex
   flex-direction: column
@@ -93,7 +95,7 @@
 
 .greenStep
   @include stepCard
-  color: white
+  color: $whiteColor
 
 
 @mixin underline
@@ -113,14 +115,14 @@
   @include underline
 
   &:after
-    background: #455A89
+    background: $blueGrayColor
 
 
 .whiteUnderline
   @include underline
 
   &:after
-    background: white
+    background: $whiteColor
 
 
 @mixin innerContainer
@@ -175,17 +177,17 @@
 
 .whiteContainer
   @include innerContainer
-  background-color: white
+  background-color: $whiteColor
 
 
 .greenContainer
   @include innerContainer
-  background-color: #28D2D0
+  background-color: $turquoiseColor
 
 .blueContainer
   @include innerContainer
   background-color: #2B62EC
-  color: white
+  color: $whiteColor
 
   h2
     margin-bottom: 40px
@@ -245,7 +247,7 @@
       bottom: 0
       height: 3px
       width: 0
-      background: #28d2d0
+      background: $turquoiseColor
       animation: cd-pulse 3s infinite
 
 
@@ -261,8 +263,8 @@
   flex-direction: row
   justify-content: center
   align-items: center
-  color: #28D2D1
-  border: 2px solid #28D2D1
+  color: $turquoiseColor
+  border: 2px solid $turquoiseColor
   border-radius: 5px
   height: 60px
   cursor: pointer
@@ -289,7 +291,7 @@
 
 
   &:hover
-    color: white
-    background-color: #28D2D1
+    color: $whiteColor
+    background-color: $turquoiseColor
 
 

@@ -57,7 +57,7 @@ const CustomerDashboard = ({ history }) => {
             dispatch(setNewCustomerFilter(filterStatus));
           }
         }}
-        className={classNames({
+        className={classNames(styles.button, {
           [styles.activeFilter]: isActive,
           [styles.filter]: !isActive,
         })}

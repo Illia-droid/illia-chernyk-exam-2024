@@ -77,3 +77,5 @@
      e. Move functions to utilities.
      f. Destructuring of constants & formatting code
 
+14. Refactoring styles:
+    a.Use variables for colors

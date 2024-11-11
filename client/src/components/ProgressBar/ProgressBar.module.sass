@@ -1,3 +1,5 @@
+@use '/src/common/styles/colors' as *
+
 .progressBarContainer
   display: flex
   flex-direction: row
@@ -23,16 +25,16 @@
         height: 0
         border: 5px solid transparent
         border-bottom: 0
-        border-top-color: #28d2d0
+        border-top-color: $turquoiseColor
 
       .stepDesc
         text-align: center
-        background-color: #28d2d0
+        background-color: $turquoiseColor
         font-size: 15px
         font-weight: 500
         width: 120px
         padding: 4px 8px 6px 8px
-        color: white
+        color: $whiteColor
         border-radius: 4px
         margin-top: -40px
 
@@ -54,8 +56,8 @@
     width: 34px
     height: 34px
     border-radius: 18px
-    background-color: #8aca6b
-    border: 2px solid #8aca6b
+    background-color: $greenColor
+    border: 2px solid $greenColor
 
     .innerComplete
       width: 24px
@@ -71,13 +73,13 @@
     height: 36px
     border-radius: 18px
     box-sizing: border-box
-    border: 2px solid #28d2d0
+    border: 2px solid $turquoiseColor
 
     .innerActive
       width: 20px
       height: 20px
       border-radius: 10px
-      background-color: #28d2d0
+      background-color: $turquoiseColor
 
   .outerNotActive
     display: flex
@@ -90,7 +92,7 @@
     border: 1px solid #d5d5da
 
     &:hover
-      border: 2px solid #28d2d0
+      border: 2px solid $turquoiseColor
 
     .innerNotActive
       width: 20px

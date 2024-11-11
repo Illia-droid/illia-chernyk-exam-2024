@@ -1,3 +1,5 @@
+@use '/src/common/styles/colors' as *
+
 .offerContainer
   align-self: center
   margin-top: 10px
@@ -20,9 +22,9 @@
 
     .btnOffer
       margin-top: 10px
-      background-color: #8aca6b
+      background-color: $greenColor
       border-radius: 6px
-      color: white
+      color: $whiteColor
       font-size: 16px
       text-align: center
       outline: none
@@ -33,7 +35,7 @@
         margin-top: 10px
 
       &:hover
-        background-color: #4e618d
+        background-color: $blueDarkerGrayColor
 
     .inputContainer
       display: flex
@@ -52,10 +54,10 @@
         text-align: center
 
       .input
-        background-color: white
-        border-color: #6b89b0
+        background-color: $whiteColor
+        border-color: $blueLighterGrayColor
         border-radius: 4px
-        color: #9ca8b7
+        color: $grayBlueColor
         font-size: 16px
         padding: 4px 6px
         outline: none
@@ -93,19 +95,19 @@
           display: none
           border: none
           border-radius: 8px
-          color: white
+          color: $whiteColor
           background-color: #66afe9
 
         label
           padding: 5px 10px
-          color: white
-          background-color: #455a89
+          color: $whiteColor
+          background-color: $blueGrayColor
           border-radius: 4px
           align-self: flex-end
           cursor: pointer
 
           &:hover
-            color: white
-            background-color: #f27e51
+            color: $whiteColor
+            background-color: $lightOrange
 
 

@@ -1,3 +1,6 @@
+@use '/src/common/styles/colors' as * 
+
+
 .errorContainer
   width: auto
   align-self: center
@@ -26,7 +29,7 @@
 
     span
       font-size: 16px
-      color: white
+      color: $whiteColor
 
     i
       color: blue
@@ -38,6 +41,6 @@
       transition: font-size 0.2s
 
       &:hover
-        color: white
+        color: $whiteColor
         font-size: 30px
         transition: font-size 0.2s

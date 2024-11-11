@@ -1,3 +1,5 @@
+@use '/src/common/styles/colors' as *
+
 .chatContainer
   position: fixed
   float: right
@@ -5,7 +7,7 @@
   width: 290px
   border-radius: 8px
   box-sizing: border-box
-  background-color: #f9fafb
+  background-color: $whiteLIghtBlueColor
   height: 390px
   z-index: 500
   overflow: visible
@@ -34,28 +36,28 @@
       &:hover
         box-sizing: border-box
         border: 0.5px solid #d6d1d1
-        background-color: #f3f3f3
+        background-color: $lightGrayColor
 
     .activeButton
       transition: margin 0.1s
       margin: 0 -5px
-      color: white
+      color: $whiteColor
       z-index: 500
-      background-color: #4e618d
+      background-color: $blueDarkerGrayColor
 
       &:hover
-        background-color: #4e618d
+        background-color: $blueDarkerGrayColor
 
       &:last-child
         margin-right: 0
 
   .chatHeader
     height: 50px
-    background-color: #4e618d
+    background-color: $blueDarkerGrayColor
     display: flex
     align-items: center
     justify-content: center
-    border-bottom: 1px solid #f3f3f3
+    border-bottom: 1px solid $lightGrayColor
     z-index: 600
 
     img
@@ -64,17 +66,17 @@
   .toggleChat
     cursor: pointer
     position: absolute
-    top: 28px
-    right: -62px
+    top: 31px
+    right: -59px
     -webkit-transform: rotate(90deg)
     transform: rotate(90deg)
-    background-color: #8aca6b
+    background-color: $greenColor
     padding: 6px
     box-sizing: border-box
     border-top-right-radius: 8px
     width: 90px
     border-top-left-radius: 8px
-    color: white
+    color: $whiteColor
     text-align: center
 
 .showChat

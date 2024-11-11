@@ -1,3 +1,5 @@
+@use '/src/common/styles/colors' as *
+
 .header
   padding: 15px 0
   box-shadow: 2px 1px 4px #ccc
@@ -10,10 +12,10 @@
   padding: 20px
   background-color: red
   border-radius: 12px
-  border: 2px solid #333
+  border: 2px solid $darkGrayColor
   text-align: center
   width: 300px
-  color: white
+  color: $whiteColor
   font-size: 16px
   text-transform: uppercase
   margin-top: 20px
@@ -44,7 +46,7 @@
       letter-spacing: 0.4px
       align-self: flex-end
       font-size: 18px
-      color: #28d2d0
+      color: $turquoiseColor
       text-decoration: none
 
     .resultPriceContainer
@@ -62,7 +64,7 @@
     .orderHeader
       width: 100%
       font-size: 26px
-      color: #333
+      color: $darkGrayColor
       line-height: 1.4
       padding: 15px 0
       border-bottom: 1px solid #eee
@@ -78,7 +80,7 @@
       .packageName
         font-size: 18px
         font-weight: 300
-        color: #333
+        color: $darkGrayColor
         line-height: 1.4
 
       .packagePrice
@@ -93,7 +95,7 @@
     .headerLabel
       display: inline-block
       font-size: 26px
-      color: #333
+      color: $darkGrayColor
       padding: 35px 0 20px 0
 
 

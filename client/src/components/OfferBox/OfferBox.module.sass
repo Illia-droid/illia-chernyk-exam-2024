@@ -1,9 +1,11 @@
+@use '/src/common/styles/colors' as *
+
 .offerContainer
   display: flex
   margin-top: 15px
   align-self: stretch
   padding: 30px 40px 10px 40px
-  background-color: #f9fafb
+  background-color: $whiteLIghtBlueColor
   flex-direction: column
   justify-content: flex-start
   border-radius: 10px
@@ -38,8 +40,8 @@
       text-align: center
       padding: 10px
       border-radius: 8px
-      background-color: #8aca6b
-      color: white
+      background-color: $greenColor
+      color: $whiteColor
 
       &:hover
         background-color: rgba(138, 202, 107, 0.7)
@@ -51,7 +53,7 @@
       padding: 10px
       border-radius: 8px
       background-color: #CD5C5C
-      color: white
+      color: $whiteColor
       margin: 0 25px
 
       &:hover
@@ -64,7 +66,7 @@
     align-items: center
     justify-content: space-between
     position: relative
-    @media(max-width: 500px)
+    @media(max-width: 550px)
       flex-direction: column
 
     .userInfo
@@ -76,7 +78,7 @@
       align-self: flex-start
       font-size: 26px
       transition: font-size 0.2s
-      color: #4e618d
+      color: $blueDarkerGrayColor
       @media(max-width: 450px)
         top: 30px
       @media(max-width: 380px)
@@ -148,7 +150,7 @@
 
 
 .winner
-  background-color: #8aca6b
+  background-color: $greenColor
 
 .loser
   background-color: #CD5C5C

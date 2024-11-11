@@ -47,7 +47,8 @@ const ContestSideBar = ({ totalEntries, contestData }) => {
           <div className={styles.customerInfo}>
             <Avatar avatar={avatar} />
             <div className={styles.customerNameContainer}>
-              <span>{`${firstName} ${lastName}`}</span>
+              <span>{firstName}</span>
+              <span>{lastName}</span>
               <span>{displayName}</span>
             </div>
           </div>

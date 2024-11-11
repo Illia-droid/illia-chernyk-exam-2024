@@ -1,3 +1,5 @@
+@use '/src/common/styles/colors' as *
+
 .errorContainer
   width: auto
   align-self: center
@@ -13,10 +15,10 @@
 
   span
     font-size: 16px
-    color: white
+    color: $whiteColor
 
   i
-    color: white
+    color: $whiteColor
     font-size: 26px
     position: absolute
     cursor: pointer
@@ -27,6 +29,6 @@
     &:hover
       top: -8px
       right: -8px
-      color: #4e618d
+      color: $blueDarkerGrayColor
       font-size: 32px
       transition: font-size 0.2s

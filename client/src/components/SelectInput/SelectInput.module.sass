@@ -1,3 +1,5 @@
+@use '/src/common/styles/colors' as *
+
 .inputContainer
   margin: 15px 0 0 0
   display: flex
@@ -12,7 +14,7 @@
     display: flex
     align-items: center
     font-size: 18px
-    background-color: white
+    background-color: $whiteColor
     border: 2px solid #d0d0d0
     border-radius: 4px
     cursor: text
@@ -25,7 +27,7 @@
       width: min-content
 
     &:focus
-      border: 2px solid #28d2d0
+      border: 2px solid $turquoiseColor
 
   .inputHeader
     display: inline-block

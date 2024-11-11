@@ -1,10 +1,12 @@
+@use '/src/common/styles/colors' as *
+
 .chatHeader
   height: 50px
-  background-color: #4e618d
+  background-color: $blueDarkerGrayColor
   display: flex
   align-items: center
   justify-content: center
-  border-bottom: 1px solid #f3f3f3
+  border-bottom: 1px solid $lightGrayColor
   z-index: 600
 
   img
@@ -24,10 +26,10 @@
     width: 5px
 
   &::-webkit-scrollbar-track
-    background: #f3f3f3
+    background: $lightGrayColor
 
   &::-webkit-scrollbar-thumb
-    background: #6b89b0
+    background: $blueLighterGrayColor
 
   .notFound
     width: 100%
@@ -35,5 +37,5 @@
     margin-top: 5px
     font-size: 16px
     font-weight: 500
-    color: #4e618d
+    color: $blueDarkerGrayColor
     text-align: center

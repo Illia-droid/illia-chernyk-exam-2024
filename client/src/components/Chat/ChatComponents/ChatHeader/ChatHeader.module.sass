@@ -1,10 +1,12 @@
+@use '/src/common/styles/colors' as *
+
 .chatHeader
   height: 50px
-  background-color: #4e618d
+  background-color: $blueDarkerGrayColor
   display: flex
   justify-content: flex-start
   align-items: center
-  border-bottom: 1px solid #f3f3f3
+  border-bottom: 1px solid $lightGrayColor
   box-sizing: border-box
   z-index: 600
   padding-left: 15px
@@ -52,7 +54,7 @@
         text-overflow: ellipsis
         white-space: nowrap
         width: 100px
-        color: white
+        color: $whiteColor
         font-size: 18px
         font-weight: 500
         margin-left: 12px

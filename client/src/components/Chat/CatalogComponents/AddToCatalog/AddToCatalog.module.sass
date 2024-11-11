@@ -1,15 +1,17 @@
+@use '/src/common/styles/colors' as * 
+
 .notFound
   display: flex
   text-align: center
   align-items: center
   justify-content: center
-  background-color: #8aca6b
+  background-color: $greenColor
   border-bottom-left-radius: 8px
   border-bottom-right-radius: 8px
   height: 110px
 
 .form
-  background-color: #8aca6b
+  background-color: $greenColor
   height: 110px
   display: flex
   flex-direction: column
@@ -26,8 +28,8 @@
     cursor: pointer
     border: none
     font-size: 16px
-    background-color: #4e618d
-    color: white
+    background-color: $blueDarkerGrayColor
+    color: $whiteColor
 
   .selectInputContainer
     display: flex
@@ -42,7 +44,7 @@
       display: flex
       align-items: center
       font-size: 18px
-      background-color: white
+      background-color: $whiteColor
       border: 2px solid #d0d0d0
       border-radius: 4px
       cursor: text
@@ -53,7 +55,7 @@
       transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
 
       &:focus
-        border: 2px solid #28d2d0
+        border: 2px solid $turquoiseColor
 
     .selectHeader
       display: inline-block

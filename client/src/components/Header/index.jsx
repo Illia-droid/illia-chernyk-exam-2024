@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
+import classNames from 'classnames';
 import { clearUserStore } from '../../store/slices/userSlice';
 import { getUser } from '../../store/slices/userSlice';
 import Logo from '../Logo';
@@ -15,7 +16,11 @@ const Header = ({ history }) => {
   const dispatch = useDispatch();
   const { data, isFetching } = useSelector((state) => state.userStore);
   const { nav, user, notAuthUser } = navData;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
   useEffect(() => {
     if (!data) {
       dispatch(getUser());
@@ -68,8 +73,18 @@ const Header = ({ history }) => {
       </>
     );
   const renderNavMenu = () => (
-    <nav className={styles.nav}>
-      <ul>
+    <nav
+      className={classNames(styles.nav, {
+        [styles.open]: isMenuOpen,
+      })}
+    >
+      <button className={styles.burgerButton} onClick={toggleMenu}>
+        <i
+          className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'}`}
+          aria-hidden="true"
+        ></i>
+      </button>
+      <ul className={styles.menu}>
         {nav.map((menuItem, i) => (
           <li key={i}>
             <span>{menuItem.title}</span>

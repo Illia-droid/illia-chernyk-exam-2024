@@ -107,7 +107,8 @@ const OfferBox = ({ data, contestType, setOfferStatus, needButtons }) => {
           <div className={styles.creativeInfoContainer}>
             <Avatar avatar={avatar} />
             <div className={styles.nameAndEmail}>
-              <span>{`${firstName} ${lastName}`}</span>
+              <span>{firstName}</span>
+              <span>{lastName}</span>
               <span>{email}</span>
             </div>
           </div>

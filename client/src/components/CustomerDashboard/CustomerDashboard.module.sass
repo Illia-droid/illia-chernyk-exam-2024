@@ -1,3 +1,5 @@
+@use '/src/common/styles/colors' as *
+
 .mainContainer
   width: 1200px
   margin: 0 auto
@@ -23,7 +25,7 @@
       font-size: 18px
 
     .try
-      color: #333
+      color: $darkGrayColor
       font-size: 18px
 
   .contestsContainer
@@ -41,7 +43,7 @@
     flex-direction: column
     box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.1)
     align-items: flex-start
-    background-color: white
+    background-color: $whiteColor
     margin-bottom: 15px
     @media(max-width: 1000px)
       padding-top: 10px
@@ -50,18 +52,22 @@
       justify-content: center
       height: 80px
 
+    .button
+      height: 40px
+      @media(max-width: 1000px)
+        margin: 0 5px
+      @media(max-width: 520px)
+        height: 60px
+
     .filter
       margin-top: 15px
       align-self: stretch
       text-align: center
-      color: #46568a
+      color: $darkBlueColor
       font-size: 18px
       border-radius: 10px
       border: none
       padding: 10px
-      @media(max-width: 1000px)
-        height: 20px
-        margin: 0 5px
 
       &:hover
         background-color: #eefaea
@@ -75,8 +81,6 @@
       border-radius: 10px
       border: none
       padding: 10px
-      background-color: #4e618d
-      color: white
-      @media(max-width: 1000px)
-        height: 20px
-        margin: 0 5px
+      background-color: $blueDarkerGrayColor
+      color: $whiteColor
+      

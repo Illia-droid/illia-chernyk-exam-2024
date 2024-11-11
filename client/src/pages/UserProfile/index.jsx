@@ -38,23 +38,23 @@ const UserProfile = () => {
     <>
       <Header />
       <main className={styles.mainContainer}>
-        <aside className={styles.aside}>
-          <h2 className={styles.headerAside}>Select Option</h2>
-          <section className={styles.optionsContainer}>
-            <OptionButton
-              isActive={profileViewMode === USER_INFO_MODE}
-              label="User Info"
-              onClick={() => handleChangeProfileViewMode(USER_INFO_MODE)}
-            />
-            {role === CREATOR && (
+        {role === CREATOR && (
+          <aside className={styles.aside}>
+            <h2 className={styles.headerAside}>Select Option</h2>
+            <section className={styles.optionsContainer}>
+              <OptionButton
+                isActive={profileViewMode === USER_INFO_MODE}
+                label="User Info"
+                onClick={() => handleChangeProfileViewMode(USER_INFO_MODE)}
+              />
               <OptionButton
                 isActive={profileViewMode === CASHOUT_MODE}
                 label="Cashout"
                 onClick={() => handleChangeProfileViewMode(CASHOUT_MODE)}
               />
-            )}
-          </section>
-        </aside>
+            </section>
+          </aside>
+        )}
         <section className={styles.container}>
           {profileViewMode === USER_INFO_MODE ? (
             <UserInfo />

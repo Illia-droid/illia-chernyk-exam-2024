@@ -1,3 +1,5 @@
+@use '/src/common/styles/colors' as *
+
 .previewChatBox
   display: flex
   flex-direction: row
@@ -5,7 +7,7 @@
   align-items: center
   height: 60px
   cursor: pointer
-  border-bottom: 1px solid #4e618d
+  border-bottom: 1px solid $blueDarkerGrayColor
 
   &:hover
     background-color: #e5e5e5
@@ -61,7 +63,7 @@
         overflow: hidden
         white-space: nowrap
         text-overflow: ellipsis
-        color: #6b8ab1
+        color: $blueLighterGrayColor
         width: 65px
         font-weight: 500
         font-size: 16px

@@ -1,3 +1,5 @@
+@use '/src/common/styles/colors' as *
+
 .mainContestInfoContainer
   display: flex
   flex-direction: column
@@ -6,7 +8,7 @@
   margin: 0 25px
   margin-top: 20px
   padding-bottom: 25px
-  border-top: 1px solid #f3f3f3
+  border-top: 1px solid $lightGrayColor
 
   .infoContainer
     display: flex
@@ -24,14 +26,14 @@
 
       .editBtn
         margin-right: 15px
-        color: white
+        color: $whiteColor
         font-size: 20px
         padding: 12px 28px
         border-radius: 8px
-        background-color: #8aca6b
+        background-color: $greenColor
 
         &:hover
-          background-color: #6b8ab1
+          background-color: $blueLighterGrayColor
 
     .dataContainer
       align-self: stretch
@@ -41,13 +43,13 @@
       align-items: flex-start
 
       .data
-        color: #515b5f
+        color: $darkGrayBlueColor
         font-size: 15px
         padding: 0
         padding-top: 8px
         margin-bottom: 10px
         border: none
-        background-color: white
+        background-color: $whiteColor
         resize: none
         align-self: stretch
         overflow: visible
@@ -63,7 +65,7 @@
         text-decoration: underline
 
         &:hover
-          color: #6b89b0
+          color: $blueLighterGrayColor
 
 .dataContainer
   align-self: stretch
@@ -73,13 +75,13 @@
   align-items: flex-start
 
   .data
-    color: #515b5f
+    color: $darkGrayBlueColor
     font-size: 15px
     padding: 0
     padding-top: 8px
     margin-bottom: 10px
     border: none
-    background-color: white
+    background-color: $whiteColor
     resize: none
     align-self: stretch
     overflow: visible
@@ -95,4 +97,4 @@
     text-decoration: underline
 
     &:hover
-      color: #6b89b0
+      color: $blueLighterGrayColor

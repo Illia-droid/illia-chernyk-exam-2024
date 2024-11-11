@@ -1,3 +1,5 @@
+@use '/src/common/styles/colors' as *
+
 @mixin carousel
   width: 1140px
   margin: 30px 0
@@ -21,7 +23,7 @@
     position: absolute
     background: hsla(0, 0%, 100%, 0.75)
     border: none
-    color: #333
+    color: $darkGrayColor
 
 
 .mainCarousel
@@ -69,8 +71,8 @@
     align-items: flex-start
     cursor: pointer
     width: 100%
-    background-color: #333333
-    color: white
+    background-color: $darkGrayColor
+    color: $whiteColor
     margin: 0
     padding: 10px 0
 
@@ -88,7 +90,7 @@
   min-height: 310px
   margin-right: 30px
   padding: 20px 20px 0 20px
-  background-color: white
+  background-color: $whiteColor
   color: black
   cursor: pointer
   @media(max-width: 680px)

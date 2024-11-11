@@ -1,3 +1,5 @@
+@use '/src/common/styles/colors' as *
+
 .combinedBundles
   padding: 25px 0
   box-sizing: border-box
@@ -29,10 +31,10 @@
       margin: 20px 0 10px
       line-height: 1.1
       text-align: center
-      color: #333
+      color: $darkGrayColor
 
     .info
-      color: #333
+      color: $darkGrayColor
       text-align: center
       font-size: 18px
       margin-bottom: 10px
@@ -41,10 +43,10 @@
     hr
       width: 100px
       margin: 20px 0
-      border-top: 2px solid #28d2d1
+      border-top: 2px solid $turquoiseColor
 
 .baseBundleContainer
-  background-color: #28d2d1
+  background-color: $turquoiseColor
   padding: 25px 0
   display: flex
   flex-direction: column
@@ -74,7 +76,7 @@
       border-top: 2px solid white
 
     .info
-      color: white
+      color: $whiteColor
       text-align: center
       font-size: 18px
       margin-bottom: 10px
@@ -85,7 +87,7 @@
       margin: 20px 0 10px
       line-height: 1.1
       text-align: center
-      color: white
+      color: $whiteColor
 
       span
         font-weight: 700
@@ -109,7 +111,7 @@
       max-width: none
 
     h1
-      color: #333333
+      color: $darkGrayColor
       font-weight: 700
       font-size: 28px
       text-transform: uppercase
@@ -122,5 +124,5 @@
       margin-bottom: 10px
       font-size: 14px
       line-height: 1.428
-      color: #333333
+      color: $darkGrayColor
  
