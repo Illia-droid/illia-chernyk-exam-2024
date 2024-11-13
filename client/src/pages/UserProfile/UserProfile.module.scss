@@ -1,5 +1,5 @@
 @use '/src/common/styles/colors' as *;
-
+@use '/src/common/styles/breakpoints' as *;
 .mainContainer {
   display: flex;
   flex-direction: row;
@@ -9,16 +9,16 @@
   margin: 0 auto;
   padding: 100px;
 
-  @media (max-width: 800px) {
+  @media screen and (max-width: $md) {
     flex-direction: column;
     padding: 40px;
   }
 
-  @media (max-width: 590px) {
+  @media screen and (max-width: 590px) {
     padding: 15px;
   }
 
-  @media (max-width: 345px) {
+  @media screen and (max-width: 345px) {
     padding: 10px 0;
   }
 
@@ -37,7 +37,7 @@
     margin-right: 40px;
     box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.1);
 
-    @media (max-width: 800px) {
+    @media screen and (max-width: $md) {
       align-self: stretch;
       margin-right: 0;
       margin-bottom: 15px;

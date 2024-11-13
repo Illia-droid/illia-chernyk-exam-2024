@@ -1,4 +1,5 @@
 @use '/src/common/styles/colors' as *;
+@use '/src/common/styles/mixins' as *;
 
 .contestSideBarInfo {
   display: flex;
@@ -7,7 +8,7 @@
   justify-content: flex-start;
   width: 30vw;
 
-  @media (max-width: 850px) {
+  @media screen and (max-width: 850px) {
     align-self: stretch;
     width: auto;
     margin: 0 10px 10px;
@@ -22,11 +23,11 @@
     box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.1);
 
     .customerInfo {
-      padding: 15px 20px;
       display: flex;
       align-items: center;
       justify-content: flex-start;
-
+      padding: 15px 20px;
+      
       img {
         width: 40px;
         height: 40px;
@@ -58,32 +59,32 @@
   }
 
   .contestInfo {
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    width: 100%;
 
-    @media (max-width: 850px) {
+    @media screen and (max-width: 850px) {
       align-self: stretch;
     }
 
     .contestStats {
-      align-self: stretch;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-start;
-      box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.1);
+      align-self: stretch;
       margin-bottom: 22px;
+      box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.1);
 
       .totalEntrie {
-        align-self: stretch;
-        padding: 15px 20px;
-        background: $whiteColor;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        align-self: stretch;
+        padding: 15px 20px;
+        background: $whiteColor;
 
         span {
           padding: 0;
@@ -94,8 +95,8 @@
         }
 
         .totalEntriesLabel {
-          background-color: $whiteColor;
           padding: 0;
+          background-color: $whiteColor;
           font-size: 15px;
           color: $darkGrayColor;
           font-weight: 400;
@@ -103,40 +104,37 @@
       }
 
       span {
+        display: inline-block;
+        padding: 15px 20px;
         color: #000;
         font-size: 15px;
         font-weight: 700;
         align-self: stretch;
-        display: inline-block;
         background-color: $lightGrayColor;
-        padding: 15px 20px;
       }
     }
 
     .awardAndTimeContainer {
-      width: 100%;
-      box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.1);
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-start;
+      width: 100%;
       margin-bottom: 22px;
+      box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.1);
 
       .guaranteedPrize {
+        @include flexCenter;
         align-self: stretch;
-        display: flex;
-        align-items: center;
         margin-top: 10px;
         padding: 0 15px;
         margin-bottom: 15px;
 
         div {
-          border-radius: 8px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          @include flexCenter;
           width: 16px;
           height: 16px;
+          border-radius: 8px;
           background-color: $greenColor;
         }
 
@@ -148,12 +146,12 @@
       }
 
       .timeContainer {
-        align-self: stretch;
-        margin-top: 10px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
+        align-self: stretch;
+        margin-top: 10px;
         padding: 0 15px;
 
         .time {
@@ -163,8 +161,7 @@
         }
 
         .timeDesc {
-          display: flex;
-          align-items: center;
+          @include flexCenter;
 
           span {
             font-size: 14px;
@@ -176,10 +173,10 @@
     }
 
     .prizeContainer {
-      align-self: stretch;
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      align-self: stretch;
       background-color: $blueLighterGrayColor;
       padding: 12px 20px;
 

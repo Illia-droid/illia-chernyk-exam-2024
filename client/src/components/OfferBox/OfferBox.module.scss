@@ -1,5 +1,5 @@
 @use '/src/common/styles/colors' as *;
-
+@use '/src/common/styles/breakpoints' as *;
 .offerContainer {
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
   background-color: $whiteLIghtBlueColor;
   border-radius: 10px;
   position: relative;
-  @media (max-width: 450px) {
+  @media screen and (max-width: 450px) {
     padding: 10px 0;
   }
 
@@ -30,12 +30,11 @@
   }
 
   .btnsContainer {
-    margin: 5px 0;
-    align-self: stretch;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin: 5px 0;
+    align-self: stretch;
 
     .resolveBtn,
     .rejectBtn {
@@ -67,21 +66,18 @@
 
   .mainInfoContainer {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     position: relative;
     align-self: stretch;
 
-    @media (max-width: 550px) {
+    @media screen and (max-width: 550px) {
       flex-direction: column;
     }
 
     .userInfo {
       min-width: 215px;
     }
-
-
 
     .responseConainer {
       width: 70%;
@@ -91,7 +87,7 @@
       justify-content: flex-start;
       align-items: center;
 
-      @media (max-width: 800px) {
+      @media screen and (max-width: $md) {
         margin-top: 10px;
         max-width: 200px;
       }

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import { Field } from 'formik';
 
 const AgreeTermOfServiceInput = ({ id, type, classes, to, ...rest }) => {
@@ -7,7 +8,11 @@ const AgreeTermOfServiceInput = ({ id, type, classes, to, ...rest }) => {
     <Field {...rest}>
       {({ meta: { touched, error }, field }) => (
         <>
-          <div className={classes.container}>
+          <div
+            className={cx(classes.container, {
+              [classes.warning]: touched && error,
+            })}
+          >
             <input {...field} id={id} type={type} />
             <label htmlFor={id}>
               <a href={to} target="_blank" rel="noreferrer">
@@ -15,7 +20,6 @@ const AgreeTermOfServiceInput = ({ id, type, classes, to, ...rest }) => {
               </a>
             </label>
           </div>
-          {touched && error && <span className={classes.warning}>{error}</span>}
         </>
       )}
     </Field>

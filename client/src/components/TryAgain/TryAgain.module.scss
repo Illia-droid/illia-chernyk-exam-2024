@@ -1,9 +1,8 @@
 @use '/src/common/styles/colors' as *;
+@use '/src/common/styles/mixins' as *;
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include fieldWarning;
   position: relative;
 
   span {

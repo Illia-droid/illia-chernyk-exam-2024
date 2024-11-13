@@ -1,10 +1,8 @@
 @use '/src/common/styles/colors' as *;
+@use '/src/common/styles/mixins' as *;
 
 .innerContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flexCenter(column);
   width: 100vw;
   padding: 40px 0 30px 0;
 }
@@ -121,7 +119,7 @@
     width: 100%;
   }
 
-  @media (max-width: 720px) {
+  @media screen and (max-width: 720px) {
     padding: 0;
   }
 

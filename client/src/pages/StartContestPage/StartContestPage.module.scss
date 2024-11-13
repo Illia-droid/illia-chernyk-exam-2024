@@ -1,10 +1,10 @@
 @use '/src/common/styles/colors' as *;
+@use '/src/common/styles/breakpoints' as *;
+@use '/src/common/styles/mixins' as *;
 
 .startContestHeader {
+  @include flexCenter;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
   padding: 35px;
 
   .startContestInfo {
@@ -15,7 +15,7 @@
     max-width: 480px;
     padding: 0 15px;
 
-    @media (max-width: 750px) {
+    @media screen and (max-width: $tablet) {
       max-width: none;
     }
 
@@ -40,9 +40,7 @@
 }
 
 .baseBundleContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flexCenter(column);
   padding: 25px 0;
   background-color: $turquoiseColor;
 

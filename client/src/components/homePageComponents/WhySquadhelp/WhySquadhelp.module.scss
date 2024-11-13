@@ -1,13 +1,12 @@
 @use '/src/common/styles/colors' as *;
-
+@use '/src/common/styles/mixins' as *;
 .cardContainer {
   display: flex;
-  flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   width: 100vh;
 
-  @media (max-width: 720px) {
+  @media screen and (max-width: 720px) {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -30,20 +29,7 @@
   }
 }
 
-@mixin underline {
-  position: relative;
 
-  &:after {
-    position: absolute;
-    content: '';
-    height: 3px;
-    bottom: -30px;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-    width: 100px;
-  }
-}
 
 .blueUnderline {
   @include underline;

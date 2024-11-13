@@ -1,32 +1,27 @@
 @use '/src/common/styles/colors' as *;
+@use '/src/common/styles/breakpoints' as *;
+@use '/src/common/styles/mixins' as *;
 
 .footerContainer {
   width: 100%;
 
   .bottomFooterContainer {
+    @include flexCenter;
     padding: 40px;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
     background: #232828;
 
     .bottomFooterWrapper {
-      width: 80%;
       display: flex;
-      flex-direction: row;
       justify-content: space-between;
-
-      @media (max-width: 768px) {
+      width: 80%;
+      
+      @media screen and (max-width: $tablet) {
         flex-direction: column;
       }
 
       .logo {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        @include flexCenter;
 
         span {
           float: left;
@@ -39,15 +34,10 @@
       }
 
       .socialLinks {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        @include flexCenter;
 
         .social {
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          @include flexCenter;
           height: 40px;
           width: 40px;
           border: 1px solid $whiteColor;
@@ -66,31 +56,31 @@
     font-family: 'Raleway', sans-serif;
 
     div {
-      margin: 0 auto;
       display: flex;
       flex-direction: row;
       align-items: baseline;
       flex-wrap: wrap;
       justify-content: space-around;
+      margin: 0 auto;
 
-      @media (min-width: 768px) {
+      @media screen and (min-width: 768px) {
         width: 750px;
       }
 
-      @media (min-width: 992px) {
+      @media screen and (min-width: 992px) {
         width: 970px;
       }
 
-      @media (min-width: 1200px) {
+      @media screen and (min-width: 1200px) {
         width: 1170px;
       }
 
       section {
         display: flex;
+        flex-direction: column;
         flex: 1;
         min-width: 250px;
         max-width: 300px;
-        flex-direction: column;
         padding: 15px;
 
         h4 {

@@ -1,66 +1,5 @@
 @use '/src/common/styles/colors' as *;
-
-@mixin stepCard {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  max-width: 540px;
-  margin: 90px 0 30px 0;
-  font-family: Raleway, sans-serif;
-
-  h3 {
-    font-size: 22px;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  p {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
-    margin-bottom: 10px;
-    line-height: 25px;
-
-    i {
-      color: green;
-      align-self: flex-start;
-      margin: 5px 10px 0 0;
-    }
-  }
-
-  span {
-    font-size: 18px;
-  }
-
-  @media screen and (max-width: 1024px) {
-    margin: 90px 0 30px 0;
-    padding: 0 80px;
-  }
-}
-@mixin underline {
-  position: relative;
-
-  &:after {
-    content: '';
-    position: absolute;
-    height: 3px;
-    width: 100px;
-    bottom: -30px;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-  }
-}
-@mixin innerContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 40px 0 30px 0;
-}
+@use '/src/common/styles/mixins' as *;
 
 .container {
   display: flex;
@@ -166,10 +105,7 @@
 }
 
 .button {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  @include flexCenter;
   min-width: 300px;
   width: 300px;
   height: 60px;
@@ -181,10 +117,7 @@
   cursor: pointer;
 
   &__link {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    @include flexCenter;
     height: 100%;
     flex: 1;
     font-size: 14px;

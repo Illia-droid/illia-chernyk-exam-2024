@@ -1,4 +1,6 @@
 @use '/src/common/styles/colors' as *;
+@use '/src/common/styles/breakpoints' as *;
+@use '/src/common/styles/mixins' as *;
 
 .signUpPage {
   display: flex;
@@ -24,15 +26,13 @@
       padding-left: 45px;
       padding-right: 60px;
 
-      @media (max-width: 530px) {
+      @media screen and (max-width: 530px) {
         padding: 0;
       }
     }
 
     .linkLoginContainer {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include flexCenter;
       width: 80px;
       height: 40px;
       border: 1px solid $whiteColor;
@@ -61,7 +61,7 @@
       width: 80%;
       min-width: 300px;
 
-      @media (max-width: 1000px) {
+      @media screen and (max-width: $lg) {
         flex-direction: column;
       }
 

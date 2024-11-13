@@ -1,36 +1,28 @@
 @use '/src/common/styles/colors' as *;
+@use '/src/common/styles/mixins' as *;
 
 .mainContainer {
+  @include flexCenter;
   width: auto;
   margin: 0 25px;
   margin-top: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-  @media (max-width: 1400px) {
-    // Добавьте стили для экрана менее 1400px
-  }
 
   @media (max-width: 1000px) {
     flex-direction: column;
   }
 
   .messageContainer {
-    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex: 1;
+    margin-top: 20px;
   }
 
   .filterContainer {
+    @include flexCenter(column);
     height: fit-content;
     margin-right: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.1);
 
     @media (max-width: 1000px) {
@@ -55,12 +47,9 @@
     }
 
     .inputsContainer {
-      display: flex;
-      flex-direction: column;
+      @include flexCenter(column);
       padding: 25px;
       background-color: $whiteColor;
-      align-content: center;
-      justify-content: center;
 
       @media (max-width: 1000px) {
         padding: 10px;
@@ -110,10 +99,7 @@
       }
 
       .inputContainer {
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        justify-content: center;
+        @include flexCenter(column);
         height: 50px;
         margin-bottom: 25px;
 

@@ -1,23 +1,6 @@
 @use '/src/common/styles/colors' as *;
-
-@mixin inputStyle($width, $height) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: $width;
-  min-width: 280px;
-  height: $height;
-  border: 2px solid #d0d0d0;
-  border-radius: 4px;
-  box-sizing: border-box;
-  box-shadow: none;
-  background-color: $whiteColor;
-  font-size: 18px;
-  outline: none;
-  color: $darkGrayColor;
-  cursor: text;
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-}
+@use '/src/common/styles/breakpoints' as *;
+@use '/src/common/styles/mixins' as *;
 
 .submitButton {
   width: 150px;
@@ -48,7 +31,7 @@
   margin-bottom: 15px;
   padding: 10px;
 
-  @media (max-width: 700px) {
+  @media screen and (max-width: $tablet) {
     width: auto;
   }
 
@@ -62,7 +45,7 @@
   margin-bottom: 15px;
   padding: 0 10px;
 
-  @media (max-width: 700px) {
+  @media screen and (max-width: $tablet) {
     width: auto;
   }
 
@@ -83,12 +66,13 @@
     flex-direction: column;
     width: 100%;
     margin: 15px 0 0;
+    
     .select {
       @include inputStyle(550px, 46px);
       margin-bottom: 15px;
       padding: 0 10px;
 
-      @media (max-width: 700px) {
+      @media screen and (max-width: $tablet) {
         width: min-content;
       }
 
@@ -122,18 +106,16 @@
     margin-bottom: 5px;
   }
   .warning {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexCenter;
     position: absolute;
     bottom: -15px;
     padding: 3px 20px;
-    border: 2px solid #b72522;
+    border: 2px solid $errorColor;
     border-radius: 4px;
     color: $darkGrayColor;
     font-size: 18px;
   }
 }
-.fileUploadContainer{
+.fileUploadContainer {
   width: 80%;
 }

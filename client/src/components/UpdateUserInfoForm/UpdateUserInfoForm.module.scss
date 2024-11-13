@@ -1,5 +1,5 @@
 @use '/src/common/styles/colors' as *;
-
+@use '/src/common/styles/breakpoints' as *;
 .updateContainer {
   display: flex;
   flex-direction: column;
@@ -8,11 +8,11 @@
   width: 80%;
   margin: 40px 0;
 
-  @media (max-width: 1000px) {
+  @media screen and (max-width: $lg) {
     width: 70%;
   }
 
-  @media (max-width: 420px) {
+  @media screen and (max-width: 420px) {
     width: 50%;
   }
 
@@ -126,7 +126,7 @@
         font-size: 14px;
       }
       .notValid {
-        border: 1px solid red;
+        border: 1px solid  $errorColor;
       }
     }
   }

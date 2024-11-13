@@ -1,3 +1,5 @@
+@use '/src/common/styles/mixins' as *;
+
 .adv {
   display: flex;
   flex-direction: row;
@@ -55,20 +57,14 @@
 }
 
 .stats {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  @include flexCenter;
 
   div {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    @include flexCenter;
     padding: 10px 20px;
     border-right: 1px solid grey;
 
-    @media (max-width: 580px) {
+    @media screen and (max-width: 580px) {
       padding: 10px 5px;
     }
 

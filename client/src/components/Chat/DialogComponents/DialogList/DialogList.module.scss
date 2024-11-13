@@ -1,11 +1,9 @@
 @use '/src/common/styles/colors' as *;
-
+@use '/src/common/styles/mixins' as *;
 .chatHeader {
+  @include flexCenter;
   height: 50px;
   background-color: $blueDarkerGrayColor;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-bottom: 1px solid $lightGrayColor;
   z-index: 600;
 

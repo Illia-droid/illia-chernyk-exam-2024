@@ -1,9 +1,9 @@
 @use '/src/common/styles/colors' as *;
+@use '/src/common/styles/breakpoints' as *;
+@use '/src/common/styles/mixins' as *;
 
 .startContestHeader {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  @include flexCenter;
   padding: 35px;
   box-sizing: border-box;
 
@@ -16,7 +16,7 @@
     padding-left: 15px;
     box-sizing: border-box;
 
-    @media (max-width: 750px) {
+    @media screen and (max-width: $tablet) {
       max-width: none;
     }
 
@@ -42,10 +42,7 @@
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flexCenter(column);
   padding: 40px 0 15px 0;
   border-bottom: 1px solid #eee;
   background: #f8f8f8;
@@ -61,9 +58,7 @@
 }
 
 .footerButtonsContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexCenter;
   width: auto;
   margin: 0 auto;
 
@@ -75,7 +70,7 @@
     width: 1400px;
     margin: 30px auto;
 
-    @media (max-width: 900px) {
+    @media screen and (max-width: 900px) {
       justify-content: center;
     }
 

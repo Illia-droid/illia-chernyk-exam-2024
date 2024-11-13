@@ -1,10 +1,8 @@
 @use '/src/common/styles/colors' as *;
+@use '/src/common/styles/mixins' as *;
 
 .form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  @include flexCenter(column);
   height: 110px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
@@ -32,17 +30,13 @@
     justify-content: center;
     align-items: stretch;
     height: 60px;
+    width: 80%;
     padding: 0 10px;
     background-color: $greenColor;
+    position: relative;
 
     .fieldWarning {
-      margin-top: 12px;
-      padding: 4px 6px;
-      border: 1.5px solid #b72522;
-      border-radius: 4px;
-      font-size: 15px;
-      color: $whiteColor;
-      text-align: center;
+      @include fieldWarning;
     }
 
     .input {
@@ -63,7 +57,7 @@
     }
 
     .notValid {
-      border: 2px solid red !important;
+      border: 2px solid $errorColor;
     }
   }
 }

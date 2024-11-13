@@ -1,5 +1,5 @@
 @use '/src/common/styles/colors' as *;
-
+@use '/src/common/styles/mixins' as *;
 .loginForm {
   width: 600px;
   display: flex;
@@ -9,12 +9,10 @@
   padding: 10px 20px 30px;
 
   .submitContainer {
+    @include flexCenter;
     align-self: stretch;
     min-width: 260px;
     border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: $turquoiseColor;
     height: 64px;
     margin-left: 20px;
@@ -23,7 +21,7 @@
     width: stretch;
     margin-right: 20px;
 
-    @media (max-width: 850px) {
+    @media screen and (max-width: 850px) {
       align-self: auto;
     }
   }
@@ -42,20 +40,8 @@
     position: relative;
 
     .fieldWarning {
-      font-size: 15px;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      color: $whiteColor;
-      background-color: #b72522;
-      margin-bottom: 15px;
-      padding: 5px;
-      text-align: center;
-      position: absolute;
-      top: 65px;
-      left: 0;
-      border-radius: 5px;
+      @include fieldWarning;
+      bottom: 0;
     }
 
     .input {
@@ -69,13 +55,13 @@
       margin-bottom: 15px;
       flex: 1;
 
-      @media (max-width: 1400px) {
+      @media screen and (max-width: 1400px) {
         align-self: normal;
       }
     }
 
     .notValid {
-      border: 2px solid red;
+      border: 2px solid $errorColor;
     }
 
     .valid {

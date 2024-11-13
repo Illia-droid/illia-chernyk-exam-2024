@@ -1,26 +1,20 @@
 @use '/src/common/styles/colors' as *;
-
+@use '/src/common/styles/mixins' as *;
 .offerContainer {
+  @include flexCenter(column);
   align-self: center;
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 100%;
+  margin-top: 10px;
 
-  @media (max-width: 500px) {
+  @media screen and (max-width: 500px) {
     align-self: stretch;
     flex-direction: column;
   }
 
   .form {
-    margin-top: 10px;
+    @include flexCenter(column);
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin-top: 10px;
 
     .btnOffer {
       margin-top: 10px;
@@ -33,7 +27,7 @@
       cursor: pointer;
       padding: 6px 12px;
 
-      @media (max-width: 500px) {
+      @media screen and (max-width: 500px) {
         margin-left: 0;
         margin-top: 10px;
       }
@@ -44,20 +38,11 @@
     }
 
     .inputContainer {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      @include flexCenter(column);
+      position: relative;
 
       .fieldWarning {
-        align-self: flex-end;
-        margin-top: 2px;
-        font-size: 15px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        color: $errorColor;
-        text-align: center;
+        @include fieldWarning;
       }
 
       .input {
@@ -70,7 +55,7 @@
         outline: none;
 
         &.notValid {
-          border: 2px solid red !important;
+          border: 2px solid $errorColor;
         }
       }
     }

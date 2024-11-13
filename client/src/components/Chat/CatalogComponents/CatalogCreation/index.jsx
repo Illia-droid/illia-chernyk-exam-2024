@@ -39,9 +39,9 @@ const CatalogCreation = () => {
       key={label}
       label={label}
       onClick={() => changeModeOfChatAdding(mode)}
-      className={classNames(styles.modeButton, {
-        [styles.active]: catalogCreationMode === mode,
-      })}
+      className={classNames(
+        catalogCreationMode === mode ? styles.active : styles.modeButton
+      )}
     />
   );
 

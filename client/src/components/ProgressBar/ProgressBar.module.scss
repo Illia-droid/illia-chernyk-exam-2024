@@ -1,12 +1,11 @@
-@use '/src/common/styles/colors' as *;  
+@use '/src/common/styles/colors' as *;
+@use '/src/common/styles/breakpoints' as *;
+@use '/src/common/styles/mixins' as *;
 
 .progressBarContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  @include flexCenter;
 
-  @media (max-width: 750px) {
+  @media screen and (max-width: $tablet) {
     display: none;
   }
 
@@ -16,10 +15,7 @@
     align-items: flex-start;
 
     .stepDescContainer {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      @include flexCenter(column);
       margin-right: 4px;
 
       .arrow {
@@ -55,9 +51,7 @@
   }
 
   .outerComplete {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flexCenter;
     width: 34px;
     height: 34px;
     border-radius: 18px;
@@ -72,9 +66,7 @@
   }
 
   .outerActive {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flexCenter;
     width: 36px;
     height: 36px;
     border-radius: 18px;
@@ -90,9 +82,7 @@
   }
 
   .outerNotActive {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flexCenter;
     width: 36px;
     height: 36px;
     border-radius: 18px;

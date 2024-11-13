@@ -1,4 +1,5 @@
 @use '/src/common/styles/colors' as *;
+@use '/src/common/styles/mixins' as *;
 
 .bundleContainer {
   box-sizing: border-box;
@@ -26,9 +27,7 @@
 }
 
 .infoContainer {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
+  @include flexCenter(column);
 }
 
 .bundleName {

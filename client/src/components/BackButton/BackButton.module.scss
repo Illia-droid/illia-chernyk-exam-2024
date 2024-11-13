@@ -1,9 +1,8 @@
 @use '/src/common/styles/colors' as *;
-
+@use '/src/common/styles/breakpoints' as *;
+@use '/src/common/styles/mixins' as *;
 .buttonContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexCenter;
   width: 140px;
   height: 60px;
   margin: 0 15px;
@@ -19,9 +18,7 @@
     font-size: 28px;
     transition: font-size 0.1s ease-in-out;
   }
-}
-@media screen and (max-width: 400px) {
-  .buttonContainer {
+  @media screen and (max-width: $sm) {
     margin: 0 10px;
   }
 }
