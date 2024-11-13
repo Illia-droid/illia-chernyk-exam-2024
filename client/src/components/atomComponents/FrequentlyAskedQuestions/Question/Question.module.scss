@@ -19,22 +19,22 @@
   border-radius: 16px;
 }
 .faqContainer::before {
+  content: '';
+  display: block;
   width: 25px;
   height: 25px;
-  content: "";
-  display: block;
+  margin: -12px 0 0 0;
   background-repeat: no-repeat;
   position: absolute;
   top: 50%;
   right: 30px;
-  margin: -12px 0 0 0;
   background-image: url('./icon-plus.svg');
   background-position: center center;
 }
 .faqContainer h4 {
   padding: 24px 70px 0px 24px;
   font-size: 18px;
-  font-family: "Product Sans", sans-serif;
+  font-family: 'Product Sans', sans-serif;
   font-weight: 700;
 }
 
@@ -46,6 +46,9 @@
   color: #fff;
   border: none;
   overflow: hidden;
+  .faqContainer h4 {
+    color: #fff;
+  }
 }
 
 .wrap {
@@ -61,8 +64,15 @@
   font-size: 16px;
   color: #fff;
   padding-top: 44px;
-  font-family: "Product Sans", sans-serif;
+  font-family: 'Product Sans', sans-serif;
   font-weight: 400;
+  a{
+    color: #fff;
+    text-decoration: underline;
+  }
+  li{
+    color: #444444
+  }
 }
 
 .wrapActive {

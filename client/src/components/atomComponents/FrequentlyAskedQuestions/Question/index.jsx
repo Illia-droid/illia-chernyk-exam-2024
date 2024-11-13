@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
-import styles from "./Question.module.scss";
+import React, { useState, useRef, useEffect } from 'react';
+import styles from './Question.module.scss';
 
 const Question = ({ faq: { question, answer } }) => {
   const [select, setSelect] = useState(false);
@@ -12,28 +12,22 @@ const Question = ({ faq: { question, answer } }) => {
   useEffect(() => {
     if (select) {
       wrapRef.current.style.maxHeight = `${wrapRef.current.scrollHeight}px`;
-      wrapRef.current.style.opacity = "1";
+      wrapRef.current.style.opacity = '1';
     } else {
-      wrapRef.current.style.maxHeight = "0px";
-      wrapRef.current.style.opacity = "0";
+      wrapRef.current.style.maxHeight = '0px';
+      wrapRef.current.style.opacity = '0';
     }
   }, [select]);
 
   return (
     <li
-      className={styles[select ? "faqItemActive" : "faqItem"]}
+      className={styles[select ? 'faqItemActive' : 'faqItem']}
       onClick={handleAnswer}
     >
-      <div
-        className={styles.faqContainer}
-        style={{ color: select ? "#fff" : "#000" }}
-      >
+      <div className={styles.faqContainer}>
         <h4>{question}</h4>
-        <div
-          ref={wrapRef}
-          className={styles.wrap}
-        >
-          <p>{answer}</p>
+        <div ref={wrapRef} className={styles.wrap}>
+          <p dangerouslySetInnerHTML={{ __html: answer }}></p>
         </div>
       </div>
     </li>

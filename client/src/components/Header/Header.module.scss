@@ -49,7 +49,7 @@
     }
 
     @media screen and (max-width: $md) {
-      height: 35px;
+      height: 50px;
     }
 
     @media screen and (max-width: $tablet) {
@@ -312,7 +312,7 @@
           z-index: 500;
           list-style: none;
           background: $whiteColor;
-          
+
           li {
             text-align: left;
 

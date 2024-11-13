@@ -82,4 +82,5 @@
     b. Transfer styles from sass to scss
     c. Use $breakpoints, use mixins
 
-15. Layout How It Works page    
+15. Layout How It Works page
+    * Use dangerouslySetInnerHTML for rendering data;    
