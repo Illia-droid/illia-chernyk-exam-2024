@@ -85,4 +85,6 @@
 15. Layout How It Works page
     * Use dangerouslySetInnerHTML for rendering data;
 
-16. Layout Events page        
+16. Layout Events page  
+
+17. Layout Buttons Group component   

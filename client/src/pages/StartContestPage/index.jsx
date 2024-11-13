@@ -6,16 +6,19 @@ import BundleBox from '../../components/BundleBox';
 import Footer from '../../components/Footer';
 import ProgressBar from '../../components/ProgressBar';
 import Header from '../../components/Header';
+import ButtonsGroup from '../../components/ButtonsGroup';
 import CONSTANTS from '../../constants';
 import styles from './StartContestPage.module.scss';
-import data from './dataBundleBox.json';
+import dataBundleBox from './dataBundleBox.json';
+import dataButtonsGroup from './dataButtonsGroup.json';
 
 const { CUSTOMER } = CONSTANTS;
 
 const StartContestPage = ({ history }) => {
   const dispatch = useDispatch();
   const { role } = useSelector((state) => state.userStore.data);
-  const { bundleData, combinedBundleData } = data;
+  const { bundleData, combinedBundleData } = dataBundleBox;
+  const { description: contentButtons } = dataButtonsGroup;
 
   useEffect(() => {
     dispatch(clearContestStore());
@@ -44,7 +47,7 @@ const StartContestPage = ({ history }) => {
       <main>
         <section className={styles.startContestHeader}>
           <div className={styles.startContestInfo}>
-            <h1 className={styles.headerStart} >START A CONTEST</h1>
+            <h1 className={styles.headerStart}>START A CONTEST</h1>
             <p className={styles.descriptionStart}>
               Launching a contest on Squadhelp is very simple. Select the type
               of contest you would like to launch from the list below. Provide a
@@ -75,6 +78,7 @@ const StartContestPage = ({ history }) => {
           </div>
         </section>
         <section className={styles.combinedBundles}>
+          <ButtonsGroup content={contentButtons} idSelectedItem={1} />
           <div className={styles.infoCombinedBundles}>
             <h2 className={styles.headerInfo}>Save With Our Bundle Packages</h2>
             <p className={styles.info}>
@@ -90,6 +94,7 @@ const StartContestPage = ({ history }) => {
               />
             ))}
           </div>
+          <ButtonsGroup content={contentButtons} idSelectedItem={2} />
         </section>
       </main>
       <Footer />
