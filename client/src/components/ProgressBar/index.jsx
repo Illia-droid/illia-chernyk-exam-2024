@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ProgressBar.module.sass';
+import styles from './ProgressBar.module.scss';
 
 const progressBarSteps = [1, 2, 3];
 

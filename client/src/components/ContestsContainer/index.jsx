@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Spinner from '../Spinner';
-import styles from './ContestContainer.module.sass';
+import styles from './ContestContainer.module.scss';
 import ContestBox from './ContestBox';
 
 const ContestsContainer = ({ isFetching, loadMore, haveMore, history }) => {
@@ -29,7 +29,7 @@ const ContestsContainer = ({ isFetching, loadMore, haveMore, history }) => {
   }, [contests.length, haveMore, isFetching, loadMore]);
 
   return (
-    <section>
+    <section >
       {isFetching && <Spinner />}
       {!isFetching && contests.length === 0 && (
         <div className={styles.notFound}>Nothing found</div>

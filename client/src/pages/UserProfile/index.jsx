@@ -8,9 +8,14 @@ import PayForm from '../../components/PayForm';
 import Error from '../../components/Error';
 import OptionButton from '../../components/OptionButton';
 import CONSTANTS from '../../constants';
-import styles from './UserProfile.module.sass';
+import styles from './UserProfile.module.scss';
 
 const { USER_INFO_MODE, CREATOR, CASHOUT_MODE } = CONSTANTS;
+
+const buttons = [
+  { label: 'User Info', mode: USER_INFO_MODE },
+  { label: 'Cashout', mode: CASHOUT_MODE },
+];
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -33,7 +38,14 @@ const UserProfile = () => {
     );
   };
   const clearPaymentError = () => dispatch(clearPaymentStore());
-
+  const renderButtons = ({ label, mode }) => (
+    <OptionButton
+      key={label}
+      isActive={profileViewMode === mode}
+      label={label}
+      onClick={() => handleChangeProfileViewMode(mode)}
+    />
+  );
   return (
     <>
       <Header />
@@ -42,30 +54,21 @@ const UserProfile = () => {
           <aside className={styles.aside}>
             <h2 className={styles.headerAside}>Select Option</h2>
             <section className={styles.optionsContainer}>
-              <OptionButton
-                isActive={profileViewMode === USER_INFO_MODE}
-                label="User Info"
-                onClick={() => handleChangeProfileViewMode(USER_INFO_MODE)}
-              />
-              <OptionButton
-                isActive={profileViewMode === CASHOUT_MODE}
-                label="Cashout"
-                onClick={() => handleChangeProfileViewMode(CASHOUT_MODE)}
-              />
+              {buttons.map(renderButtons)}
             </section>
           </aside>
         )}
-        <section className={styles.container}>
+        <>
           {profileViewMode === USER_INFO_MODE ? (
             <UserInfo />
           ) : (
-            <div>
+            <>
               {parseInt(balance) === 0 ? (
                 <p className={styles.notMoney}>
                   There is no money on your balance
                 </p>
               ) : (
-                <div>
+                <>
                   {error && (
                     <Error
                       data={error.data}
@@ -74,11 +77,11 @@ const UserProfile = () => {
                     />
                   )}
                   <PayForm sendRequest={cashout} />
-                </div>
+                </>
               )}
-            </div>
+            </>
           )}
-        </section>
+        </>
       </main>
     </>
   );

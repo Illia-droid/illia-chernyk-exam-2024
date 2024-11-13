@@ -12,7 +12,7 @@ import FormTextArea from '../InputComponents/FormTextArea';
 import TryAgain from '../TryAgain';
 import Schems from '../../utils/validators/validationSchems';
 import CONSTANTS from '../../constants';
-import styles from './ContestForm.module.sass';
+import styles from './ContestForm.module.scss';
 
 const { NAME_CONTEST, LOGO_CONTEST, TAGLINE_CONTEST } = CONSTANTS;
 
@@ -64,29 +64,29 @@ const ContestForm = ({ contestType, defaultData, handleSubmit, formRef }) => {
   useEffect(() => {
     getPreference(); //eslint-disable-next-line
   }, []);
-
+  
   return (
     <>
       {error && <TryAgain getData={getPreference} />}
       {isFetching && <Spinner />}
       {!isFetching && (
-        <div className={styles.formContainer}>
-          <Formik
-            initialValues={{
-              title: '',
-              industry: '',
-              focusOfWork: '',
-              targetCustomer: '',
-              file: '',
-              ...variableOptions[contestType],
-              ...defaultData,
-            }}
-            onSubmit={handleSubmit}
-            validationSchema={Schems.ContestSchem}
-            innerRef={formRef}
-            enableReinitialize
-          >
-            <Form encType="multipart/form-data">
+        <Formik
+          initialValues={{
+            title: '',
+            industry: '',
+            focusOfWork: '',
+            targetCustomer: '',
+            file: '',
+            ...variableOptions[contestType],
+            ...defaultData,
+          }}
+          onSubmit={handleSubmit}
+          validationSchema={contestType==='name'? Schems.ContestNameSchem : Schems.ContestSchem }
+          innerRef={formRef}
+          enableReinitialize
+        >
+          <Form encType="multipart/form-data">
+            <div className={styles.formContainer}>
               <div className={styles.inputContainer}>
                 <span className={styles.inputHeader}>Title of contest</span>
                 <FormInput
@@ -157,14 +157,14 @@ const ContestForm = ({ contestType, defaultData, handleSubmit, formRef }) => {
                   warning: styles.warning,
                 }}
               />
-              {isEditContest ? (
-                <button type="submit" className={styles.changeData}>
-                  Set Data
-                </button>
-              ) : null}
-            </Form>
-          </Formik>
-        </div>
+            </div>
+            {isEditContest ? (
+              <button type="submit" className={styles.submitButton}>
+                Set Data
+              </button>
+            ) : null}
+          </Form>
+        </Formik>
       )}
     </>
   );

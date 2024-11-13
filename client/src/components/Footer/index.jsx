@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './Footer.module.sass';
 import CONSTANTS from '../../constants';
+import styles from './Footer.module.scss';
 
 const { FooterItems } = CONSTANTS;
 

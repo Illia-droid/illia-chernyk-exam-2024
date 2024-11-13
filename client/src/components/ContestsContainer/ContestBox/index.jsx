@@ -1,7 +1,7 @@
 import React from 'react';
 import { getOfferTimeStr } from '../../../utils/functions.js';
 import CONSTANTS from '../../../constants';
-import styles from './ContestBox.module.sass';
+import styles from './ContestBox.module.scss';
 
 const { NAME_CONTEST, LOGO_CONTEST, STATIC_IMAGES_PATH } = CONSTANTS;
 

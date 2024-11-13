@@ -12,7 +12,7 @@ import {
 import OpenChatButton from '../OpenChatButton';
 import Avatar from '../Avatar';
 import CONSTANTS from '../../constants';
-import styles from './OfferBox.module.sass';
+import styles from './OfferBox.module.scss';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import './confirmStyle.css';
 

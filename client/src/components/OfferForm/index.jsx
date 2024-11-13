@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form } from 'formik';
-
 import {
   addOffer,
   clearAddOfferError,
@@ -9,7 +8,7 @@ import {
 import Error from '../Error';
 import ImageUpload from '../InputComponents/ImageUpload';
 import FormInput from '../FormInput';
-import styles from './OfferForm.module.sass';
+import styles from './OfferForm.module.scss';
 import Schems from '../../utils/validators/validationSchems';
 import CONTANTS from '../../constants';
 

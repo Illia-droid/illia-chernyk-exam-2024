@@ -5,7 +5,7 @@ import { clearAuthError } from '../../store/slices/authSlice';
 import Logo from '../../components/Logo';
 import RegistrationForm from '../../components/RegistrationForm';
 import CONSTANTS from '../../constants';
-import styles from './RegistrationPage.module.sass';
+import styles from './RegistrationPage.module.scss';
 import data from './data.json';
 
 const { CONTACT_PHONE, STATIC_IMAGES_PATH } = CONSTANTS;

@@ -5,7 +5,7 @@ import { sendMessage } from '../../../../store/slices/chatSlice';
 import FormInput from '../../../FormInput';
 import Schems from '../../../../utils/validators/validationSchems';
 import CONSTANTS from '../../../../constants';
-import styles from './ChatInput.module.sass';
+import styles from './ChatInput.module.scss';
 
 const { STATIC_IMAGES_PATH } = CONSTANTS;
 

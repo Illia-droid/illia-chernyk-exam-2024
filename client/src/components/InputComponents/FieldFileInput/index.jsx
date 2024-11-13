@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useField } from 'formik';
-
+import styles from './FieldFileInput.module.scss'
 const FieldFileInput = ({ classes, ...rest }) => {
-  const { fileUploadContainer, labelClass, fileNameClass, fileInput } = classes;
   const [, , helpers] = useField(rest.name);
   const { setValue } = helpers;
   const [fileName, setFileName] = useState('');
@@ -16,13 +15,13 @@ const FieldFileInput = ({ classes, ...rest }) => {
   };
 
   return (
-    <div className={fileUploadContainer}>
-      <label htmlFor="fileInput" className={labelClass}>
+    <div className={styles.fileUploadContainer}>
+      <label htmlFor="fileInput" className={styles.label}>
         Choose file
       </label>
-      <span className={fileNameClass}>{fileName || 'No file chosen'}</span>
+      <span className={styles.fileName}>{fileName || 'No file chosen'}</span>
       <input
-        className={fileInput}
+        className={styles.fileInput}
         id="fileInput"
         type="file"
         onChange={handleChange}

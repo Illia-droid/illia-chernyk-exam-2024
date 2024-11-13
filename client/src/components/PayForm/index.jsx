@@ -7,7 +7,7 @@ import { changeFocusOnCard } from '../../store/slices/paymentSlice';
 import PayInput from '../InputComponents/PayInput';
 import BackButton from '../BackButton';
 import Schems from '../../utils/validators/validationSchems';
-import styles from './PayForm.module.sass';
+import styles from './PayForm.module.scss';
 
 const initialValues = {
   focusOnElement: '',
@@ -29,7 +29,7 @@ const PayForm = ({ focusOnElement, isPayForOrder, calculatedPrice, sendRequest }
 
   return (
     <section className={styles.payFormContainer}>
-      <span className={styles.headerInfo}>Payment Information</span>
+      <h1 className={styles.headerInfo}>Payment Information</h1>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}

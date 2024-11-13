@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import styles from './Notification.module.sass';
+import styles from './Notification.module.scss';
 
 const Notification = (props) => {
   const goToExtended = () => props.history.push(`/contest/${props.contestId}`);

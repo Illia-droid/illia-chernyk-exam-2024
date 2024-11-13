@@ -8,8 +8,8 @@ import {
 } from '../../store/slices/contestsSlice';
 import ContestsContainer from '../ContestsContainer';
 import TryAgain from '../TryAgain';
-import styles from './CustomerDashboard.module.sass';
 import CONSTANTS from '../../constants';
+import styles from './CustomerDashboard.module.scss';
 
 const {
   CUSTOMER,
@@ -74,18 +74,16 @@ const CustomerDashboard = ({ history }) => {
         {renderFilter(CONTEST_STATUS_FINISHED, 'Completed contests')}
         {renderFilter(CONTEST_STATUS_PENDING, 'Inactive contests')}
       </aside>
-      <div className={styles.contestsContainer}>
-        {error ? (
-          <TryAgain getData={tryToGetContest()} />
-        ) : (
-          <ContestsContainer
-            isFetching={isFetching}
-            loadMore={getContestList}
-            history={history}
-            haveMore={haveMore}
-          />
-        )}
-      </div>
+      {error ? (
+        <TryAgain getData={tryToGetContest()} />
+      ) : (
+        <ContestsContainer
+          isFetching={isFetching}
+          loadMore={getContestList}
+          history={history}
+          haveMore={haveMore}
+        />
+      )}
     </main>
   );
 };

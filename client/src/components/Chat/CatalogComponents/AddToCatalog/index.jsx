@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form } from 'formik';
 import { addChatToCatalog } from '../../../../store/slices/chatSlice';
 import SelectInput from '../../../SelectInput';
-import styles from './AddToCatalog.module.sass';
+import styles from './AddToCatalog.module.scss';
 
 const AddToCatalog = () => {
   const dispatch = useDispatch();

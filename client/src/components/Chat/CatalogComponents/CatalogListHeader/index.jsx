@@ -8,7 +8,7 @@ import {
 } from '../../../../store/slices/chatSlice';
 import FormInput from '../../../FormInput';
 import Schems from '../../../../utils/validators/validationSchems';
-import styles from './CatalogHeader.module.sass';
+import styles from './CatalogHeader.module.scss';
 
 const CatalogListHeader = () => {
   const dispatch = useDispatch();
@@ -56,7 +56,7 @@ const CatalogListHeader = () => {
                 type="text"
                 label="Catalog Name"
               />
-              <button type="submit">Change</button>
+              <button className={styles.submitButton} type="submit">Change</button>
             </Form>
           </Formik>
         </div>

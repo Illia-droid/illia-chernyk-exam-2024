@@ -15,7 +15,7 @@ const withNotAuth = (Component) => {
     return (
       <>
         {isFetching && <Spinner />}
-        {!data && <Component history={history} />};
+        {!data && <Component history={history} />}
       </>
     );
   };

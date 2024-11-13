@@ -10,7 +10,7 @@ import HowDoNameContestWork from '../../components/homePageComponents/HowDoNameC
 import AdvInfo from '../../components/homePageComponents/AdvInfo';
 import CONSTANTS from '../../constants';
 import CAROULES_CONSTANTS from '../../carouselConstants';
-import styles from './Home.module.sass';
+import styles from './Home.module.scss';
 
 const { HEADER_ANIMATION_TEXT } = CONSTANTS;
 const {
@@ -46,7 +46,7 @@ const Home = () => {
         <Spinner />
       ) : (
         <>
-          <div className={styles.container}>
+          <main className={styles.container}>
             <div className={styles.headerBar}>
               <div className={styles.headline}>
                 <span>Find the Perfect Name for</span>
@@ -98,7 +98,7 @@ const Home = () => {
                 carouselType={FEEDBACK_SLIDER}
               />
             </div>
-          </div>
+          </main>
           <Footer />
         </>
       )}

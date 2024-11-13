@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './NextButton.module.sass';
+import styles from './NextButton.module.scss';
 
 const NextButton = ({ submit }) => {
   return (

@@ -1,6 +1,42 @@
 import * as yup from 'yup';
 import valid from 'card-validator';
 
+const ContestSchema = yup.object({
+  contestType: yup
+    .string()
+    .matches(/(name|tagline|logo)/)
+    .required(),
+  title: yup
+    .string()
+    .test(
+      'test-title',
+      'required',
+      (value) => value && value.trim().length >= 1
+    )
+    .required('title of contest required'),
+  industry: yup.string().required('industry required'),
+  focusOfWork: yup
+    .string()
+    .test(
+      'test-focusOfWork',
+      'required',
+      (value) => value && value.trim().length >= 1
+    )
+    .required('focus of work required'),
+  targetCustomer: yup
+    .string()
+    .test(
+      'test-targetCustomer',
+      'required',
+      (value) => value && value.trim().length >= 1
+    )
+    .required('target customers required'),
+  styleName: yup.string().min(1),
+  typeOfName: yup.string().min(1),
+  typeOfTagline: yup.string().min(1),
+  brandStyle: yup.string().min(1),
+  file: yup.mixed(),
+});
 const VALIDATION_SCHEMAS = {
   LoginSchem: yup.object().shape({
     email: yup.string().email('check email').required('required'),
@@ -60,43 +96,19 @@ const VALIDATION_SCHEMAS = {
       .oneOf([true], 'Must Accept Terms and Conditions')
       .required('Must Accept Terms and Conditions'),
   }),
-  ContestSchem: yup.object({
-    nameVenture: yup.string().min(3),
-    contestType: yup
-      .string()
-      .matches(/(name|tagline|logo)/)
-      .required(),
-    title: yup
+  ContestNameSchem: ContestSchema,
+
+  ContestSchem: ContestSchema.shape({
+    nameVenture: yup
       .string()
       .test(
-        'test-title',
+        'test-nameVenture',
         'required',
         (value) => value && value.trim().length >= 1
       )
-      .required('title of contest required'),
-    industry: yup.string().required('industry required'),
-    focusOfWork: yup
-      .string()
-      .test(
-        'test-focusOfWork',
-        'required',
-        (value) => value && value.trim().length >= 1
-      )
-      .required('focus of work required'),
-    targetCustomer: yup
-      .string()
-      .test(
-        'test-targetCustomer',
-        'required',
-        (value) => value && value.trim().length >= 1
-      )
-      .required('target customers required'),
-    styleName: yup.string().min(1),
-    typeOfName: yup.string().min(1),
-    typeOfTagline: yup.string().min(1),
-    brandStyle: yup.string().min(1),
-    file: yup.mixed(),
+      .required('Name of venture is required'),
   }),
+
   filterSchem: yup.object().shape({
     typeIndex: yup.number().oneOf[(1, 2, 3, 4, 5, 6, 7)],
     contestId: yup.string(),

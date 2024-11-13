@@ -1,10 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 import FavBlockIcons from '../../FavBlockIcons';
+import Avatar from '../../../Avatar';
 import { getMessageTimeStr } from '../../../../utils/functions';
 import CONSTANTS from '../../../../constants';
-import styles from './DialogBox.module.sass';
-import Avatar from '../../../Avatar';
+import styles from './DialogBox.module.scss';
 
 const { CATALOG_PREVIEW_CHAT_MODE } = CONSTANTS;
 

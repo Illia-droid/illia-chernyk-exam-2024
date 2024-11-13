@@ -1,0 +1,94 @@
+@use '/src/common/styles/colors' as *;
+
+.loginForm {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  padding: 10px 20px 30px;
+
+  .submitContainer {
+    align-self: stretch;
+    min-width: 260px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $turquoiseColor;
+    height: 64px;
+    margin-left: 20px;
+    padding: 0;
+    border: 0;
+    width: stretch;
+    margin-right: 20px;
+
+    @media (max-width: 850px) {
+      align-self: auto;
+    }
+  }
+
+  .inscription {
+    font-size: 16px;
+    color: $whiteColor;
+  }
+
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: stretch;
+    margin: 0 20px 10px;
+    position: relative;
+
+    .fieldWarning {
+      font-size: 15px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      color: $whiteColor;
+      background-color: #b72522;
+      margin-bottom: 15px;
+      padding: 5px;
+      text-align: center;
+      position: absolute;
+      top: 65px;
+      left: 0;
+      border-radius: 5px;
+    }
+
+    .input {
+      background-color: $whiteColor;
+      border: 2px solid $whiteColor;
+      border-radius: 4px;
+      color: $grayBlueColor;
+      font-size: 18px;
+      padding: 23px 20px 23px 20px;
+      outline: none;
+      margin-bottom: 15px;
+      flex: 1;
+
+      @media (max-width: 1400px) {
+        align-self: normal;
+      }
+    }
+
+    .notValid {
+      border: 2px solid red;
+    }
+
+    .valid {
+      border: 2px solid green;
+    }
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 34px;
+    letter-spacing: 0.6px;
+    color: $whiteColor;
+    margin-top: 20px;
+    margin-bottom: 28px;
+  }
+}

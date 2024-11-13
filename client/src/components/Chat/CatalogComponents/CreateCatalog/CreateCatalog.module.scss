@@ -1,0 +1,69 @@
+@use '/src/common/styles/colors' as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background-color: $greenColor;
+
+  button {
+    display: inline-block;
+    padding: 4px 6px;
+    border: none;
+    border-radius: 8px;
+    background-color: $blueDarkerGrayColor;
+    color: $whiteColor;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $blueLighterGrayColor;
+    }
+  }
+
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    height: 60px;
+    padding: 0 10px;
+    background-color: $greenColor;
+
+    .fieldWarning {
+      margin-top: 12px;
+      padding: 4px 6px;
+      border: 1.5px solid #b72522;
+      border-radius: 4px;
+      font-size: 15px;
+      color: $whiteColor;
+      text-align: center;
+    }
+
+    .input {
+      flex: 1;
+      max-height: 26px;
+      padding: 4px;
+      border: none;
+      border-radius: 4px;
+      background-color: $whiteColor;
+      font-size: 14px;
+      color: $grayBlueColor;
+      outline: none;
+      transition: border 0.2s ease;
+
+      &:focus {
+        border: 2px solid $turquoiseColor;
+      }
+    }
+
+    .notValid {
+      border: 2px solid red !important;
+    }
+  }
+}

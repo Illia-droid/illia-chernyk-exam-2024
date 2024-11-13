@@ -7,7 +7,7 @@ import { getUser } from '../../store/slices/userSlice';
 import Logo from '../Logo';
 import Avatar from '../Avatar';
 import CONSTANTS from '../../constants';
-import styles from './Header.module.sass';
+import styles from './Header.module.scss';
 import navData from './navData.json';
 
 const { STATIC_IMAGES_PATH, CONTACT_PHONE, CREATOR } = CONSTANTS;

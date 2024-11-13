@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ChatError.module.sass';
+import styles from './ChatError.module.scss';
 
 const ChatError = ({ getData }) => {
   return (

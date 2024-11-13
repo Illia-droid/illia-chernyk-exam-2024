@@ -6,7 +6,7 @@ import PayForm from '../../components/PayForm';
 import Error from '../../components/Error';
 import Logo from '../../components/Logo';
 import CONSTANTS from '../../constants';
-import styles from './Payment.module.sass';
+import styles from './Payment.module.scss';
 
 const { STATIC_IMAGES_PATH } = CONSTANTS;
 

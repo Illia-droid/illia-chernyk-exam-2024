@@ -1,6 +1,6 @@
 import React from 'react';
 import CONSTANTS from '../../../../constants';
-import styles from './WhyItem.module.sass';
+import styles from './WhyItem.module.scss';
 
 const { STATIC_IMAGES_PATH } = CONSTANTS;
 

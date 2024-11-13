@@ -1,0 +1,103 @@
+@use '/src/common/styles/colors' as *;
+
+.header {
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+  box-sizing: border-box;
+  box-shadow: 2px 1px 4px #ccc;
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  @media (max-width: 950px) {
+    flex-direction: column;
+    align-items: center;
+  }
+  .paymentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+
+    @media (max-width: 480px) {
+      padding: 0;
+    }
+
+    .headerLabel {
+      display: inline-block;
+      padding: 35px 0 20px 0;
+      font-size: 26px;
+      color: $darkGrayColor;
+    }
+  }
+  .orderInfoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 480px;
+    padding: 30px 60px;
+    margin-top: 5px;
+    z-index: 500;
+
+    @media (max-width: 500px) {
+      order: 500;
+      width: 300px;
+      padding: 0 10px;
+    }
+    .orderHeader {
+      width: 100%;
+      padding: 15px 0;
+      font-size: 26px;
+      color: $darkGrayColor;
+      line-height: 1.4;
+      border-bottom: 1px solid #eee;
+    }
+    .packageInfoContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 25px 0 20px 0;
+      border-bottom: 1px solid #eee;
+
+      .packageName {
+        font-size: 18px;
+        font-weight: 300;
+        color: $darkGrayColor;
+        line-height: 1.4;
+      }
+
+      .packagePrice {
+        font-size: 21px;
+        font-weight: 600;
+      }
+    }
+    .resultPriceContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      align-self: flex-end;
+      width: 70%;
+      padding: 15px 0 25px 0;
+
+      span {
+        font-size: 24px;
+        font-weight: 400;
+      }
+    }
+
+    a {
+      align-self: flex-end;
+      font-size: 18px;
+      color: $turquoiseColor;
+      letter-spacing: 0.4px;
+      text-decoration: none;
+    }
+  }
+}

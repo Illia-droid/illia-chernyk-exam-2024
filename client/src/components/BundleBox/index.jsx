@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import CONSTANTS from '../../constants';
-import styles from './BundleBox.module.sass';
+import styles from './BundleBox.module.scss';
 
 const { STATIC_IMAGES_PATH } = CONSTANTS;
 
@@ -39,7 +39,6 @@ const BundleBox = ({ path, setBundle, header, describe }) => {
       <div ref={imageContainerRef}>{renderImages()}</div>
       <div className={styles.infoContainer}>
         <h3 className={styles.bundleName}>{header}</h3>
-        <hr />
         <p className={styles.infoBundle}>{describe}</p>
       </div>
     </article>

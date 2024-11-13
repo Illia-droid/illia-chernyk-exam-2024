@@ -1,0 +1,49 @@
+@use '/src/common/styles/colors' as *;
+
+.catalogContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 50px;
+  align-self: stretch;
+  padding: 0 10px;
+  border-bottom: 1px solid $blueDarkerGrayColor;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e5e5e5;
+  }
+
+  .catalogName {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 16px;
+    width: 110px;
+    color: black;
+  }
+
+  .infoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .numbers {
+      margin-left: 5px;
+    }
+
+    i {
+      margin-left: 10px;
+      font-size: 18px;
+      transition: font-size 0.2s;
+
+      &:hover {
+        color: $errorColor;
+        font-size: 24px;
+        transition: font-size 0.2s;
+      }
+    }
+  }
+}

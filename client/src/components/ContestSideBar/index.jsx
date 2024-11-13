@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getOfferTimeStr } from '../../utils/functions.js';
-import CONSTANTS from '../../constants.js';
-import styles from './ContestSideBar.module.sass';
 import Avatar from '../Avatar/index.jsx';
+import CONSTANTS from '../../constants.js';
+import styles from './ContestSideBar.module.scss';
 
 const { STATIC_IMAGES_PATH } = CONSTANTS;
 

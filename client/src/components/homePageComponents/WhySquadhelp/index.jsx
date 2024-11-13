@@ -1,8 +1,7 @@
 import React from 'react';
-import styles from './WhySquadhelp.module.sass';
-
-import dataWhyContent from './dataWhyContent.json';
 import WhyItem from './WhyItem';
+import styles from './WhySquadhelp.module.scss';
+import dataWhyContent from './dataWhyContent.json';
 
 const WhySquadhelp = () => {
   const renderWhyItems = (item, i) => <WhyItem key={i} item={item} />;

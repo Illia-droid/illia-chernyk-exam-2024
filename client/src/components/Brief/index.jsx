@@ -9,7 +9,7 @@ import { changeEditContest } from '../../store/slices/contestByIdSlice';
 import ContestForm from '../ContestForm';
 import ContestInfo from '../Contest/ContestInfo';
 import Error from '../Error';
-import styles from './Brief.module.sass';
+import styles from './Brief.module.scss';
 
 const Brief = ({ contestData, role }) => {
   const dispatch = useDispatch();
@@ -53,7 +53,7 @@ const Brief = ({ contestData, role }) => {
           role={role}
         />
       ) : (
-        <div className={styles.contestForm}>
+        <section className={styles.contestForm}>
           {error && (
             <Error
               data={error.data}
@@ -66,7 +66,7 @@ const Brief = ({ contestData, role }) => {
             defaultData={getContestObjInfo()}
             handleSubmit={setNewContestData}
           />
-        </div>
+        </section>
       )}
     </>
   );

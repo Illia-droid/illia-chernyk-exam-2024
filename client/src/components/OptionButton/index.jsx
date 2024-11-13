@@ -1,8 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './UserProfile.module.sass';
+import styles from './UserProfile.module.scss';
 
 const OptionButton = ({ isActive, label, onClick, className }) => {
+
   const buttonClass =
     className ||
     classNames(styles.optionButton, {

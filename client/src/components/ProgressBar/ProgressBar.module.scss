@@ -1,0 +1,112 @@
+@use '/src/common/styles/colors' as *;  
+
+.progressBarContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 750px) {
+    display: none;
+  }
+
+  .progressContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .stepDescContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-right: 4px;
+
+      .arrow {
+        width: 0;
+        height: 0;
+        border: 5px solid transparent;
+        border-bottom: 0;
+        border-top-color: $turquoiseColor;
+      }
+
+      .stepDesc {
+        text-align: center;
+        background-color: $turquoiseColor;
+        font-size: 15px;
+        font-weight: 500;
+        width: 120px;
+        padding: 4px 8px 6px;
+        color: $whiteColor;
+        border-radius: 4px;
+        margin-top: -40px;
+      }
+    }
+  }
+
+  .lineBar {
+    width: 76px;
+    height: 5px;
+    border: 1px solid #d5d5da;
+    border-left: none;
+    border-right: none;
+    box-sizing: border-box;
+    margin: 0 -1px;
+  }
+
+  .outerComplete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 18px;
+    background-color: $greenColor;
+    border: 2px solid $greenColor;
+
+    .innerComplete {
+      width: 24px;
+      height: 24px;
+      background-image: url(./check.png);
+    }
+  }
+
+  .outerActive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    box-sizing: border-box;
+    border: 2px solid $turquoiseColor;
+
+    .innerActive {
+      width: 20px;
+      height: 20px;
+      border-radius: 10px;
+      background-color: $turquoiseColor;
+    }
+  }
+
+  .outerNotActive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    box-sizing: border-box;
+    border: 1px solid #d5d5da;
+
+    &:hover {
+      border: 2px solid $turquoiseColor;
+    }
+
+    .innerNotActive {
+      width: 20px;
+      height: 20px;
+      border-radius: 10px;
+    }
+  }
+}

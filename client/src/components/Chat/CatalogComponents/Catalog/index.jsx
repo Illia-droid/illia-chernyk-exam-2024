@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Catalog.module.sass';
+import styles from './Catalog.module.scss';
 
 const Catalog = ({ deleteCatalog, goToCatalog, catalog }) => {
   const { catalogName, chats, _id } = catalog;

@@ -21,7 +21,7 @@ import TryAgain from '../../components/TryAgain';
 import Error from '../../components/Error';
 import OptionButton from '../../components/OptionButton';
 import CONSTANTS from '../../constants';
-import styles from './ContestPage.module.sass';
+import styles from './ContestPage.module.scss';
 
 const {
   CONTEST_STATUS_ACTIVE,
@@ -119,8 +119,8 @@ const ContestPage = ({ match }) => {
       isActive={handleChangeContestViewMode}
       label={label}
       onClick={() => handleChangeContestViewMode(isActive)}
-      className={classNames(styles.btn, {
-        [styles.activeBtn]: isActive ? isBrief : !isBrief,
+      className={classNames(styles.button, {
+        [styles.activeButton]: isActive ? isBrief : !isBrief,
       })}
     />
   );
@@ -139,9 +139,7 @@ const ContestPage = ({ match }) => {
           <TryAgain getData={getData} />
         </section>
       ) : isFetching ? (
-        <section className={styles.containerSpinner}>
-          <Spinner />
-        </section>
+        <Spinner />
       ) : (
         <main className={styles.mainInfoContainer}>
           <div className={styles.infoContainer}>

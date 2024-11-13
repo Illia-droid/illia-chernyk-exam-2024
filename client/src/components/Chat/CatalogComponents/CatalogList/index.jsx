@@ -5,7 +5,7 @@ import {
   deleteCatalog,
 } from '../../../../store/slices/chatSlice';
 import Catalog from '../Catalog';
-import styles from './CatalogList.module.sass';
+import styles from './CatalogList.module.scss';
 
 const CatalogList = ({ catalogList }) => {
   const dispatch = useDispatch();

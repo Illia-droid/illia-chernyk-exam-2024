@@ -4,7 +4,7 @@ import { Formik, Form } from 'formik';
 import { createCatalog } from '../../../../store/slices/chatSlice';
 import FormInput from '../../../FormInput';
 import Schems from '../../../../utils/validators/validationSchems';
-import styles from './CreateCatalog.module.sass';
+import styles from './CreateCatalog.module.scss';
 
 const CreateCatalog = () => {
   const dispatch = useDispatch();

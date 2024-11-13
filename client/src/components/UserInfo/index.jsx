@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateUser } from '../../store/slices/userSlice';
 import { changeEditModeOnUserProfile } from '../../store/slices/userProfileSlice';
 import UpdateUserInfoForm from '../UpdateUserInfoForm';
-import CONSTANTS from '../../constants';
-import styles from './UserInfo.module.sass';
 import Avatar from '../Avatar';
+import CONSTANTS from '../../constants';
+import styles from './UserInfo.module.scss';
 
 const { CREATOR } = CONSTANTS;
 
@@ -43,7 +43,13 @@ const UserInfo = () => {
     </div>
   );
   return (
-    <section className={styles.mainContainer}>
+    <section className={styles.profileContainer}>
+      <div className={styles.header}>
+        <h1 className={styles.headerInfo}>User Profile</h1>
+        <button onClick={toggleEditMode} className={styles.buttonEdit}>
+          {isEdit ? 'Cancel' : 'Edit'}
+        </button>
+      </div>
       {isEdit ? (
         <UpdateUserInfoForm handleSubmit={updateUserData} />
       ) : (
@@ -54,9 +60,6 @@ const UserInfo = () => {
           </div>
         </article>
       )}
-      <button onClick={toggleEditMode} className={styles.buttonEdit}>
-        {isEdit ? 'Cancel' : 'Edit'}
-      </button>
     </section>
   );
 };

@@ -1,0 +1,27 @@
+@use '/src/common/styles/colors' as *;
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  height: 60px;
+  margin: 0 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #888;
+  color: $whiteColor;
+  font-size: 22px;
+  line-height: 21px;
+  font-weight: 700;
+  cursor: pointer;
+  &:hover {
+    font-size: 28px;
+    transition: font-size 0.1s ease-in-out;
+  }
+}
+@media screen and (max-width: 400px) {
+  .buttonContainer {
+    margin: 0 10px;
+  }
+}

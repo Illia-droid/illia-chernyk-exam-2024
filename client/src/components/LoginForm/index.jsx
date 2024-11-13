@@ -8,7 +8,7 @@ import FormInput from '../FormInput';
 import Error from '../Error';
 
 import Schems from '../../utils/validators/validationSchems';
-import styles from './LoginForm.module.sass';
+import styles from './LoginForm.module.scss';
 import CONSTANTS from '../../constants';
 
 const { AUTH_MODE } = CONSTANTS;

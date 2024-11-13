@@ -1,0 +1,39 @@
+@use '/src/common/styles/colors' as *;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  span {
+    cursor: pointer;
+    margin-right: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    color: $blueDarkerGrayColor;
+  }
+
+  i {
+    position: absolute;
+    right: -24px;
+    font-size: 24px;
+    cursor: pointer;
+    color: $blueDarkerGrayColor;
+    transition: font-size 0.2s;
+
+    &:hover {
+      animation: rot 0.4s infinite linear;
+      font-size: 30px;
+    }
+  }
+}
+
+@keyframes rot {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

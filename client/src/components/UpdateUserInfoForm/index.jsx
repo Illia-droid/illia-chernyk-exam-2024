@@ -1,15 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form, Formik } from 'formik';
-
 import { clearUserError } from '../../store/slices/userSlice';
-
 import ImageUpload from '../InputComponents/ImageUpload';
 import FormInput from '../FormInput';
 import Error from '../Error';
-
-import styles from './UpdateUserInfoForm.module.sass';
 import Schems from '../../utils/validators/validationSchems';
+import styles from './UpdateUserInfoForm.module.scss';
 
 const UpdateUserInfoForm = ({ handleSubmit }) => {
   const dispatch = useDispatch();
@@ -89,7 +86,7 @@ const UpdateUserInfoForm = ({ handleSubmit }) => {
             imgStyle: styles.imgStyle,
           }}
         />
-        <button type="submit" disabled={isFetching}>
+        <button className={styles.submitButton} type="submit" disabled={isFetching}>
           Submit
         </button>
       </Form>

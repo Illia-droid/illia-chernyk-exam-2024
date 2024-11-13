@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styles from './Error.module.sass';
+import styles from './Error.module.scss';
 
 const Error = ({ clearError, status, data }) => {
   useEffect(() => {

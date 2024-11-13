@@ -16,7 +16,7 @@ import CatalogCreation from '../../CatalogComponents/CatalogCreation';
 import CatalogListHeader from '../../CatalogComponents/CatalogListHeader';
 import ChatError from '../../../ChatError';
 import CONSTANTS from '../../../../constants';
-import styles from './Chat.module.sass';
+import styles from './Chat.module.scss';
 
 const {
   NORMAL_PREVIEW_CHAT_MODE,

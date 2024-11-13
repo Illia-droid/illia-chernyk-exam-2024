@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './RoleInput.module.sass';
+import styles from './RoleInput.module.scss';
 
 const RoleInput = ({ id, strRole, infoRole, field, type }) => (
   <label htmlFor={id}>

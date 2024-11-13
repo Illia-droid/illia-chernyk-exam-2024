@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { backToDialogList } from '../../../../store/slices/chatSlice';
-import CONSTANTS from '../../../../constants';
-import styles from './ChatHeader.module.sass';
 import FavBlockIcons from '../../FavBlockIcons';
 import Avatar from '../../../Avatar';
+import CONSTANTS from '../../../../constants';
+import styles from './ChatHeader.module.scss';
 
 const { STATIC_IMAGES_PATH } = CONSTANTS;
 

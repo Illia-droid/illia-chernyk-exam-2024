@@ -78,4 +78,5 @@
      f. Destructuring of constants & formatting code
 
 14. Refactoring styles:
-    a.Use variables for colors
+    a. Use variables for colors
+    b. Transfer styles from sass to scss

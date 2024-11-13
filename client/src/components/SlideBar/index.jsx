@@ -1,7 +1,7 @@
 import React from 'react';
 import Flickity from 'react-flickity-component';
-import style from './SlideBar.module.sass';
 import CAROULES_CONSTANTS from '../../carouselConstants';
+import style from './SlideBar.module.scss';
 import './flickity.css';
 
 const {

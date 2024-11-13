@@ -1,17 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-
 import { saveContestToStore } from '../../store/slices/contestCreationSlice';
-
 import NextButton from '../../components/NextButton';
 import ContestForm from '../../components/ContestForm';
 import BackButton from '../../components/BackButton';
 import ProgressBar from '../../components/ProgressBar';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
-
-import styles from './ContestCreationPage.module.sass';
+import styles from './ContestCreationPage.module.scss';
 
 const ContestCreationPage = ({ contestType, history, title }) => {
   const dispatch = useDispatch();

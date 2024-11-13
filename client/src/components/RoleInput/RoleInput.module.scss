@@ -1,0 +1,29 @@
+@use '/src/common/styles/colors' as *;
+
+.roleContainer {
+  border: 1px solid white;
+  padding: 14px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: stretch;
+  margin: 10px 0;
+
+  .infoRoleContainer {
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .role {
+      color: $whiteColor;
+      font-size: 22px;
+    }
+
+    .infoRole {
+      color: $whiteColor;
+      font-size: 12px;
+    }
+  }
+}

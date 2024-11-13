@@ -8,7 +8,7 @@ import RoleInput from '../RoleInput';
 import AgreeTermOfServiceInput from '../AgreeTermOfServiceInput';
 import CONSTANTS from '../../constants';
 import Schems from '../../utils/validators/validationSchems';
-import styles from './RegistrationForm.module.sass';
+import styles from './RegistrationForm.module.scss';
 
 const {
   CUSTOMER,

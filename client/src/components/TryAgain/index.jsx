@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './TryAgain.module.sass';
+import styles from './TryAgain.module.scss';
 
 const TryAgain = ({ getData }) => (
   <div className={styles.container} onClick={getData}>

@@ -5,7 +5,7 @@ import { clearAuthError } from '../../store/slices/authSlice';
 import LoginForm from '../../components/LoginForm';
 import Logo from '../../components/Logo';
 import CONSTANTS from '../../constants';
-import styles from './LoginPage.module.sass';
+import styles from './LoginPage.module.scss';
 
 const { STATIC_IMAGES_PATH } = CONSTANTS;
 

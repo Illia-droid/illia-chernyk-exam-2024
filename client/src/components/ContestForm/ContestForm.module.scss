@@ -1,0 +1,139 @@
+@use '/src/common/styles/colors' as *;
+
+@mixin inputStyle($width, $height) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $width;
+  min-width: 280px;
+  height: $height;
+  border: 2px solid #d0d0d0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: none;
+  background-color: $whiteColor;
+  font-size: 18px;
+  outline: none;
+  color: $darkGrayColor;
+  cursor: text;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.submitButton {
+  width: 150px;
+  padding: 12px 28px;
+  margin-top: 50px;
+  margin-right: 15px;
+  border-radius: 8px;
+  background-color: $greenColor;
+  float: right;
+  text-align: center;
+  color: $whiteColor;
+  font-size: 20px;
+
+  &:hover {
+    background-color: $blueLighterGrayColor;
+  }
+}
+
+.componentInputContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.textArea {
+  @include inputStyle(550px, 250px);
+  margin-bottom: 15px;
+  padding: 10px;
+
+  @media (max-width: 700px) {
+    width: auto;
+  }
+
+  &:focus {
+    border: 2px solid $turquoiseColor;
+  }
+}
+
+.input {
+  @include inputStyle(550px, 46px);
+  margin-bottom: 15px;
+  padding: 0 10px;
+
+  @media (max-width: 700px) {
+    width: auto;
+  }
+
+  &:focus {
+    border: 2px solid $turquoiseColor;
+  }
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: auto;
+
+  .selectInputContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 15px 0 0;
+    .select {
+      @include inputStyle(550px, 46px);
+      margin-bottom: 15px;
+      padding: 0 10px;
+
+      @media (max-width: 700px) {
+        width: min-content;
+      }
+
+      &:focus {
+        border: 2px solid $turquoiseColor;
+      }
+    }
+
+    .selectHeader {
+      display: inline-block;
+      font-size: 19px;
+      color: #585859;
+      font-weight: 700;
+      margin-top: 12px;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.inputContainer {
+  width: 100%;
+  margin: 15px 0 0;
+  position: relative;
+
+  .inputHeader {
+    display: inline-block;
+    font-size: 19px;
+    color: #585859;
+    font-weight: 700;
+    margin-top: 12px;
+    margin-bottom: 5px;
+  }
+  .warning {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -15px;
+    padding: 3px 20px;
+    border: 2px solid #b72522;
+    border-radius: 4px;
+    color: $darkGrayColor;
+    font-size: 18px;
+  }
+}
+.fileUploadContainer{
+  width: 80%;
+}

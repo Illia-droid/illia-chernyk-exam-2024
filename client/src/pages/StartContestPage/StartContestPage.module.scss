@@ -1,0 +1,134 @@
+@use '/src/common/styles/colors' as *;
+
+.startContestHeader {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 35px;
+
+  .startContestInfo {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: 480px;
+    padding: 0 15px;
+
+    @media (max-width: 750px) {
+      max-width: none;
+    }
+
+    .headerStart {
+      margin: 20px 0 10px;
+      font-size: 28px;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.1;
+      color: $darkGrayColor;
+    }
+
+    .descriptionStart {
+      margin-bottom: 10px;
+      padding-right: 20px;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.428;
+      color: $darkGrayColor;
+    }
+  }
+}
+
+.baseBundleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 0;
+  background-color: $turquoiseColor;
+
+  .infoBaseBundles {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 15px 20px;
+
+    .headerInfo {
+      margin: 20px 0 10px;
+      font-size: 32px;
+      line-height: 1.1;
+      text-align: center;
+      color: $whiteColor;
+
+      span {
+        font-weight: 700;
+      }
+    }
+    .info {
+      font-size: 18px;
+      margin-bottom: 10px;
+      font-weight: 300;
+      color: $whiteColor;
+      text-align: center;
+      &::after {
+        content: '';
+        display: block;
+        width: 100px;
+        margin: 20px auto;
+        border-top: 2px solid white;
+      }
+    }
+  }
+}
+
+.combinedBundles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 25px 0;
+  box-sizing: border-box;
+
+  .infoCombinedBundles {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 15px 20px;
+
+    .headerInfo {
+      margin: 20px 0 10px;
+      font-size: 32px;
+      line-height: 1.1;
+      text-align: center;
+      color: $darkGrayColor;
+    }
+
+    .info {
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: 300;
+      color: $darkGrayColor;
+      text-align: center;
+      &::after {
+        content: '';
+        display: block;
+        width: 100px;
+        margin: 20px auto;
+        border-top: 2px solid $turquoiseColor;
+      }
+    }
+  }
+}
+
+.baseBundles {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 1200px;
+  padding-right: 15px;
+  padding-left: 15px;
+}

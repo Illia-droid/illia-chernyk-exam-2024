@@ -1,0 +1,33 @@
+@use '/src/common/styles/colors' as *;
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 275px;
+  min-width: 140px;
+  height: 70px;
+  margin: 0 15px;
+  border-radius: 10px;
+  font-size: 26px;
+  background-color: #f3875d;
+  color: $whiteColor;
+  font-weight: 700;
+  cursor: pointer;
+  transition: font-size 0.1s ease-in-out;
+
+  &:hover {
+    font-size: 32px;
+  }
+
+  @media (max-width: 700px) {
+    width: auto;
+    height: 60px;
+    font-size: 22px;
+    border-radius: 0;
+  }
+
+  @media (max-width: 400px) {
+    margin: 0 10px;
+  }
+}

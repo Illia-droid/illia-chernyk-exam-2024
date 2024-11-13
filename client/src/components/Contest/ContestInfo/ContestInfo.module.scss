@@ -1,0 +1,85 @@
+@use '/src/common/styles/colors' as *;
+
+.mainContestInfoContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  padding: 20px 25px 25px 25px;
+  margin-top: 20px;
+
+  .infoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-self: stretch;
+
+    .contestTypeContainer {
+      align-self: stretch;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+
+      i {
+        cursor: pointer;
+        position: absolute;
+        right: 50px;
+        font-size: 26px;
+        transition: font-size 0.2s;
+        color: $blueDarkerGrayColor;
+
+        &:hover {
+          font-size: 34px;
+        }
+      }
+      .editBtn {
+        margin-right: 45px;
+        color: $whiteColor;
+        font-size: 20px;
+        padding: 12px 28px;
+        border-radius: 8px;
+        background-color: $greenColor;
+
+        &:hover {
+          background-color: $blueLighterGrayColor;
+        }
+      }
+    }
+
+    .dataContainer {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      .data {
+        color: $darkGrayBlueColor;
+        font-size: 15px;
+        padding-top: 8px;
+        margin-bottom: 10px;
+        border: none;
+        resize: none;
+        align-self: stretch;
+        overflow-wrap: break-word;
+      }
+
+      .label {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 10px 0;
+      }
+
+      .file {
+        align-self: stretch;
+        text-decoration: underline;
+
+        &:hover {
+          color: $blueLighterGrayColor;
+        }
+      }
+    }
+  }
+}

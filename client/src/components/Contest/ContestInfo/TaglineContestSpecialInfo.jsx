@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ContestInfo.module.sass';
+import styles from './ContestInfo.module.scss';
 
 const TaglineContestSpecialInfo = ({ nameVenture, typeOfTagline }) => {
   return (

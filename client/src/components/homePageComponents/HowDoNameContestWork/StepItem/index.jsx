@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './StepItem.module.sass';
 import CONSTANTS from '../../../../constants';
+import styles from './StepItem.module.scss';
 
 const { STATIC_IMAGES_PATH } = CONSTANTS;
 

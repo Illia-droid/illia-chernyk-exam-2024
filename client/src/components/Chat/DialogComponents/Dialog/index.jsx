@@ -5,7 +5,7 @@ import className from 'classnames';
 import { getDialogMessages } from '../../../../store/slices/chatSlice';
 import ChatHeader from '../../ChatComponents/ChatHeader';
 import ChatInput from '../../ChatComponents/ChatInut';
-import styles from './Dialog.module.sass';
+import styles from './Dialog.module.scss';
 
 const Dialog = ({ userId }) => {
   const dispatch = useDispatch();

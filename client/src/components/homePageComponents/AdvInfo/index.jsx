@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './AdvInfo.module.sass';
+import CONSTANTS from '../../../constants';
+import styles from './AdvInfo.module.scss';
 
 import dataSponsors from './dataSponsors.json';
 import dataStats from './dataStats.json';
-import CONSTANTS from '../../../constants';
 
 const { STATIC_IMAGES_PATH } = CONSTANTS;
 

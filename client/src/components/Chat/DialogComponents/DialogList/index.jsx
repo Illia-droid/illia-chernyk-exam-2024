@@ -6,7 +6,7 @@ import {
 } from '../../../../store/slices/chatSlice';
 import DialogBox from '../DialogBox';
 import CONSTANTS from '../../../../constants';
-import styles from './DialogList.module.sass';
+import styles from './DialogList.module.scss';
 
 const {
   CATALOG_PREVIEW_CHAT_MODE,

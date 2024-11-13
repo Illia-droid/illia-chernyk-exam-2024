@@ -7,7 +7,7 @@ import Footer from '../../components/Footer';
 import ProgressBar from '../../components/ProgressBar';
 import Header from '../../components/Header';
 import CONSTANTS from '../../constants';
-import styles from './StartContestPage.module.sass';
+import styles from './StartContestPage.module.scss';
 import data from './dataBundleBox.json';
 
 const { CUSTOMER } = CONSTANTS;
@@ -44,8 +44,8 @@ const StartContestPage = ({ history }) => {
       <main>
         <section className={styles.startContestHeader}>
           <div className={styles.startContestInfo}>
-            <h1>START A CONTEST</h1>
-            <p>
+            <h1 className={styles.headerStart} >START A CONTEST</h1>
+            <p className={styles.descriptionStart}>
               Launching a contest on Squadhelp is very simple. Select the type
               of contest you would like to launch from the list below. Provide a
               detailed brief and select a pricing package. Begin receiving
@@ -63,7 +63,6 @@ const StartContestPage = ({ history }) => {
               Pick from our most popular categories, launch a contest and begin
               receiving submissions right away.
             </p>
-            <hr />
           </div>
           <div className={styles.baseBundles}>
             {bundleData.map((bundle) => (
@@ -81,7 +80,6 @@ const StartContestPage = ({ history }) => {
             <p className={styles.info}>
               Launch multiple contests and pay a discounted bundle price.
             </p>
-            <hr />
           </div>
           <div className={styles.baseBundles}>
             {combinedBundleData.map((bundle) => (

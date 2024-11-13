@@ -9,9 +9,15 @@ import {
 import AddToCatalog from '../AddToCatalog';
 import CreateCatalog from '../CreateCatalog';
 import CONSTANTS from '../../../../constants';
-import styles from './CatalogCreation.module.sass';
+import styles from './CatalogCreation.module.scss';
+import OptionButton from '../../../OptionButton';
 
 const { ADD_CHAT_TO_OLD_CATALOG, CREATE_NEW_CATALOG_AND_ADD_CHAT } = CONSTANTS;
+
+const buttons = [
+  { label: 'Old', mode: ADD_CHAT_TO_OLD_CATALOG },
+  { label: 'New', mode: CREATE_NEW_CATALOG_AND_ADD_CHAT },
+];
 
 const CatalogCreation = () => {
   const dispatch = useDispatch();
@@ -28,6 +34,17 @@ const CatalogCreation = () => {
   const changeModeOfChatAdding = (data) =>
     dispatch(changeTypeOfChatAdding(data));
 
+  const renderButtons = ({ label, mode }) => (
+    <OptionButton
+      key={label}
+      label={label}
+      onClick={() => changeModeOfChatAdding(mode)}
+      className={classNames(styles.modeButton, {
+        [styles.active]: catalogCreationMode === mode,
+      })}
+    />
+  );
+
   return (
     <>
       {!isFetching && (
@@ -37,26 +54,7 @@ const CatalogCreation = () => {
             onClick={closeAddChatToCatalogMenu}
           />
           <div className={styles.buttonsContainer}>
-            <span
-              onClick={() => changeModeOfChatAdding(ADD_CHAT_TO_OLD_CATALOG)}
-              className={classNames({
-                [styles.active]:
-                  catalogCreationMode === ADD_CHAT_TO_OLD_CATALOG,
-              })}
-            >
-              Old
-            </span>
-            <span
-              onClick={() =>
-                changeModeOfChatAdding(CREATE_NEW_CATALOG_AND_ADD_CHAT)
-              }
-              className={classNames({
-                [styles.active]:
-                  catalogCreationMode === CREATE_NEW_CATALOG_AND_ADD_CHAT,
-              })}
-            >
-              New
-            </span>
+            {buttons.map(renderButtons)}
           </div>
           {catalogCreationMode === CREATE_NEW_CATALOG_AND_ADD_CHAT ? (
             <CreateCatalog />

@@ -1,9 +1,10 @@
 import React from 'react';
-import CONSTANTS from '../../constants';
+
 import SelectInput from '../SelectInput';
 import FormInput from '../FormInput';
-import styles from '../ContestForm/ContestForm.module.sass';
 import Spinner from '../Spinner';
+import CONSTANTS from '../../constants';
+import styles from '../ContestForm/ContestForm.module.scss';
 
 const { NAME_CONTEST, LOGO_CONTEST, TAGLINE_CONTEST } = CONSTANTS;
 
@@ -20,7 +21,7 @@ const OptionalSelects = ({
         <>
           <SelectInput
             name="typeOfName"
-            header="type of company"
+            header="Type of company"
             classes={{
               inputContainer: styles.selectInputContainer,
               inputHeader: styles.selectHeader,

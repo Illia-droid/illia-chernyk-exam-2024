@@ -11,14 +11,13 @@ import {
 } from '../../store/slices/contestsSlice';
 import { getDataForContest } from '../../store/slices/dataForContestSlice';
 import ContestsContainer from '../ContestsContainer/';
-import styles from './CreatorDashboard.module.sass';
 import TryAgain from '../TryAgain';
 import CONSTANTS from '../../constants';
-
+import styles from './CreatorDashboard.module.scss';
 const { CREATOR } = CONSTANTS;
 
 const types = [
-  '',
+  'Choose contest type',
   'name,tagline,logo',
   'name',
   'tagline',
@@ -27,7 +26,6 @@ const types = [
   'logo,tagline',
   'name,logo',
 ];
-
 const CreatorDashboard = ({ history, location }) => {
   const dispatch = useDispatch();
   const fetchContests = (data) =>
@@ -35,10 +33,10 @@ const CreatorDashboard = ({ history, location }) => {
   const { contests, creatorFilter, haveMore, error, isFetching } = useSelector(
     (state) => state.contestsList
   );
-  const { industry } = useSelector((state) => state.dataForContest);
+  const { data } = useSelector((state) => state.dataForContest);
 
   useEffect(() => {
-    if (!industry) {
+    if (!data) {
       dispatch(getDataForContest());
     }
     if (parseUrlForParams(location.search) && !contests.length)
@@ -46,7 +44,7 @@ const CreatorDashboard = ({ history, location }) => {
     return () => {
       dispatch(clearContestsList());
     }; //eslint-disable-next-line
-  }, [location.search, industry]);
+  }, [location.search]);
 
   const renderSelectType = () => (
     <select
@@ -79,12 +77,13 @@ const CreatorDashboard = ({ history, location }) => {
         value={creatorFilter.industry}
         className={styles.input}
       >
-        <option value={null}>Choose industry</option>
-        {industry.map((item, index) => (
-          <option key={index + 1} value={item}>
-            {item}
-          </option>
-        ))}
+        <option value={''}>Choose industry</option>
+        {data &&
+          data.industry.map((item, index) => (
+            <option key={index + 1} value={item}>
+              {item}
+            </option>
+          ))}
       </select>
     );
   };
@@ -201,12 +200,12 @@ const CreatorDashboard = ({ history, location }) => {
               className={styles.input}
             />
           </div>
-          {!isFetching && industry && (
+          {
             <div className={styles.inputContainer}>
               <span>By industry</span>
               {renderIndustryType()}
             </div>
-          )}
+          }
           <div className={styles.inputContainer}>
             <span>By amount award</span>
             <select
