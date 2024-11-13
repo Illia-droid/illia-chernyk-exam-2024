@@ -74,6 +74,7 @@
     { "name": "View Dashboard", "url": "/dashboard" },
     { "name": "My Account", "url": "/account" },
     { "name": "Messages", "url": "http://www.google.com" },
+    { "name": "Events", "url": "/events" },
     { "name": "Affiliate Dashboard", "url": "http://www.google.com" }
   ],
   "notAuthUser": [

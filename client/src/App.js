@@ -15,6 +15,7 @@ import ContestPage from './pages/ContestPage';
 import UserProfile from './pages/UserProfile';
 import ContestCreationPage from './pages/ContestCreationPage';
 import HowItWorksPage from './pages/HowItWorksPage';
+import EventsPage from './pages/EventsPage';
 import CONSTANTS from './constants';
 import './App.css';
 
@@ -44,6 +45,7 @@ const App = () => {
           component={withNotAuth(RegistrationPage)}
         />
         <Route exact path="/payment" component={withAuth(Payment)} />
+        <Route exact path="/events" component={withAuth(EventsPage)} />
         <Route
           exact
           path="/startContest"

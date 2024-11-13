@@ -8,12 +8,17 @@ const withAuth = (Component, additionalProps) => {
     const { history, match } = props;
     const { isFetching, data } = useSelector((state) => state.userStore);
     const dispatch = useDispatch();
+    console.log(data);
 
     useEffect(() => {
       if (!data) {
-        dispatch(getUser(history.push('/login')));
-      } //eslint-disable-next-line
-    }, []);
+        dispatch(getUser());
+      }
+      if (!isFetching && !data) {
+        history.push('/login');
+      }
+      //eslint-disable-next-line
+    }, [data]);
 
     return (
       <>

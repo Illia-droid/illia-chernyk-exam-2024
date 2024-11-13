@@ -1,4 +1,5 @@
 import * as yup from 'yup';
+import moment from 'moment';  
 import valid from 'card-validator';
 
 const ContestSchema = yup.object({
@@ -224,6 +225,21 @@ const VALIDATION_SCHEMAS = {
         (value) => value && value.trim().length >= 1
       )
       .required('required'),
+  }),
+  EventSchema: yup.object().shape({
+    body: yup
+      .string()
+      .min(3, 'Event name must be at least 3 characters')
+      .required('Event name is required'),
+    deadline: yup
+      .date()
+      .min(moment().toDate(), 'Must be in the future')
+      .required('Deadline is required'),
+    userHours: yup
+      .number()
+      .min(1, 'Must be at least 1 hour')
+      .max(24, 'Must be less than 24 hours')
+      .required('Notification hours are required'),
   }),
 };
 export default VALIDATION_SCHEMAS;

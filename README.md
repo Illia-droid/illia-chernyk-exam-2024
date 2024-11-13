@@ -83,4 +83,6 @@
     c. Use $breakpoints, use mixins
 
 15. Layout How It Works page
-    * Use dangerouslySetInnerHTML for rendering data;    
+    * Use dangerouslySetInnerHTML for rendering data;
+
+16. Layout Events page        

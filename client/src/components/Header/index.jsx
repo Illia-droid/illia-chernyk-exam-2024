@@ -14,10 +14,11 @@ const { STATIC_IMAGES_PATH, CONTACT_PHONE, CREATOR } = CONSTANTS;
 
 const Header = ({ history }) => {
   const dispatch = useDispatch();
+  const { expiredEvents } = useSelector((state) => state.events);
   const { data, isFetching } = useSelector((state) => state.userStore);
   const { nav, user, notAuthUser } = navData;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const amountExpEvents = expiredEvents.length;
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
@@ -44,6 +45,13 @@ const Header = ({ history }) => {
           <Avatar avatar={data.avatar} />
           <span>{`Hi, ${data.displayName}`}</span>
           <img src={`${STATIC_IMAGES_PATH}menu-down.png`} alt="menu" />
+          {!!amountExpEvents && (
+            <div className={styles.bell}>
+              <img src="/bell.svg" alt="bell" />
+              <span className={styles.number}>{amountExpEvents}</span>
+            </div>
+          )}
+          {!amountExpEvents && <div className={styles.bell}></div>}
           <ul>
             {user.map(({ name, url }, i) => (
               <li key={i}>
