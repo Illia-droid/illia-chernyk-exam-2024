@@ -1,0 +1,42 @@
+li {
+  list-style-type: none;
+}
+.containerQuestionsBlocks {
+  padding: 50px 10px 0 10px;
+}
+
+.containerQuestionsBlocks h4 {
+  font-weight: 700;
+  font-family: 'Product Sans', sans-serif;
+  line-height: 1.3;
+}
+
+.faqHeading {
+  max-width: 830px;
+  margin: 0px auto 30px auto;
+  color: #377dff;
+  font-size: 1.75rem;
+}
+
+.faqContainer {
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+  h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #19184a;
+    position: relative;
+    cursor: pointer;
+    transition: all ease 0.5s;
+  }
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+}
+
+.faqInner {
+  max-width: 830px;
+  margin: 0 auto;
+}

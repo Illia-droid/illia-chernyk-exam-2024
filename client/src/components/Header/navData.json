@@ -20,7 +20,7 @@
     {
       "title": "CONTESTS",
       "links": [
-        { "name": "HOW IT WORKS", "url": "http://www.google.com" },
+        { "name": "HOW IT WORKS", "url": "/how-it-works" },
         { "name": "PRICING", "url": "http://www.google.com" },
         { "name": "AGENCY SERVICE", "url": "http://www.google.com" },
         { "name": "ACTIVE CONTESTS", "url": "http://www.google.com" },

@@ -14,6 +14,7 @@ import LoginPage from './pages/LoginPage';
 import ContestPage from './pages/ContestPage';
 import UserProfile from './pages/UserProfile';
 import ContestCreationPage from './pages/ContestCreationPage';
+import HowItWorksPage from './pages/HowItWorksPage';
 import CONSTANTS from './constants';
 import './App.css';
 
@@ -35,6 +36,7 @@ const App = () => {
       />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/how-it-works" component={HowItWorksPage} />
         <Route exact path="/login" component={withNotAuth(LoginPage)} />
         <Route
           exact
