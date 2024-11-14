@@ -9,10 +9,10 @@ import styles from './Dialog.module.scss';
 
 const Dialog = ({ userId }) => {
   const dispatch = useDispatch();
-  const { chatData, interlocutor, messages } = useSelector(
+  const { chatData, interlocutor, messages, isFetching } = useSelector(
     (state) => state.chatStore
   );
-  const { blackList, participants } = chatData;
+  // const { blackList , participants } = chatData;
   const messagesEnd = useRef(null);
 
   useEffect(() => {
@@ -44,16 +44,18 @@ const Dialog = ({ userId }) => {
   );
 
   const blockMessage = () => {
-    const userIndex = participants.indexOf(userId);
+    const userIndex = chatData.participants.indexOf(userId);
     let message;
-    if (blackList[userIndex]) {
+    if (chatData.blackList[userIndex]) {
       message = 'You block him';
-    } else if (blackList.includes(true)) {
+    } else if (chatData.blackList.includes(true)) {
       message = 'He block you';
     }
     return <span className={styles.messageBlock}>{message}</span>;
   };
-
+  if (isFetching) {
+    return <div>Loading...</div>; // Индикатор загрузки
+  }
   return (
     <>
       <ChatHeader userId={userId} />

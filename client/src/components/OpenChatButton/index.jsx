@@ -9,12 +9,22 @@ const OpenChatButton = ({ User }) => {
   const { id: authUserId } = useSelector((state) => state.userStore.data);
   const { messagesPreview } = useSelector((state) => state.chatStore);
   const { id: creatorId } = User;
+
+  const firstConversationData = {
+    participants: [authUserId, creatorId],
+    _id: 1,
+    blackList: [false, false],
+    favoriteList: [false, false],
+  };
+
   const findConversationInfo = () => {
     const participants = [authUserId, creatorId];
     participants.sort((a, b) => a - b);
     const conversation = messagesPreview.find((message) =>
       isEqual(participants, message.participants)
     );
+    console.log('conversation', conversation);
+
     return conversation
       ? {
           participants: conversation.participants,
@@ -22,7 +32,7 @@ const OpenChatButton = ({ User }) => {
           blackList: conversation.blackList,
           favoriteList: conversation.favoriteList,
         }
-      : null;
+      : firstConversationData;
   };
 
   const goChat = () => {
