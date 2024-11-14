@@ -93,3 +93,9 @@
 **Back-end**
     
 18. Created message.mongodb file with request to DB to find and count words "паровоз" in collection Message using aggregate ( try through MongoDB) 
+
+19. Developed SQL data base structure (PostgreSQL) for chats;
+    а. создана тестовая таблица для юзеров используя CREATE TABLE
+    б. создана таблица "conversations" и для реализации m:n создана таблица "users_to_conversations" которая ссылается на id пользователя из тестовой таблицы юзеров и на id таблицы "conversations" и создан PRIMARY KEY ("user_id","conversation_id" ) -- реализуется возможность существования юзера в одном и больше чатов.
+    с. создана таблица "messages" с FOREIGN KEY ("sender_id", "conversation_id") REFERENCES "users_to_conversations"("user_id", "conversation_id") где ссылается на таблицу "users_to_conversations" в разговоре которого точно будет этот пользователь(исключается вариант отправки сообщения пользователем в разговор, где пользователь никогда не находился).
+    д. создана таблица "catalogs" с айдишкой владельца ("user_id"), ссылающейся на таблицу юзеров. и создана таблица "conversations_to_catalogs" где ключ реализует возможность нахождения в одном каталоге один и более чатов, и так же нахождение одного чата в разных каталогах.
