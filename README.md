@@ -100,4 +100,5 @@
     с. создана таблица "messages" с FOREIGN KEY ("sender_id", "conversation_id") REFERENCES "users_to_conversations"("user_id", "conversation_id") где ссылается на таблицу "users_to_conversations" в разговоре которого точно будет этот пользователь(исключается вариант отправки сообщения пользователем в разговор, где пользователь никогда не находился).
     д. создана таблица "catalogs" с айдишкой владельца ("user_id"), ссылающейся на таблицу юзеров. и создана таблица "conversations_to_catalogs" где ключ реализует возможность нахождения в одном каталоге один и более чатов, и так же нахождение одного чата в разных каталогах.
 
-20. Count users by role (9 task)    
+20. Count users by role (9 task)  
+21. 10% cashback for customers   
