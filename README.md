@@ -105,3 +105,5 @@
 22. 10$ to top 3 creators by rating  
 
 23. Create an errors logger and use middleware ( but now there is a cors errors in console and idk how to fix it :| )
+
+24. Create a daily logger
