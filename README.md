@@ -101,4 +101,5 @@
     д. создана таблица "catalogs" с айдишкой владельца ("user_id"), ссылающейся на таблицу юзеров. и создана таблица "conversations_to_catalogs" где ключ реализует возможность нахождения в одном каталоге один и более чатов, и так же нахождение одного чата в разных каталогах.
 
 20. Count users by role (9 task)  
-21. 10% cashback for customers   
+21. 10% cashback for customers 
+22. 10$ to top 3 creators by rating  
