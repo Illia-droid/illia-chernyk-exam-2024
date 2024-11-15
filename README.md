@@ -103,3 +103,5 @@
 20. Count users by role (9 task)  
 21. 10% cashback for customers 
 22. 10$ to top 3 creators by rating  
+
+23. Create an errors logger and use middleware ( but now there is a cors errors in console and idk how to fix it :| )
