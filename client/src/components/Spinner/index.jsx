@@ -7,7 +7,7 @@ const override = css`
   border-color: #46568a;
 `;
 
-const SpinnerLoader = () => (
+const Spinner = () => (
   <div className={styles.loaderContainer}>
     <ClipLoader
       sizeUnit='px'
@@ -19,4 +19,4 @@ const SpinnerLoader = () => (
   </div>
 );
 
-export default SpinnerLoader;
+export default Spinner;

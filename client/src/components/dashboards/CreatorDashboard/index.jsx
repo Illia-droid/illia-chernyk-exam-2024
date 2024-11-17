@@ -8,11 +8,11 @@ import {
   getContests,
   clearContestsList,
   setNewCreatorFilter,
-} from '../../store/slices/contestsSlice';
-import { getDataForContest } from '../../store/slices/dataForContestSlice';
-import ContestsContainer from '../ContestsContainer/';
-import TryAgain from '../TryAgain';
-import CONSTANTS from '../../constants';
+} from '../../../store/slices/contestsSlice';
+import { getDataForContest } from '../../../store/slices/dataForContestSlice';
+import ContestsContainer from '../../ContestsContainer';
+import TryAgain from '../../TryAgain';
+import CONSTANTS from '../../../constants';
 import styles from './CreatorDashboard.module.scss';
 const { CREATOR } = CONSTANTS;
 

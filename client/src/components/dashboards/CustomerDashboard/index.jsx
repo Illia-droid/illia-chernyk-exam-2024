@@ -5,10 +5,10 @@ import {
   getContests,
   clearContestsList,
   setNewCustomerFilter,
-} from '../../store/slices/contestsSlice';
-import ContestsContainer from '../ContestsContainer';
-import TryAgain from '../TryAgain';
-import CONSTANTS from '../../constants';
+} from '../../../store/slices/contestsSlice';
+import ContestsContainer from '../../ContestsContainer';
+import TryAgain from '../../TryAgain';
+import CONSTANTS from '../../../constants';
 import styles from './CustomerDashboard.module.scss';
 
 const {

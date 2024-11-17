@@ -107,3 +107,10 @@
 23. Create an errors logger and use middleware ( but now there is a cors errors in console and idk how to fix it :| )
 
 24. Create a daily logger
+
+25. Develop moderator role for application: 
+    a. create moderatorDashboard;
+    b. create offer box for moderator;
+    c. create moderator store, routes, controllers for get offers from db, update their status by moderator.
+    d. throw seed with moderator.
+    e. use lib nodemailer for sending e-mail from moderator to user who created offer with moder`s decision.

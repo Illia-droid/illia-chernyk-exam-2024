@@ -10,7 +10,7 @@ import CONSTANTS from '../../constants';
 import styles from './Header.module.scss';
 import navData from './navData.json';
 
-const { STATIC_IMAGES_PATH, CONTACT_PHONE, CREATOR } = CONSTANTS;
+const { STATIC_IMAGES_PATH, CONTACT_PHONE, CUSTOMER } = CONSTANTS;
 
 const Header = ({ history }) => {
   const dispatch = useDispatch();
@@ -141,7 +141,7 @@ const Header = ({ history }) => {
         />
         <div className={styles.leftNav}>
           {renderNavMenu()}
-          {data && data.role !== CREATOR && (
+          {data && data.role === CUSTOMER && (
             <button className={styles.startContestBtn} onClick={startContests}>
               START CONTEST
             </button>

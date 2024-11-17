@@ -15,9 +15,10 @@ import CONSTANTS from '../../constants';
 import styles from './OfferBox.module.scss';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import './confirmStyle.css';
+import Spinner from '../Spinner';
 
 const {
-  OFFER_STATUS: { REJECTED, WON },
+  OFFER_STATUS: { REJECTED, WON, MODERATION },
   STATIC_IMAGES_PATH,
   LOGO_CONTEST,
   publicURL,
@@ -100,7 +101,7 @@ const OfferBox = ({ data, contestType, setOfferStatus, needButtons }) => {
   );
 
   return (
-    <div className={styles.offerContainer}>
+    <article className={styles.offerContainer}>
       {offerStatus()}
       <div className={styles.mainInfoContainer}>
         <div className={styles.userInfo}>
@@ -138,6 +139,11 @@ const OfferBox = ({ data, contestType, setOfferStatus, needButtons }) => {
           {creatorId !== authUserId &&
             renderRatingStars(mark, false, handleChangeMark)}
         </div>
+        {status === MODERATION && (
+          <div>
+            <Spinner /> <span>status is moderation</span>
+          </div>
+        )}
         {role !== CREATOR && <OpenChatButton User={User} />}
       </div>
       {needButtons(status) && (
@@ -146,7 +152,7 @@ const OfferBox = ({ data, contestType, setOfferStatus, needButtons }) => {
           {renderStatusButton('Reject', 'reject', styles.rejectBtn)}
         </div>
       )}
-    </div>
+    </article>
   );
 };
 

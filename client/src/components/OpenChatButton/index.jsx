@@ -23,7 +23,6 @@ const OpenChatButton = ({ User }) => {
     const conversation = messagesPreview.find((message) =>
       isEqual(participants, message.participants)
     );
-    console.log('conversation', conversation);
 
     return conversation
       ? {

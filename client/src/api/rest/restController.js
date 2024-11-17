@@ -55,3 +55,13 @@ export const getContestById = (data) =>
       contestId: data.contestId,
     },
   });
+export const getAllOffers = ({ page, limit }) =>
+  http.get(`getAllOffers`, { params: { page, limit } });
+export const setModerationOfferStatus = (data) =>
+  http.post('setModerationOfferStatus', data);
+export const sendEmail = (data) =>
+  http.post('sendEmail', data, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });

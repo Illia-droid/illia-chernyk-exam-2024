@@ -75,14 +75,14 @@ const Chat = () => {
       <div>
         {isShowChatsInCatalog && <CatalogListHeader />}
         {!isShowChatsInCatalog && (
-          <div className={styles.chatHeader}>
-            <img src={`${CONSTANTS.STATIC_IMAGES_PATH}logo.png`} alt="logo" />
-          </div>
-        )}
-        {!isShowChatsInCatalog && (
-          <div className={styles.buttonsContainer}>
-            {previewModes.map(renderPreviewButtons)}
-          </div>
+          <>
+            <div className={styles.chatHeader}>
+              <img src={`${CONSTANTS.STATIC_IMAGES_PATH}logo.png`} alt="logo" />
+            </div>
+            <div className={styles.buttonsContainer}>
+              {previewModes.map(renderPreviewButtons)}
+            </div>
+          </>
         )}
         {chatMode === CATALOG_PREVIEW_CHAT_MODE ? (
           <CatalogListContainer />

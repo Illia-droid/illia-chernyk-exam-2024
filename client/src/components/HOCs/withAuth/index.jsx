@@ -8,7 +8,6 @@ const withAuth = (Component, additionalProps) => {
     const { history, match } = props;
     const { isFetching, data } = useSelector((state) => state.userStore);
     const dispatch = useDispatch();
-    console.log(data);
 
     useEffect(() => {
       if (!data) {

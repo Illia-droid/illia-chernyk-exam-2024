@@ -25,9 +25,10 @@ import styles from './ContestPage.module.scss';
 
 const {
   CONTEST_STATUS_ACTIVE,
-  OFFER_STATUS: { PENDING },
+  OFFER_STATUS: { PENDING, MODERATION },
   publicURL,
   CREATOR,
+  CUSTOMER,
 } = CONSTANTS;
 
 const buttons = [
@@ -90,14 +91,19 @@ const ContestPage = ({ match }) => {
         </div>
       );
     }
-    return offers.map((offer) => (
+
+    const filteredOffers =
+      role === CUSTOMER
+        ? offers.filter((offer) => offer.status !== MODERATION)
+        : offers;
+
+    return filteredOffers.map((offer) => (
       <OfferBox
         data={offer}
         key={offer.id}
         needButtons={needButtons}
         setOfferStatus={handleSetOfferStatus}
         contestType={contestData.contestType}
-        date={new Date()}
       />
     ));
   };

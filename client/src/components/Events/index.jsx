@@ -5,7 +5,6 @@ import styles from './Events.module.scss';
 
 const Events = () => {
   const { events, expiredEvents } = useSelector((state) => state.events);
-  console.log(expiredEvents);
   const renderEvents = (event) => <Event key={event.id} event={event} />;
   const sortedArray = [...events].sort(
     (a, b) => new Date(a.deadline) - new Date(b.deadline)

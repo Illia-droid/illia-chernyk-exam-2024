@@ -9,14 +9,13 @@ import styles from './Dialog.module.scss';
 
 const Dialog = ({ userId }) => {
   const dispatch = useDispatch();
-  const { chatData, interlocutor, messages, isFetching } = useSelector(
+  const { chatData, interlocutor, messages } = useSelector(
     (state) => state.chatStore
   );
-  // const { blackList , participants } = chatData;
   const messagesEnd = useRef(null);
 
   useEffect(() => {
-    if (!messages.length) {
+    if (messages.length === 0) {
       dispatch(getDialogMessages({ interlocutorId: interlocutor.id }));
     }
     if (messagesEnd.current) {
@@ -53,9 +52,6 @@ const Dialog = ({ userId }) => {
     }
     return <span className={styles.messageBlock}>{message}</span>;
   };
-  if (isFetching) {
-    return <div>Loading...</div>; // Индикатор загрузки
-  }
   return (
     <>
       <ChatHeader userId={userId} />

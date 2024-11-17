@@ -5,6 +5,8 @@ const userQueries = require('./queries/userQueries');
 const controller = require('../socketInit');
 const UtilFunctions = require('../utils/functions');
 const CONSTANTS = require('../constants');
+const { includes } = require('lodash');
+const { sendEmail } = require('../utils/sendEmail');
 
 module.exports.dataForContest = async (req, res, next) => {
   const response = {};
@@ -315,3 +317,80 @@ module.exports.getContests = (req, res, next) => {
       next(new ServerError());
     });
 };
+
+module.exports.getAllOffers = async (req, res) => {
+  try {
+    const { page, limit } = req.query;
+    const offset = (page - 1) * limit;
+
+    const offersData = await db.Offers.findAndCountAll({
+      where: { status: 'moderation' },
+      limit: parseInt(limit, 10),
+      offset: parseInt(offset, 10),
+      include: [
+        {
+          model: db.Users,
+          required: true,
+          attributes: {
+            exclude: ['password', 'role', 'balance', 'accessToken'],
+          },
+        },
+      ],
+    });
+
+    const totalPages = Math.ceil(offersData.count / limit);
+
+    res.status(200).json({
+      offers: offersData.rows,
+      totalPages,
+      currentPage: parseInt(page, 10),
+    });
+  } catch (error) {
+    res.status(500).json({ error: 'Ошибка при получении офферов' });
+  }
+};
+
+module.exports.setModerationOfferStatus = async (req, res) => {
+  const { id, status } = req.body;
+
+  try {
+    if (status === 'successful') {
+      const offer = await db.Offers.findOne({ where: { id } });
+
+      if (!offer) {
+        return res.status(404).json({ error: 'Offer not found' });
+      }
+
+      offer.status = 'pending';
+      await offer.save();
+
+      return res.status(200).json(offer);
+    }
+
+    if (status === 'decline') {
+      const offer = await db.Offers.findOne({ where: { id } });
+
+      if (!offer) {
+        return res.status(404).json({ error: 'Offer not found' });
+      }
+      offer.status = 'decline';
+   
+      await offer.destroy();
+
+      return res.status(200).json(offer);
+    }
+    return res.status(400).json({ error: 'Invalid status' });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Error processing the offer status' });
+  }
+};
+
+module.exports.sendEmailController = async (req, res) => {
+  try {
+    await sendEmail(req.body);
+    res.status(200).send('Email sent');
+  } catch (error) {
+    res.status(500).send('Failed to send email');
+  }
+}

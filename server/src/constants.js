@@ -12,6 +12,7 @@ module.exports = {
   CONTEST_STATUS_ACTIVE: 'active',
   CONTEST_STATUS_FINISHED: 'finished',
   CONTEST_STATUS_PENDING: 'pending',
+  CONTEST_STATUS_MODERATION: 'moderation',
   CONTESTS_DEFAULT_DIR: 'public/contestFiles/',
   NAME_CONTEST: 'name',
   LOGO_CONTEST: 'logo',

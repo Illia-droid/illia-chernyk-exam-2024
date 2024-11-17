@@ -8,7 +8,6 @@ const Button = (props) => {
     isSelected,
     setSelect,
   } = props;
-  console.log(title);
   const classNames = cx(styles.button, {
     [styles.button__selected]: isSelected,
   });
