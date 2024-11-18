@@ -14,12 +14,12 @@ module.exports.dataForContest = async (req, res, next) => {
     const {
       body: { characteristic1, characteristic2 },
     } = req;
-    console.log(req.body, characteristic1, characteristic2);
+
     const types = [characteristic1, characteristic2, 'industry'].filter(
       Boolean
     );
 
-    const characteristics = await db.Selects.findAll({
+    const characteristics = await db.Select.findAll({
       where: {
         type: {
           [db.Sequelize.Op.or]: types,
@@ -44,35 +44,35 @@ module.exports.dataForContest = async (req, res, next) => {
 
 module.exports.getContestById = async (req, res, next) => {
   try {
-    let contestInfo = await db.Contests.findOne({
+    let contestInfo = await db.Contest.findOne({
       where: { id: req.headers.contestid },
-      order: [[db.Offers, 'id', 'asc']],
+      order: [[db.Offer, 'id', 'asc']],
       include: [
         {
-          model: db.Users,
+          model: db.User,
           required: true,
           attributes: {
             exclude: ['password', 'role', 'balance', 'accessToken'],
           },
         },
         {
-          model: db.Offers,
+          model: db.Offer,
           required: false,
           where:
-            req.tokenData.role === CONSTANTS.CREATOR
+            req.tokenData.role === CONSTANTS.ROLES.CREATOR
               ? { userId: req.tokenData.userId }
               : {},
           attributes: { exclude: ['userId', 'contestId'] },
           include: [
             {
-              model: db.Users,
+              model: db.User,
               required: true,
               attributes: {
                 exclude: ['password', 'role', 'balance', 'accessToken'],
               },
             },
             {
-              model: db.Ratings,
+              model: db.Rating,
               required: false,
               where: { userId: req.tokenData.userId },
               attributes: { exclude: ['userId', 'offerId'] },
@@ -119,7 +119,7 @@ module.exports.updateContest = async (req, res, next) => {
 
 module.exports.setNewOffer = async (req, res, next) => {
   const obj = {};
-  if (req.body.contestType === CONSTANTS.LOGO_CONTEST) {
+  if (req.body.contestType === CONSTANTS.CONTEST_TYPES.LOGO) {
     obj.fileName = req.file.filename;
     obj.originalFileName = req.file.originalname;
   } else {
@@ -168,12 +168,12 @@ const resolveOffer = async (
     {
       status: db.sequelize.literal(`   CASE
             WHEN "id"=${contestId}  AND "orderId"='${orderId}' THEN '${
-        CONSTANTS.CONTEST_STATUS_FINISHED
+        CONSTANTS.CONTEST_STATUSES.FINISHED
       }'
             WHEN "orderId"='${orderId}' AND "priority"=${priority + 1}  THEN '${
-        CONSTANTS.CONTEST_STATUS_ACTIVE
+        CONSTANTS.CONTEST_STATUSES.ACTIVE
       }'
-            ELSE '${CONSTANTS.CONTEST_STATUS_PENDING}'
+            ELSE '${CONSTANTS.CONTEST_STATUSES.PENDING}'
             END
     `),
     },
@@ -254,14 +254,14 @@ module.exports.setOfferStatus = async (req, res, next) => {
 };
 
 module.exports.getCustomersContests = (req, res, next) => {
-  db.Contests.findAll({
+  db.Contest.findAll({
     where: { status: req.headers.status, userId: req.tokenData.userId },
     limit: req.body.limit,
     offset: req.body.offset ? req.body.offset : 0,
     order: [['id', 'DESC']],
     include: [
       {
-        model: db.Offers,
+        model: db.Offer,
         required: false,
         attributes: ['id'],
       },
@@ -288,14 +288,14 @@ module.exports.getContests = (req, res, next) => {
     req.body.industry,
     req.body.awardSort
   );
-  db.Contests.findAll({
+  db.Contest.findAll({
     where: predicates.where,
     order: predicates.order,
     limit: req.body.limit,
     offset: req.body.offset ? req.body.offset : 0,
     include: [
       {
-        model: db.Offers,
+        model: db.Offer,
         required: req.body.ownEntries,
         where: req.body.ownEntries ? { userId: req.tokenData.userId } : {},
         attributes: ['id'],
@@ -323,13 +323,13 @@ module.exports.getAllOffers = async (req, res) => {
     const { page, limit } = req.query;
     const offset = (page - 1) * limit;
 
-    const offersData = await db.Offers.findAndCountAll({
+    const offersData = await db.Offer.findAndCountAll({
       where: { status: 'moderation' },
       limit: parseInt(limit, 10),
       offset: parseInt(offset, 10),
       include: [
         {
-          model: db.Users,
+          model: db.User,
           required: true,
           attributes: {
             exclude: ['password', 'role', 'balance', 'accessToken'],
@@ -355,34 +355,21 @@ module.exports.setModerationOfferStatus = async (req, res) => {
 
   try {
     if (status === 'successful') {
-      const offer = await db.Offers.findOne({ where: { id } });
-
-      if (!offer) {
-        return res.status(404).json({ error: 'Offer not found' });
-      }
-
+      const offer = await db.Offer.findOne({ where: { id } });
       offer.status = 'pending';
       await offer.save();
-
       return res.status(200).json(offer);
     }
 
     if (status === 'decline') {
-      const offer = await db.Offers.findOne({ where: { id } });
-
-      if (!offer) {
-        return res.status(404).json({ error: 'Offer not found' });
-      }
+      const offer = await db.Offer.findOne({ where: { id } });
       offer.status = 'decline';
-   
       await offer.destroy();
-
       return res.status(200).json(offer);
     }
     return res.status(400).json({ error: 'Invalid status' });
   } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: 'Error processing the offer status' });
+    res.status(500).json({ error: 'Error processing the offer status' });
   }
 };
 
@@ -393,4 +380,4 @@ module.exports.sendEmailController = async (req, res) => {
   } catch (error) {
     res.status(500).send('Failed to send email');
   }
-}
+};

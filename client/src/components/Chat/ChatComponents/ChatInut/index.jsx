@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form, Formik } from 'formik';
-import { sendMessage } from '../../../../store/slices/chatSlice';
+import {
+  getPreviewChat,
+  sendMessage,
+} from '../../../../store/slices/chatSlice';
 import FormInput from '../../../FormInput';
 import Schems from '../../../../utils/validators/validationSchems';
 import CONSTANTS from '../../../../constants';
@@ -11,14 +14,13 @@ const { STATIC_IMAGES_PATH } = CONSTANTS;
 
 const ChatInput = () => {
   const dispatch = useDispatch();
-  const { interlocutor } = useSelector((state) => state.chatStore);
-
+  const { interlocutor, chatData } = useSelector((state) => state.chatStore);
   const handleSubmit = (values, { resetForm }) => {
     dispatch(
       sendMessage({
         messageBody: values.message,
-        recipient: interlocutor.id,
-        interlocutor,
+        interlocutorId: interlocutor.id,
+        chatData,
       })
     );
     resetForm();

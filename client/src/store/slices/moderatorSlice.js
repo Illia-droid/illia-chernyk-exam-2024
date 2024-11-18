@@ -41,8 +41,6 @@ const getAllOffersExtraReducers = createExtraReducers({
 export const setModerationOfferStatus = decorateAsyncThunk({
   key: `${MODERATOR_SLICE_NAME}/setModerationOfferStatus`,
   thunk: async (payload) => {
-    console.log(payload);
-
     const { data } = await restController.setModerationOfferStatus(payload);
     await restController.sendEmail(payload);
     return data;

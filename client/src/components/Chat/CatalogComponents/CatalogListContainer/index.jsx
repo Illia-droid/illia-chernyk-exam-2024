@@ -10,8 +10,7 @@ import DialogList from '../../DialogComponents/DialogList';
 const CatalogListContainer = () => {
   const dispatch = useDispatch();
   const { chatStore, userStore } = useSelector((state) => state);
-  const { catalogList, isShowChatsInCatalog, currentCatalog, messagesPreview } =
-    chatStore;
+  const { catalogList, isShowChatsInCatalog, currentCatalog } = chatStore;
   const { id } = userStore.data;
 
   useEffect(() => {
@@ -24,19 +23,10 @@ const CatalogListContainer = () => {
     event.stopPropagation();
   };
 
-  const getDialogsPreview = () => {
-    const chatIds = new Set(currentCatalog.chats);
-    return messagesPreview.filter((message) => chatIds.has(message._id));
-  };
-
   return (
     <>
       {isShowChatsInCatalog ? (
-        <DialogList
-          userId={id}
-          preview={getDialogsPreview()}
-          removeChat={removeChat}
-        />
+        <DialogList userId={id} removeChat={removeChat} />
       ) : (
         <CatalogList catalogList={catalogList} />
       )}

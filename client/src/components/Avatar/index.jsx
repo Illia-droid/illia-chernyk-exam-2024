@@ -6,7 +6,7 @@ const { ANONYM_IMAGE_PATH, publicURL } = CONSTANTS;
 const Avatar = ({ avatar, className }) => {
   return (
     <img
-      src={avatar === 'anon.png' ? ANONYM_IMAGE_PATH : `${publicURL}${avatar}`}
+      src={avatar ? `${publicURL}${avatar}` : ANONYM_IMAGE_PATH}
       alt="user"
       className={className}
     />

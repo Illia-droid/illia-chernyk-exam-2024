@@ -1,7 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import isEqual from 'lodash/isEqual';
-import { goToExpandedDialog } from '../../store/slices/chatSlice';
+import {
+  goToExpandedDialog,
+} from '../../store/slices/chatSlice';
 import styles from './OpenChatButton.module.scss';
 
 const OpenChatButton = ({ User }) => {
@@ -9,17 +11,10 @@ const OpenChatButton = ({ User }) => {
   const { id: authUserId } = useSelector((state) => state.userStore.data);
   const { messagesPreview } = useSelector((state) => state.chatStore);
   const { id: creatorId } = User;
-
-  const firstConversationData = {
-    participants: [authUserId, creatorId],
-    _id: 1,
-    blackList: [false, false],
-    favoriteList: [false, false],
-  };
+  const participants = [authUserId, creatorId];
+  participants.sort((a, b) => a - b);
 
   const findConversationInfo = () => {
-    const participants = [authUserId, creatorId];
-    participants.sort((a, b) => a - b);
     const conversation = messagesPreview.find((message) =>
       isEqual(participants, message.participants)
     );
@@ -31,7 +26,11 @@ const OpenChatButton = ({ User }) => {
           blackList: conversation.blackList,
           favoriteList: conversation.favoriteList,
         }
-      : firstConversationData;
+      : {
+          participants,
+          blackList: [false, false],
+          favoriteList: [false, false],
+        };
   };
 
   const goChat = () => {

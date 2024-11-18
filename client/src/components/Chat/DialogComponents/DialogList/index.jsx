@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   goToExpandedDialog,
   changeShowAddChatToCatalogMenu,
+  getPreviewChat,
 } from '../../../../store/slices/chatSlice';
 import DialogBox from '../DialogBox';
 import CONSTANTS from '../../../../constants';
@@ -14,9 +15,15 @@ const {
   BLOCKED_PREVIEW_CHAT_MODE,
 } = CONSTANTS;
 
-const DialogList = ({ userId, preview, removeChat }) => {
+const DialogList = ({ userId, removeChat }) => {
   const dispatch = useDispatch();
   const { chatMode } = useSelector((state) => state.chatStore);
+  const { messagesPreview } = useSelector((state) => state.chatStore);
+  useEffect(() => {
+    dispatch(getPreviewChat());
+    return () => {};
+  }, []);
+
   const handleExpandedDialog = (data) => dispatch(goToExpandedDialog(data));
   const changeShowCatalogCreation = (event, chatId) => {
     dispatch(changeShowAddChatToCatalogMenu(chatId));
@@ -30,7 +37,7 @@ const DialogList = ({ userId, preview, removeChat }) => {
     chatPreview.blackList[chatPreview.participants.indexOf(userId)];
 
   const renderPreview = (filterFunc) => {
-    const filteredList = preview
+    const filteredList = messagesPreview
       .filter((chatPreview) => !filterFunc || filterFunc(chatPreview, userId))
       .map((chatPreview, index) => (
         <DialogBox

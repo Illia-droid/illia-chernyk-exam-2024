@@ -116,3 +116,4 @@
     e. use lib nodemailer for sending e-mail from moderator to user who created offer with moder`s decision.
 
 26. Refactor models and migrations with sequelize + fix db
+27. Fix chat
