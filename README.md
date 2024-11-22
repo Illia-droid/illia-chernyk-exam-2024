@@ -117,3 +117,7 @@
 
 26. Refactor models and migrations with sequelize + fix db
 27. Fix chat
+
+28. Transferring chats from no-sql db to sql db:
+    * use ORM sequalize for models and migrations for messages, conversation and catalogs tables;
+    * changed controllers for requests to db;  

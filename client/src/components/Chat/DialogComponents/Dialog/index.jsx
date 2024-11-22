@@ -6,6 +6,7 @@ import { getDialogMessages } from '../../../../store/slices/chatSlice';
 import ChatHeader from '../../ChatComponents/ChatHeader';
 import ChatInput from '../../ChatComponents/ChatInut';
 import styles from './Dialog.module.scss';
+import Spinner from '../../../Spinner';
 
 const Dialog = ({ userId }) => {
   const dispatch = useDispatch();
@@ -52,7 +53,9 @@ const Dialog = ({ userId }) => {
     }
     return <span className={styles.messageBlock}>{message}</span>;
   };
-  return (
+  return !messages ? (
+    <Spinner />
+  ) : (
     <>
       <ChatHeader userId={userId} />
       {renderMainDialog()}

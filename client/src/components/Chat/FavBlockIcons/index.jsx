@@ -6,6 +6,7 @@ import {
   changeChatBlock,
 } from '../../../store/slices/chatSlice';
 const FavBlockIcons = ({ userId, chatData }) => {
+  
   const dispatch = useDispatch();
   const { favoriteList, participants, blackList } = chatData;
 

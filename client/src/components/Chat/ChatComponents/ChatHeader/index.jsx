@@ -14,6 +14,7 @@ const ChatHeader = ({ userId }) => {
   const { interlocutor, chatData, isFetching } = useSelector(
     (state) => state.chatStore
   );
+
   const { avatar, firstName } = interlocutor;
   const { favoriteList, participants, blackList } = chatData;
 
@@ -31,14 +32,14 @@ const ChatHeader = ({ userId }) => {
           <Avatar avatar={avatar} />
           <span>{firstName}</span>
         </div>
-        {
+        {chatData.id && (
           <div>
             <FavBlockIcons
               userId={userId}
               chatData={{ favoriteList, participants, blackList }}
             />
           </div>
-        }
+        )}
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ const AddToCatalog = () => {
   const getCatalogsNames = () =>
     catalogList.map((catalog) => catalog.catalogName);
 
-  const getValueArray = () => catalogList.map((catalog) => catalog._id);
+  const getValueArray = () => catalogList.map((catalog) => catalog.id);
 
   const handleSubmit = (values) => {
     dispatch(

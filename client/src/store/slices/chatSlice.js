@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { isEqual, remove } from 'lodash';
+import { isEqual } from 'lodash';
 import * as restController from '../../api/rest/restController';
 import CONSTANTS from '../../constants';
 import {
@@ -43,6 +43,8 @@ export const getPreviewChat = decorateAsyncThunk({
 const getPreviewChatExtraReducers = createExtraReducers({
   thunk: getPreviewChat,
   fulfilledReducer: (state, { payload }) => {
+    console.log('getPreviewChatExtraReducers', payload);
+
     state.messagesPreview = payload;
     state.isFetching = false;
     state.error = null;
@@ -66,13 +68,12 @@ const getDialogMessagesExtraReducers = createExtraReducers({
   thunk: getDialogMessages,
   fulfilledReducer: (state, { payload }) => {
     state.messages = payload.messages;
-
     state.interlocutor = payload.interlocutor;
     state.isFetching = false;
   },
   rejectedReducer: (state, { payload }) => {
     state.messages = [];
-    state.interlocutor = null;
+    state.interlocutor = [];
     state.error = payload;
   },
 });
@@ -158,9 +159,10 @@ export const getCatalogList = decorateAsyncThunk({
 
 const getCatalogListExtraReducers = createExtraReducers({
   thunk: getCatalogList,
+  pendingReducer,
   fulfilledReducer: (state, { payload }) => {
-    state.isFetching = false;
     state.catalogList = [...payload];
+    state.isFetching = false;
   },
   rejectedReducer,
 });
@@ -228,12 +230,10 @@ export const deleteCatalog = decorateAsyncThunk({
 const deleteCatalogExtraReducers = createExtraReducers({
   thunk: deleteCatalog,
   fulfilledReducer: (state, { payload }) => {
-    const { catalogList } = state;
-    const newCatalogList = remove(
-      catalogList,
-      (catalog) => payload.catalogId !== catalog._id
+    const { catalogId } = payload;
+    state.catalogList = state.catalogList.filter(
+      (catalog) => catalogId !== catalog.id
     );
-    state.catalogList = [...newCatalogList];
     state.isFetching = false;
   },
   rejectedReducer: (state, { payload }) => {
@@ -253,15 +253,7 @@ export const removeChatFromCatalog = decorateAsyncThunk({
 const removeChatFromCatalogExtraReducers = createExtraReducers({
   thunk: removeChatFromCatalog,
   fulfilledReducer: (state, { payload }) => {
-    const { catalogList } = state;
-    for (let i = 0; i < catalogList.length; i++) {
-      if (catalogList[i]._id === payload._id) {
-        catalogList[i].chats = payload.chats;
-        break;
-      }
-    }
     state.currentCatalog = payload;
-    state.catalogList = [...catalogList];
     state.isFetching = false;
   },
   rejectedReducer: (state, { payload }) => {
@@ -283,7 +275,7 @@ const changeCatalogNameExtraReducers = createExtraReducers({
   fulfilledReducer: (state, { payload }) => {
     const { catalogList } = state;
     for (let i = 0; i < catalogList.length; i++) {
-      if (catalogList[i]._id === payload._id) {
+      if (catalogList[i].id === payload.id) {
         catalogList[i].catalogName = payload.catalogName;
         break;
       }
@@ -333,7 +325,7 @@ const reducers = {
   },
 
   goToExpandedDialog: (state, { payload }) => {
-    state.interlocutor = { ...state.interlocutor, ...payload.interlocutor };
+    state.interlocutor = payload.interlocutor;
     state.chatData = payload.conversationData;
     state.isShow = true;
     state.isExpanded = true;

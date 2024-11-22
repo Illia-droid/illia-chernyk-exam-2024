@@ -5,6 +5,7 @@ import {
   changeShowModeCatalog,
   changeRenameCatalogMode,
   changeCatalogName,
+  getCatalogList,
 } from '../../../../store/slices/chatSlice';
 import FormInput from '../../../FormInput';
 import Schems from '../../../../utils/validators/validationSchems';
@@ -15,14 +16,17 @@ const CatalogListHeader = () => {
   const { isRenameCatalog, currentCatalog } = useSelector(
     (state) => state.chatStore
   );
-  const { catalogName, _id } = currentCatalog;
+  const { catalogName, id } = currentCatalog;
 
   const handleSubmit = (values) => {
     dispatch(
-      changeCatalogName({ catalogName: values.catalogName, catalogId: _id })
+      changeCatalogName({ catalogName: values.catalogName, catalogId: id })
     );
   };
-  const closeChangeModeCatalog = () => dispatch(changeShowModeCatalog());
+  const closeChangeModeCatalog = () => {
+    dispatch(getCatalogList());
+    dispatch(changeShowModeCatalog());
+  };
   const renameCatalogMode = () => dispatch(changeRenameCatalogMode());
 
   return (
@@ -56,7 +60,9 @@ const CatalogListHeader = () => {
                 type="text"
                 label="Catalog Name"
               />
-              <button className={styles.submitButton} type="submit">Change</button>
+              <button className={styles.submitButton} type="submit">
+                Change
+              </button>
             </Form>
           </Formik>
         </div>

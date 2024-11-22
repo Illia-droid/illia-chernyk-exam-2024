@@ -8,6 +8,7 @@ import {
 import DialogBox from '../DialogBox';
 import CONSTANTS from '../../../../constants';
 import styles from './DialogList.module.scss';
+import Spinner from '../../../Spinner';
 
 const {
   CATALOG_PREVIEW_CHAT_MODE,
@@ -15,14 +16,16 @@ const {
   BLOCKED_PREVIEW_CHAT_MODE,
 } = CONSTANTS;
 
-const DialogList = ({ userId, removeChat }) => {
+const DialogList = (props) => {
   const dispatch = useDispatch();
   const { chatMode } = useSelector((state) => state.chatStore);
-  const { messagesPreview } = useSelector((state) => state.chatStore);
+  const { messagesPreview, isFetching } = useSelector(
+    (state) => state.chatStore
+  );
+
   useEffect(() => {
     dispatch(getPreviewChat());
-    return () => {};
-  }, []);
+  }, [messagesPreview.length]);
 
   const handleExpandedDialog = (data) => dispatch(goToExpandedDialog(data));
   const changeShowCatalogCreation = (event, chatId) => {
@@ -37,13 +40,16 @@ const DialogList = ({ userId, removeChat }) => {
     chatPreview.blackList[chatPreview.participants.indexOf(userId)];
 
   const renderPreview = (filterFunc) => {
-    const filteredList = messagesPreview
-      .filter((chatPreview) => !filterFunc || filterFunc(chatPreview, userId))
-      .map((chatPreview, index) => (
+    const arrayList = [];
+    const { userId, preview, removeChat } = props;
+
+    preview.forEach((chatPreview, index) => {
+      const dialogNode = (
         <DialogBox
-          key={index}
+          interlocutor={chatPreview.interlocutor}
           chatPreview={chatPreview}
           userId={userId}
+          key={index}
           chatMode={chatMode}
           catalogOperation={
             chatMode === CATALOG_PREVIEW_CHAT_MODE
@@ -52,9 +58,16 @@ const DialogList = ({ userId, removeChat }) => {
           }
           goToExpandedDialog={handleExpandedDialog}
         />
-      ));
-    return filteredList.length ? (
-      filteredList
+      );
+      if (filterFunc && filterFunc(chatPreview, userId)) {
+        arrayList.push(dialogNode);
+      } else if (!filterFunc) {
+        arrayList.push(dialogNode);
+      }
+    });
+
+    return arrayList.length ? (
+      arrayList
     ) : (
       <span className={styles.notFound}>Not found</span>
     );
@@ -68,7 +81,11 @@ const DialogList = ({ userId, removeChat }) => {
     return renderPreview(filterMap[chatMode]);
   };
 
-  return <div className={styles.previewContainer}>{renderChatPreview()}</div>;
+  return isFetching ? (
+    <Spinner />
+  ) : (
+    <div className={styles.previewContainer}>{renderChatPreview()}</div>
+  );
 };
 
 export default DialogList;

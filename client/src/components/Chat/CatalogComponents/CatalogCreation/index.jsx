@@ -26,7 +26,9 @@ const CatalogCreation = () => {
   );
 
   useEffect(() => {
-    dispatch(getCatalogList()); //eslint-disable-next-line
+    return () => {
+      dispatch(getCatalogList());
+    };
   }, []);
 
   const closeAddChatToCatalogMenu = () =>

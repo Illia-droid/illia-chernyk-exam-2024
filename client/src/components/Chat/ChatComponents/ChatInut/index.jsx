@@ -15,6 +15,7 @@ const { STATIC_IMAGES_PATH } = CONSTANTS;
 const ChatInput = () => {
   const dispatch = useDispatch();
   const { interlocutor, chatData } = useSelector((state) => state.chatStore);
+
   const handleSubmit = (values, { resetForm }) => {
     dispatch(
       sendMessage({

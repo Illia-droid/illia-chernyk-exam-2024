@@ -15,15 +15,10 @@ const DialogBox = ({
   goToExpandedDialog,
   chatMode,
 }) => {
-  const {
-    favoriteList,
-    participants,
-    blackList,
-    _id,
-    text,
-    createAt,
-    interlocutor,
-  } = chatPreview;
+  const { Messages, interlocutor, favoriteList, participants, blackList, id } =
+    chatPreview;
+
+  const [{ body, createdAt }] = Messages;
 
   const className = classNames(
     chatMode === CATALOG_PREVIEW_CHAT_MODE
@@ -35,12 +30,12 @@ const DialogBox = ({
       interlocutor,
       conversationData: {
         participants,
-        _id,
+        id,
         blackList,
         favoriteList,
       },
     });
-  const handleCatalogOperation = (event) => catalogOperation(event, _id);
+  const handleCatalogOperation = (event) => catalogOperation(event, id);
 
   return (
     <div className={styles.previewChatBox} onClick={handleExtendedDIalog}>
@@ -50,10 +45,10 @@ const DialogBox = ({
           <span className={styles.interlocutorName}>
             {interlocutor.firstName}
           </span>
-          <span className={styles.interlocutorMessage}>{text}</span>
+          <span className={styles.interlocutorMessage}>{body}</span>
         </div>
         <div className={styles.buttonsContainer}>
-          <span className={styles.time}>{getMessageTimeStr(createAt)}</span>
+          <span className={styles.time}>{getMessageTimeStr(createdAt)}</span>
           <FavBlockIcons
             userId={userId}
             chatData={{ favoriteList, participants, blackList }}

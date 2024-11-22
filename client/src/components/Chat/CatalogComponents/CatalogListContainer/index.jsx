@@ -6,27 +6,48 @@ import {
 } from '../../../../store/slices/chatSlice';
 import CatalogList from '../CatalogList';
 import DialogList from '../../DialogComponents/DialogList';
+import Spinner from '../../../Spinner';
 
 const CatalogListContainer = () => {
   const dispatch = useDispatch();
   const { chatStore, userStore } = useSelector((state) => state);
-  const { catalogList, isShowChatsInCatalog, currentCatalog } = chatStore;
+  const {
+    catalogList,
+    isShowChatsInCatalog,
+    currentCatalog,
+    messagesPreview,
+    isFetching,
+  } = chatStore;
+
   const { id } = userStore.data;
 
   useEffect(() => {
     dispatch(getCatalogList());
-  }, [dispatch]);
+  }, [catalogList.length]);
 
   const removeChat = (event, chatId) => {
-    const { _id } = currentCatalog;
-    dispatch(removeChatFromCatalog({ chatId, catalogId: _id }));
+    const { id } = currentCatalog;
+    dispatch(removeChatFromCatalog({ chatId, catalogId: id }));
     event.stopPropagation();
   };
 
-  return (
+  const getDialogsPreview = () => {
+    const { chats } = currentCatalog;
+    return messagesPreview.filter(
+      (message) => chats && chats.some((chat) => chat.id === message.id)
+    );
+  };
+
+  return isFetching ? (
+    <Spinner />
+  ) : (
     <>
       {isShowChatsInCatalog ? (
-        <DialogList userId={id} removeChat={removeChat} />
+        <DialogList
+          userId={id}
+          removeChat={removeChat}
+          preview={getDialogsPreview()}
+        />
       ) : (
         <CatalogList catalogList={catalogList} />
       )}
