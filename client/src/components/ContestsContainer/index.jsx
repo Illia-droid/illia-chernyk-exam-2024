@@ -1,12 +1,10 @@
 import React, { useRef, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Spinner from '../Spinner';
 import styles from './ContestContainer.module.scss';
 import ContestBox from './ContestBox';
-import { clearContestsList } from '../../store/slices/contestsSlice';
 
 const ContestsContainer = ({ isFetching, loadMore, haveMore, history }) => {
-  const dispatch = useDispatch();
   const { contests } = useSelector((state) => state.contestsList);
   const observerRef = useRef();
 
@@ -27,8 +25,7 @@ const ContestsContainer = ({ isFetching, loadMore, haveMore, history }) => {
       if (currentObserverRef) {
         observer.unobserve(currentObserverRef);
       }
-      // dispatch(clearContestsList());
-    };
+    }; //eslint-disable-next-line
   }, [contests.length, haveMore, loadMore]);
 
   return (

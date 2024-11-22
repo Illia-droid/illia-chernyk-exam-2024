@@ -3,6 +3,7 @@
 
 .mainContainer {
   @include flexCenter;
+  align-items: flex-start;
   width: auto;
   margin: 0 25px;
   margin-top: 50px;

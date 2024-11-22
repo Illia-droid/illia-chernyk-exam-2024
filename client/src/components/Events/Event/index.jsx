@@ -4,7 +4,6 @@ import moment from 'moment';
 import { deleteEvent, setIsExpired } from '../../../store/slices/eventsSlice';
 import styles from './Event.module.scss';
 
-
 const formatSeconds = (seconds) => {
   let days = Math.floor(seconds / (3600 * 24));
   let hours = Math.floor((seconds % (3600 * 24)) / 3600);
@@ -37,6 +36,10 @@ const Event = ({
   const dispatch = useDispatch();
 
   useEffect(() => {
+    const timerInterval = setInterval(() => {
+      setDifference((prevDifference) => prevDifference - 1);
+    }, 1000);
+    
     if (difference <= 0) {
       clearInterval(timerInterval);
       return null;
@@ -44,9 +47,7 @@ const Event = ({
     if (!isExpired && difference <= userHours * 3600) {
       dispatch(setIsExpired({ id }));
     }
-    const timerInterval = setInterval(() => {
-      setDifference((prevDifference) => prevDifference - 1);
-    }, 1000);
+
     return () => {
       clearInterval(timerInterval);
     };

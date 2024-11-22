@@ -29,7 +29,7 @@ const CatalogCreation = () => {
     return () => {
       dispatch(getCatalogList());
     };
-  }, []);
+  }, [dispatch]);
 
   const closeAddChatToCatalogMenu = () =>
     dispatch(changeShowAddChatToCatalogMenu());

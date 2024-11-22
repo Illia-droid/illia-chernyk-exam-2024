@@ -18,8 +18,7 @@ const CatalogList = () => {
     if (!catalogList) {
       dispatch(getCatalogList());
     }
-
-    return () => {};
+    //eslint-disable-next-line
   }, []);
   const goToCatalog = (event, catalog) => {
     dispatch(changeShowModeCatalog(catalog));

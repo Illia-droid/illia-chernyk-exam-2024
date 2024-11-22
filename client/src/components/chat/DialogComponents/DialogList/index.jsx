@@ -25,6 +25,7 @@ const DialogList = (props) => {
 
   useEffect(() => {
     dispatch(getPreviewChat());
+    //eslint-disable-next-line
   }, [messagesPreview.length]);
 
   const handleExpandedDialog = (data) => dispatch(goToExpandedDialog(data));
@@ -43,7 +44,7 @@ const DialogList = (props) => {
     const arrayList = [];
     const { userId, preview, removeChat } = props;
 
-    preview.forEach((chatPreview, index) => {
+    preview.map((chatPreview, index) => {
       const dialogNode = (
         <DialogBox
           interlocutor={chatPreview.interlocutor}
@@ -64,6 +65,7 @@ const DialogList = (props) => {
       } else if (!filterFunc) {
         arrayList.push(dialogNode);
       }
+      return arrayList;
     });
 
     return arrayList.length ? (

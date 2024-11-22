@@ -9,7 +9,7 @@ const BottomBlock = () => {
           <div className={styles.leftBlock}>
             <div className={styles.allright}>Copyright © 2024 Atom.com </div>
             <div className={styles.dot}></div>
-            <a href="#" className={styles.tdPreferences}>
+            <a href="/how-it-works" className={styles.tdPreferences}>
               Consent Preferences
             </a>
           </div>
@@ -19,7 +19,7 @@ const BottomBlock = () => {
               className={styles.approved}
               href="https://www.trustpilot.com/review/atom.com"
               target="_blank"
-              rel="nopener"
+              rel="noreferrer"
             >
               <div className={styles.paymentMethod}>
                 <div className={styles.trustPilot}>
@@ -39,12 +39,12 @@ const BottomBlock = () => {
                 <div className={styles.footerRatings}>
                   <div className={styles.basedOn}>
                     <div>
-                      <strong itemprop="ratingValue">
-                        4.7 /<span itemprop="bestRating">5</span>
+                      <strong itemProp="ratingValue">
+                        4.7 /<span itemProp="bestRating">5</span>
                       </strong>
                     </div>
                     <p>
-                      based on <span itemprop="ratingCount"> 345 ratings</span>
+                      based on <span itemProp="ratingCount"> 345 ratings</span>
                     </p>
                   </div>
                 </div>
@@ -54,34 +54,44 @@ const BottomBlock = () => {
           <div className={styles.social}>
             <a
               href="https://www.facebook.com/atomdotcom"
+              rel="noreferrer"
               aria-label="Facebook"
               target="_blank"
-              className={styles.facebook}
-            ></a>
+            >
+              <div className={styles.facebook}></div>
+            </a>
             <a
               href="https://twitter.com/squadhelp"
+              rel="noreferrer"
               aria-label="Twitter"
               target="_blank"
-              className={styles.twitter}
-            ></a>
+            >
+              <div className={styles.twitter}></div>
+            </a>
             <a
               href="https://www.instagram.com/workwithatom/"
+              rel="noreferrer"
               aria-label="Instagram"
               target="_blank"
-              className={styles.instagam}
-            ></a>
+            >
+              <div className={styles.instagam}></div>
+            </a>
             <a
               href="https://www.linkedin.com/company/atomdotcom/"
+              rel="noreferrer"
               aria-label="LinkedIn"
               target="_blank"
-              className={styles.in}
-            ></a>
+            >
+              <div className={styles.in}></div>
+            </a>
             <a
               href="https://www.youtube.com/@atomdotcom"
+              rel="noreferrer"
               aria-label="YouTube"
               target="_blank"
-              className={styles.youtube}
-            ></a>
+            >
+              <div className={styles.youtube}></div>
+            </a>
           </div>
         </div>
       </div>

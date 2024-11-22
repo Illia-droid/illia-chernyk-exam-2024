@@ -1,10 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form, Formik } from 'formik';
-import {
-  getPreviewChat,
-  sendMessage,
-} from '../../../../store/slices/chatSlice';
+import { sendMessage } from '../../../../store/slices/chatSlice';
 import FormInput from '../../../forms/FormInput';
 import Schems from '../../../../utils/validators/validationSchems';
 import CONSTANTS from '../../../../constants';

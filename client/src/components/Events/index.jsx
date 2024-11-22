@@ -4,7 +4,7 @@ import Event from './Event';
 import styles from './Events.module.scss';
 
 const Events = () => {
-  const { events, expiredEvents } = useSelector((state) => state.events);
+  const { events } = useSelector((state) => state.events);
   const renderEvents = (event) => <Event key={event.id} event={event} />;
   const sortedArray = [...events].sort(
     (a, b) => new Date(a.deadline) - new Date(b.deadline)

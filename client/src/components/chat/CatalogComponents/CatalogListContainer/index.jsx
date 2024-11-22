@@ -23,7 +23,7 @@ const CatalogListContainer = () => {
 
   useEffect(() => {
     dispatch(getCatalogList());
-  }, [catalogList.length]);
+  }, [dispatch, catalogList.length]);
 
   const removeChat = (event, chatId) => {
     const { id } = currentCatalog;

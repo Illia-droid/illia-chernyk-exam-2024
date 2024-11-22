@@ -3,10 +3,10 @@ import styles from "./SearchBlock.module.scss";
 
 const SearchBlock = () => {
   return (
-    <section class={styles.SearchBlock}>
-      <div class={styles.container}>
-        <div class={styles.searchForm}>
-          <div class={styles.icon}></div>
+    <section className={styles.SearchBlock}>
+      <div className={styles.container}>
+        <div className={styles.searchForm}>
+          <div className={styles.icon}></div>
           <input
             name="search_field"
             type="text"
@@ -17,7 +17,7 @@ const SearchBlock = () => {
           </button>
         </div>
 
-        <div class={styles.listTags}>
+        <div className={styles.listTags}>
           <span>Popular searches</span>
           <a href="https://www.atom.com/premium-domains-for-sale/for/technology">
             Tech

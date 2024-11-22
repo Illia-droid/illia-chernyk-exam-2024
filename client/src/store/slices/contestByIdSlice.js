@@ -93,6 +93,7 @@ const setOfferStatusExtraReducers = createExtraReducers({
       } else if (payload.id === offer.id) {
         offer.status = REJECTED;
       }
+      return state.offers;
     });
     state.error = null;
   },
