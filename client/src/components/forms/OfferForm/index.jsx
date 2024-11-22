@@ -4,13 +4,13 @@ import { Formik, Form } from 'formik';
 import {
   addOffer,
   clearAddOfferError,
-} from '../../store/slices/contestByIdSlice';
-import Error from '../Error';
-import ImageUpload from '../InputComponents/ImageUpload';
-import FormInput from '../FormInput';
+} from '../../../store/slices/contestByIdSlice';
+import Error from '../../Error';
+import ImageUpload from '../../InputComponents/ImageUpload';
+import FormInput from '../../forms/FormInput';
 import styles from './OfferForm.module.scss';
-import Schems from '../../utils/validators/validationSchems';
-import CONTANTS from '../../constants';
+import Schems from '../../../utils/validators/validationSchems';
+import CONTANTS from '../../../constants';
 
 const OfferForm = ({ contestId, contestType, customerId }) => {
   const dispatch = useDispatch();

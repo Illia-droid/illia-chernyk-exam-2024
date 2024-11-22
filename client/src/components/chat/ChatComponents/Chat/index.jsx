@@ -14,7 +14,7 @@ import Dialog from '../../DialogComponents/Dialog';
 import CatalogListContainer from '../../CatalogComponents/CatalogListContainer';
 import CatalogCreation from '../../CatalogComponents/CatalogCreation';
 import CatalogListHeader from '../../CatalogComponents/CatalogListHeader';
-import ChatError from '../../../ChatError';
+import ChatError from '../../../chat/ChatError';
 import CONSTANTS from '../../../../constants';
 import styles from './Chat.module.scss';
 

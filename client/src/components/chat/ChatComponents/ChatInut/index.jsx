@@ -5,7 +5,7 @@ import {
   getPreviewChat,
   sendMessage,
 } from '../../../../store/slices/chatSlice';
-import FormInput from '../../../FormInput';
+import FormInput from '../../../forms/FormInput';
 import Schems from '../../../../utils/validators/validationSchems';
 import CONSTANTS from '../../../../constants';
 import styles from './ChatInput.module.scss';

@@ -20,7 +20,9 @@
   }
 
   .filterContainer {
-    @include flexCenter(column);
+    display: flex;
+    flex-direction: column;
+    align-items: s;
     height: fit-content;
     margin-right: 25px;
     box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.1);
@@ -33,7 +35,8 @@
 
     .headerFilter {
       display: inline-block;
-      align-self: stretch;
+      justify-content: flex-start;
+      align-items: flex-start;
       padding: 25px;
       font-size: 22px;
       font-weight: 600;
@@ -47,7 +50,10 @@
     }
 
     .inputsContainer {
-      @include flexCenter(column);
+      display: flex;
+      flex-direction: column;
+      align-content: flex-start;
+      justify-content: flex-start;
       padding: 25px;
       background-color: $whiteColor;
 
@@ -99,7 +105,10 @@
       }
 
       .inputContainer {
-        @include flexCenter(column);
+        display: flex;
+        flex-direction: column;
+        align-content: flex-start;
+        justify-content: flex-start;
         height: 50px;
         margin-bottom: 25px;
 

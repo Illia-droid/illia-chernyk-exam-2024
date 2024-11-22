@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Field, Form, Formik } from 'formik';
-import { checkAuth, clearAuth } from '../../store/slices/authSlice';
-import Error from '../Error';
+import { checkAuth, clearAuth } from '../../../store/slices/authSlice';
+import Error from '../../Error';
 import FormInput from '../FormInput';
 import RoleInput from '../RoleInput';
 import AgreeTermOfServiceInput from '../AgreeTermOfServiceInput';
-import CONSTANTS from '../../constants';
-import Schems from '../../utils/validators/validationSchems';
+import CONSTANTS from '../../../constants';
+import Schems from '../../../utils/validators/validationSchems';
 import styles from './RegistrationForm.module.scss';
 
 const {

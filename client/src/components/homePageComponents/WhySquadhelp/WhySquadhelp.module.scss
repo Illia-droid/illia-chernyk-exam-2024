@@ -1,18 +1,5 @@
 @use '/src/common/styles/colors' as *;
 @use '/src/common/styles/mixins' as *;
-.cardContainer {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100vh;
-
-  @media screen and (max-width: 720px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-  }
-}
 
 .container__description {
   display: flex;
@@ -20,21 +7,29 @@
   justify-content: flex-start;
   align-items: center;
 
-  h2 {
+  .blueUnderline {
+    @include underline;
     text-align: center;
     font-family: Raleway, sans-serif;
     margin: 30px 0;
     font-size: 30px;
     font-weight: 500;
+    &:after {
+      background: $blueGrayColor;
+    }
   }
 }
 
+.cardContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
 
-
-.blueUnderline {
-  @include underline;
-
-  &:after {
-    background: $blueGrayColor;
+  @media screen and (max-width: 720px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
   }
 }

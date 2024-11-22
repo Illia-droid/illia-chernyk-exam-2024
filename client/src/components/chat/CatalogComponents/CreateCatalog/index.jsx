@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form } from 'formik';
 import { createCatalog } from '../../../../store/slices/chatSlice';
-import FormInput from '../../../FormInput';
+import FormInput from '../../../forms/FormInput';
 import Schems from '../../../../utils/validators/validationSchems';
 import styles from './CreateCatalog.module.scss';
 

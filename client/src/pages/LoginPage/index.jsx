@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { clearAuthError } from '../../store/slices/authSlice';
-import LoginForm from '../../components/LoginForm';
+import LoginForm from '../../components/forms/LoginForm';
 import Logo from '../../components/Logo';
 import CONSTANTS from '../../constants';
 import styles from './LoginPage.module.scss';

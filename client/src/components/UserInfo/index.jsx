@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUser } from '../../store/slices/userSlice';
 import { changeEditModeOnUserProfile } from '../../store/slices/userProfileSlice';
-import UpdateUserInfoForm from '../UpdateUserInfoForm';
+import UpdateUserInfoForm from '../forms/UpdateUserInfoForm';
 import Avatar from '../Avatar';
 import CONSTANTS from '../../constants';
 import styles from './UserInfo.module.scss';

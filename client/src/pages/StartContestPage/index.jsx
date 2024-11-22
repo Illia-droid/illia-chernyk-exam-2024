@@ -6,7 +6,7 @@ import BundleBox from '../../components/BundleBox';
 import Footer from '../../components/Footer';
 import ProgressBar from '../../components/ProgressBar';
 import Header from '../../components/Header';
-import ButtonsGroup from '../../components/ButtonsGroup';
+import ButtonsGroup from '../../components/buttons/ButtonsGroup';
 import CONSTANTS from '../../constants';
 import styles from './StartContestPage.module.scss';
 import dataBundleBox from './dataBundleBox.json';

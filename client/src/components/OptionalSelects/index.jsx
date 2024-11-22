@@ -1,10 +1,10 @@
 import React from 'react';
 
-import SelectInput from '../SelectInput';
-import FormInput from '../FormInput';
+import SelectInput from '../forms/SelectInput';
+import FormInput from '../forms/FormInput';
 import Spinner from '../Spinner';
 import CONSTANTS from '../../constants';
-import styles from '../ContestForm/ContestForm.module.scss';
+import styles from '../forms/ContestForm/ContestForm.module.scss';
 
 const { NAME_CONTEST, LOGO_CONTEST, TAGLINE_CONTEST } = CONSTANTS;
 

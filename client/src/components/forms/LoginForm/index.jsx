@@ -2,14 +2,14 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form, Formik } from 'formik';
 
-import { checkAuth, clearAuth } from '../../store/slices/authSlice';
+import { checkAuth, clearAuth } from '../../../store/slices/authSlice';
 
 import FormInput from '../FormInput';
-import Error from '../Error';
+import Error from '../../Error';
 
-import Schems from '../../utils/validators/validationSchems';
+import Schems from '../../../utils/validators/validationSchems';
 import styles from './LoginForm.module.scss';
-import CONSTANTS from '../../constants';
+import CONSTANTS from '../../../constants';
 
 const { AUTH_MODE } = CONSTANTS;
 

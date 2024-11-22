@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { clearAuthError } from '../../store/slices/authSlice';
 import Logo from '../../components/Logo';
-import RegistrationForm from '../../components/RegistrationForm';
+import RegistrationForm from '../../components/forms/RegistrationForm';
 import CONSTANTS from '../../constants';
 import styles from './RegistrationPage.module.scss';
 import data from './data.json';

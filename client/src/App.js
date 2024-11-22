@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { withAuth, withNotAuth } from './components/HOCs';
 import NotFound from './components/NotFound';
-import ChatContainer from './components/Chat/ChatComponents/ChatContainer';
+import ChatContainer from './components/chat/ChatComponents/ChatContainer';
 import RegistrationPage from './pages/RegistrationPage';
 import Payment from './pages/Payment';
 import StartContestPage from './pages/StartContestPage';

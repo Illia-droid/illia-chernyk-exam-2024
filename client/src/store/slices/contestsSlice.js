@@ -18,7 +18,7 @@ const initialState = {
     awardSort: 'asc',
     ownEntries: false,
   },
-  haveMore: true,
+  haveMore: false,
 };
 
 export const getContests = decorateAsyncThunk({
@@ -39,22 +39,22 @@ const reducers = {
   },
   setNewCustomerFilter: (state, { payload }) => ({
     ...initialState,
-    isFetching: false,
     customerFilter: payload,
+    isFetching: false,
   }),
   setNewCreatorFilter: (state, { payload }) => ({
     ...initialState,
-    isFetching: false,
     creatorFilter: { ...state.creatorFilter, ...payload },
+    isFetching: false,
   }),
 };
 
 const extraReducers = (builder) => {
   builder.addCase(getContests.pending, pendingReducer);
   builder.addCase(getContests.fulfilled, (state, { payload }) => {
-    state.isFetching = false;
     state.contests = [...state.contests, ...payload.contests];
     state.haveMore = payload.haveMore;
+    state.isFetching = false;
   });
   builder.addCase(getContests.rejected, (state, { payload }) => {
     state.isFetching = false;

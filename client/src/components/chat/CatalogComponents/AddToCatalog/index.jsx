@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form } from 'formik';
 import { addChatToCatalog } from '../../../../store/slices/chatSlice';
-import SelectInput from '../../../SelectInput';
+import SelectInput from '../../../forms/SelectInput';
 import styles from './AddToCatalog.module.scss';
 
 const AddToCatalog = () => {

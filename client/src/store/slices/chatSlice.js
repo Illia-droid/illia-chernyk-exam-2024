@@ -43,8 +43,6 @@ export const getPreviewChat = decorateAsyncThunk({
 const getPreviewChatExtraReducers = createExtraReducers({
   thunk: getPreviewChat,
   fulfilledReducer: (state, { payload }) => {
-    console.log('getPreviewChatExtraReducers', payload);
-
     state.messagesPreview = payload;
     state.isFetching = false;
     state.error = null;

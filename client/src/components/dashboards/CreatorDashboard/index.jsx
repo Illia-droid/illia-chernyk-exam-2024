@@ -28,13 +28,11 @@ const types = [
 ];
 const CreatorDashboard = ({ history, location }) => {
   const dispatch = useDispatch();
-  const fetchContests = (data) =>
-    dispatch(getContests({ requestData: data, role: CREATOR }));
+
   const { contests, creatorFilter, haveMore, error, isFetching } = useSelector(
     (state) => state.contestsList
   );
   const { data } = useSelector((state) => state.dataForContest);
-
   useEffect(() => {
     if (!data) {
       dispatch(getDataForContest());
@@ -45,6 +43,10 @@ const CreatorDashboard = ({ history, location }) => {
       dispatch(clearContestsList());
     }; //eslint-disable-next-line
   }, [location.search]);
+
+  const fetchContests = (data) => {
+    dispatch(getContests({ requestData: data, role: CREATOR }));
+  };
 
   const renderSelectType = () => (
     <select

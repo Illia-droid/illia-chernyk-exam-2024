@@ -4,9 +4,9 @@ import { cashOut, clearPaymentStore } from '../../store/slices/paymentSlice';
 import { changeProfileViewMode } from '../../store/slices/userProfileSlice';
 import Header from '../../components/Header';
 import UserInfo from '../../components/UserInfo';
-import PayForm from '../../components/PayForm';
+import PayForm from '../../components/forms/PayForm';
 import Error from '../../components/Error';
-import OptionButton from '../../components/OptionButton';
+import OptionButton from '../../components/buttons/OptionButton';
 import CONSTANTS from '../../constants';
 import styles from './UserProfile.module.scss';
 

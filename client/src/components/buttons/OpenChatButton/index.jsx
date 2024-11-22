@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import isEqual from 'lodash/isEqual';
-import { goToExpandedDialog } from '../../store/slices/chatSlice';
+import { goToExpandedDialog } from '../../../store/slices/chatSlice';
 import styles from './OpenChatButton.module.scss';
 
 const OpenChatButton = ({ User }) => {

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
 import { pay, clearPaymentStore } from '../../store/slices/paymentSlice';
-import PayForm from '../../components/PayForm';
+import PayForm from '../../components/forms/PayForm';
 import Error from '../../components/Error';
 import Logo from '../../components/Logo';
 import CONSTANTS from '../../constants';

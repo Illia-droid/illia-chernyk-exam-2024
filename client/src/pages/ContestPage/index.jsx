@@ -14,12 +14,12 @@ import {
 import Header from '../../components/Header';
 import ContestSideBar from '../../components/ContestSideBar';
 import OfferBox from '../../components/OfferBox';
-import OfferForm from '../../components/OfferForm';
+import OfferForm from '../../components/forms/OfferForm';
 import Brief from '../../components/Brief';
 import Spinner from '../../components/Spinner';
 import TryAgain from '../../components/TryAgain';
 import Error from '../../components/Error';
-import OptionButton from '../../components/OptionButton';
+import OptionButton from '../../components/buttons/OptionButton';
 import CONSTANTS from '../../constants';
 import styles from './ContestPage.module.scss';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import LogoContestSpecialInfo from './LogoContestSpecialInfo';
 import NameContestSpecialInfo from './NameContestSpecialInfo';
 import TaglineContestSpecialInfo from './TaglineContestSpecialInfo';
-import OpenChatButton from '../../OpenChatButton';
+import OpenChatButton from '../../buttons/OpenChatButton';
 import CONSTANTS from '../../../constants';
 import styles from './ContestInfo.module.scss';
 

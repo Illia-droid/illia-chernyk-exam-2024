@@ -1,12 +1,13 @@
 @use '/src/common/styles/colors' as *;
 @use '/src/common/styles/breakpoints' as *;
+
 .card {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  max-width: 300px;
-  margin: 40px 40px 40px 0;
+  width: 25vw;
+  margin: 40px 0;
   font-family: 'Raleway', sans-serif;
 
   h3 {
@@ -24,6 +25,7 @@
 
   img {
     max-height: 85px;
+    margin: auto;
   }
 
   &:last-child {
@@ -31,7 +33,7 @@
   }
 
   @media screen and (max-width: $tablet) {
-    max-width: 100%;
+    width: 90%;
     margin: 40px;
   }
 

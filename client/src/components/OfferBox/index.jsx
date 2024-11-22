@@ -9,7 +9,7 @@ import {
   clearChangeMarkError,
   changeShowImage,
 } from '../../store/slices/contestByIdSlice';
-import OpenChatButton from '../OpenChatButton';
+import OpenChatButton from '../buttons/OpenChatButton';
 import Avatar from '../Avatar';
 import CONSTANTS from '../../constants';
 import styles from './OfferBox.module.scss';

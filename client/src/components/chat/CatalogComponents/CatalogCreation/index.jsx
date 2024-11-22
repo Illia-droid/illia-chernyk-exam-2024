@@ -10,7 +10,7 @@ import AddToCatalog from '../AddToCatalog';
 import CreateCatalog from '../CreateCatalog';
 import CONSTANTS from '../../../../constants';
 import styles from './CatalogCreation.module.scss';
-import OptionButton from '../../../OptionButton';
+import OptionButton from '../../../buttons/OptionButton';
 
 const { ADD_CHAT_TO_OLD_CATALOG, CREATE_NEW_CATALOG_AND_ADD_CHAT } = CONSTANTS;
 

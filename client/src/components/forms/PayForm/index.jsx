@@ -3,10 +3,10 @@ import { useDispatch } from 'react-redux';
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css';
 import { Form, Formik } from 'formik';
-import { changeFocusOnCard } from '../../store/slices/paymentSlice';
-import PayInput from '../InputComponents/PayInput';
-import BackButton from '../BackButton';
-import Schems from '../../utils/validators/validationSchems';
+import { changeFocusOnCard } from '../../../store/slices/paymentSlice';
+import PayInput from '../../InputComponents/PayInput';
+import BackButton from '../../buttons/BackButton';
+import Schems from '../../../utils/validators/validationSchems';
 import styles from './PayForm.module.scss';
 
 const initialValues = {
