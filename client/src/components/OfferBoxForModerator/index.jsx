@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Rating from 'react-rating';
-import { useDispatch, useSelector } from 'react-redux';
-import cx from 'classnames';
-
-import styles from '../OfferBox/OfferBox.module.scss';
+import { useDispatch } from 'react-redux';
+import { changeShowImage } from '../../store/slices/contestByIdSlice';
 import Avatar from '../Avatar';
 import CONSTANTS from '../../constants';
-import { changeShowImage } from '../../store/slices/contestByIdSlice';
+import styles from './OfferBoxForModerator.module.scss';
 
 const { STATIC_IMAGES_PATH, publicURL } = CONSTANTS;
 
@@ -30,7 +28,7 @@ const OfferBoxForModerator = ({ data, handleModeratorStatus }) => {
   };
 
   return (
-    <div className={styles.offerContainer}>
+    <section className={styles.offerContainer}>
       <div className={styles.mainInfoContainer}>
         <div className={styles.userInfo}>
           <div className={styles.creativeInfoContainer}>
@@ -65,15 +63,15 @@ const OfferBoxForModerator = ({ data, handleModeratorStatus }) => {
             <span className={styles.response}>{text}</span>
           )}
         </div>
-        <div>
-          <button
+        <div className={styles.btnsContainer}>
+          <button className={styles.resolveBtn}
             onClick={() =>
               handleModeratorStatus({ id, status: 'successful', email })
             }
           >
             successful
           </button>
-          <button
+          <button className={styles.rejectBtn}
             onClick={() =>
               handleModeratorStatus({ id, status: 'decline', email })
             }
@@ -82,7 +80,7 @@ const OfferBoxForModerator = ({ data, handleModeratorStatus }) => {
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

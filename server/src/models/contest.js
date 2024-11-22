@@ -1,6 +1,6 @@
 'use strict';
 const { Model } = require('sequelize');
-const { CONTEST_TYPES, CONTEST_STATUSES } = require('../constants');
+const { CONTEST_TYPES } = require('../constants');
 module.exports = (sequelize, DataTypes) => {
   class Contest extends Model {
     static associate(models) {
@@ -77,7 +77,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       status: {
-        // type: DataTypes.ENUM(...Object.values(CONTEST_STATUSES)),
         type: DataTypes.STRING,
         allowNull: false,
       },

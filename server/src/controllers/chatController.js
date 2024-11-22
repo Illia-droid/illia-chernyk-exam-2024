@@ -1,9 +1,8 @@
 const { Op } = require('sequelize');
+const _ = require('lodash');
 const db = require('../models');
-
 const userQueries = require('./queries/userQueries');
 const controller = require('../socketInit');
-const _ = require('lodash');
 
 module.exports.addMessage = async (req, res, next) => {
   const participants = req.body.chatData.participants;

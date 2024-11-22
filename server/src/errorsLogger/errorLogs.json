@@ -1,0 +1,134 @@
+[
+  {
+    "message": "need token",
+    "time": "07:10:00",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:137:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:112:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:281:22\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:335:12)"
+  },
+  {
+    "message": "need token",
+    "time": "07:10:01",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:137:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:112:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:281:22\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:335:12)"
+  },
+  {
+    "message": "need token",
+    "time": "07:10:03",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:137:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:112:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:281:22\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:335:12)"
+  },
+  {
+    "message": "need token",
+    "time": "07:10:07",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:137:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:112:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:281:22\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:335:12)"
+  },
+  {
+    "message": "need token",
+    "time": "07:10:09",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:137:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:112:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:281:22\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:335:12)"
+  },
+  {
+    "message": "need token",
+    "time": "07:10:11",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:137:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:112:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:281:22\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:335:12)"
+  },
+  {
+    "message": "need token",
+    "time": "07:10:12",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:137:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:112:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:281:22\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:335:12)"
+  },
+  {
+    "message": "need token",
+    "time": "07:10:17",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:137:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:112:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:281:22\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:335:12)"
+  },
+  {
+    "message": "need token",
+    "time": "07:10:19",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:137:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:112:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:281:22\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:335:12)"
+  },
+  {
+    "message": "need token",
+    "time": "07:46:48",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:137:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:112:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:281:22\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:335:12)"
+  },
+  {
+    "message": "need token",
+    "time": "07:48:16",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/server/node_modules/express/lib/router/route.js:137:13)\n    at Route.dispatch (/server/node_modules/express/lib/router/route.js:112:3)\n    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)\n    at /server/node_modules/express/lib/router/index.js:281:22\n    at Function.process_params (/server/node_modules/express/lib/router/index.js:335:12)"
+  },
+  {
+    "message": "need token",
+    "time": "08:28:08",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1"
+  },
+  {
+    "message": "need token",
+    "time": "08:28:14",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1"
+  },
+  {
+    "message": "need token",
+    "time": "08:28:25",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1"
+  },
+  {
+    "message": "need token",
+    "time": "08:51:32",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1"
+  },
+  {
+    "message": "need token",
+    "time": "08:51:41",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1"
+  },
+  {
+    "message": "need token",
+    "time": "08:51:54",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1"
+  },
+  {
+    "message": "need token",
+    "time": "08:52:15",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1"
+  },
+  {
+    "message": "need token",
+    "time": "08:57:45",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1"
+  },
+  {
+    "message": "need token",
+    "time": "09:09:05",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1"
+  },
+  {
+    "message": "need token",
+    "time": "09:09:32",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1"
+  },
+  {
+    "message": "need token",
+    "time": "09:10:50",
+    "code": 408,
+    "stackTrace": "TokenError: need token\n    at _callee$ (/server/src/middlewares/checkToken.js:9:17)\n    at tryCatch (/server/node_modules/regenerator-runtime/runtime.js:63:40)\n    at Generator.invoke [as _invoke] (/server/node_modules/regenerator-runtime/runtime.js:293:22)\n    at Generator.next (/server/node_modules/regenerator-runtime/runtime.js:118:21)\n    at asyncGeneratorStep (/server/src/middlewares/checkToken.js:3:103)\n    at _next (/server/src/middlewares/checkToken.js:5:194)\n    at /server/src/middlewares/checkToken.js:5:364\n    at new Promise (<anonymous>)\n    at /server/src/middlewares/checkToken.js:5:97\n    at /server/src/middlewares/checkToken.js:6:1"
+  }
+]

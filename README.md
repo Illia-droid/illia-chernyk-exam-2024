@@ -123,3 +123,6 @@
     * changed controllers for requests to db;  
 
 29. Fix styles and group components;    
+
+30. Fix rest controller & router + fix bugs.
+31. Add styles for moderator and fix bugs;

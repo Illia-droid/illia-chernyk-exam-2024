@@ -15,7 +15,7 @@ const initialValues = {
   sum: '',
   number: '4111111111111111',
   cvc: '505',
-  expiry: '09/23',
+  expiry: '09/25',
 };
 const PayForm = ({ focusOnElement, isPayForOrder, calculatedPrice, sendRequest }) => {
   const dispatch = useDispatch();

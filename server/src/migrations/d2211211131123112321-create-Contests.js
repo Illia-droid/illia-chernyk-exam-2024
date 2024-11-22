@@ -55,7 +55,6 @@ module.exports = {
       },
       status: {
         allowNull: false,
-        // type: Sequelize.ENUM(...Object.values(CONTEST_STATUSES)),
         type: Sequelize.STRING,
       },
       brandStyle: {

@@ -11,11 +11,12 @@ import {
 } from '../../store/slices/contestByIdSlice';
 import OpenChatButton from '../buttons/OpenChatButton';
 import Avatar from '../Avatar';
+import Spinner from '../Spinner';
 import CONSTANTS from '../../constants';
 import styles from './OfferBox.module.scss';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import './confirmStyle.css';
-import Spinner from '../Spinner';
+
 
 const {
   OFFER_STATUS: { REJECTED, WON, MODERATION },

@@ -9,6 +9,7 @@ import {
 } from '../../../store/slices/moderatorSlice';
 import Spinner from '../../Spinner';
 import OfferBoxForModerator from '../../OfferBoxForModerator';
+import styles from './ModeratorDashboard.module.scss';
 
 const ModeratorDashboard = () => {
   const dispatch = useDispatch();
@@ -55,28 +56,34 @@ const ModeratorDashboard = () => {
   );
 
   return (
-    <>
+    <main className={styles.moderatorDashboard}>
       {isFetching && <Spinner />}
 
-      <div>
+      <div className={styles.buttonsContainer}>
         <button
           disabled={page === 1 || isFetching}
           onClick={handlePreviousPage}
+          className={styles.pageButton}
         >
           Prev
         </button>
-        <span>
+        <span className={styles.info}>
           Page {page} from {totalPages || defaultPage}
         </span>
         <button
           disabled={page === totalPages || isFetching}
           onClick={handleNextPage}
+          className={styles.pageButton}
         >
           Next
         </button>
       </div>
-      <div>{!isFetching && offers && offers.map(renderOffers)}</div>
-    </>
+      {offers.length > 0 ? (
+        offers.map(renderOffers)
+      ) : (
+        <p className={styles.info}>There is no offers yet</p>
+      )}
+    </main>
   );
 };
 
