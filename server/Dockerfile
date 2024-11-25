@@ -22,4 +22,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD sequelize db:migrate && sequelize db:seed:all && npm start
+CMD sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all && npm start

@@ -126,3 +126,4 @@
 
 30. Fix rest controller & router + fix bugs.
 31. Add styles for moderator and fix bugs;
+32. Fix bugs with docker files.
