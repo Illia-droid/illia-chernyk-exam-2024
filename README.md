@@ -133,3 +133,5 @@ Extra:
 33. Layout offerbox has been changed to make moderation more objective.
 34. Used node-cron library for dailyLogs/index.js ;
 35. Optimized correctly operation dailyLogs/index.js ;
+
+36. Changed logic of docker-compose-dev.yaml by using Docker tools and so initialization of project for the very first time has been fixed.
