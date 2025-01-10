@@ -1,18 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import LightBox from 'react-image-lightbox';
 import {
   getAllOffers,
   cleanAllOffers,
   setPage,
   setModerationOfferStatus,
 } from '../../../store/slices/moderatorSlice';
+import { changeShowImage } from '../../../store/slices/contestByIdSlice';
 import Spinner from '../../Spinner';
 import OfferBoxForModerator from '../../OfferBoxForModerator';
 import styles from './ModeratorDashboard.module.scss';
+import CONSTANTS from '../../../constants';
+
+const { publicURL } = CONSTANTS;
 
 const ModeratorDashboard = () => {
   const dispatch = useDispatch();
+
+  const { contestByIdStore } = useSelector((state) => state);
+  const { isShowOnFull, imagePath } = contestByIdStore;
+
   const { totalPages, isFetching } = useSelector((state) => state.moderator);
   const offers = useSelector((state) => state.moderator.offers);
   const limit = 8;
@@ -55,10 +63,18 @@ const ModeratorDashboard = () => {
     />
   );
 
+  const closeImage = () =>
+    dispatch(changeShowImage({ isShowOnFull: false, imagePath: null }));
+
   return (
     <main className={styles.moderatorDashboard}>
       {isFetching && <Spinner />}
-
+      {isShowOnFull && (
+        <LightBox
+          mainSrc={`${publicURL}${imagePath}`}
+          onCloseRequest={closeImage}
+        />
+      )}
       <div className={styles.buttonsContainer}>
         <button
           disabled={page === 1 || isFetching}
