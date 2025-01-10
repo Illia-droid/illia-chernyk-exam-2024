@@ -130,4 +130,6 @@
 
 Extra:
 
-33. Layout offerbox has been changed to make moderation more objective. 
+33. Layout offerbox has been changed to make moderation more objective.
+34. Used node-cron library for dailyLogs/index.js ;
+35. Optimized correctly operation dailyLogs/index.js ;
