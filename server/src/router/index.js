@@ -1,21 +1,26 @@
 const express = require('express');
 const basicMiddlewares = require('../middlewares/basicMiddlewares');
 const hashPass = require('../middlewares/hashPassMiddle');
+const authController = require('../controllers/authController');
 const userController = require('../controllers/userController');
+const paymentController = require('../controllers/paymentController');
 const contestController = require('../controllers/contestController');
+const offerController = require('../controllers/offerController');
+const chatController = require('../controllers/chatController');
+const catalogController = require('../controllers/catalogController');
 const checkToken = require('../middlewares/checkToken');
 const validators = require('../middlewares/validators');
-const chatController = require('../controllers/chatController');
 const upload = require('../utils/fileUpload');
+
 const router = express.Router();
 
 router.post(
   '/registration',
   validators.validateRegistrationData,
   hashPass,
-  userController.registration
+  authController.registration
 );
-router.post('/login', validators.validateLogin, userController.login);
+router.post('/login', validators.validateLogin, authController.login);
 router.post(
   '/dataForContest',
   checkToken.checkToken,
@@ -28,7 +33,7 @@ router.post(
   upload.uploadContestFiles,
   basicMiddlewares.parseBody,
   validators.validateContestCreation,
-  userController.payment
+  paymentController.payment
 );
 router.post(
   '/getCustomersContests',
@@ -51,43 +56,43 @@ router.post(
   checkToken.checkToken,
   upload.uploadLogoFiles,
   basicMiddlewares.canSendOffer,
-  contestController.setNewOffer
+  offerController.setNewOffer
 );
 router.post(
   '/setOfferStatus',
   checkToken.checkToken,
   basicMiddlewares.onlyForCustomerWhoCreateContest,
-  contestController.setOfferStatus
+  offerController.setOfferStatus
 );
 router.post(
   '/cashout',
   checkToken.checkToken,
   basicMiddlewares.onlyForCreative,
-  userController.cashout
+  paymentController.cashout
 );
 router.post('/newMessage', checkToken.checkToken, chatController.addMessage);
 router.post(
   '/createCatalog',
   checkToken.checkToken,
-  chatController.createCatalog
+  catalogController.createCatalog
 );
 router.post(
   '/addNewChatToCatalog',
   checkToken.checkToken,
-  chatController.addNewChatToCatalog
+  catalogController.addNewChatToCatalog
 );
 router.post(
   '/removeChatFromCatalog',
   checkToken.checkToken,
-  chatController.removeChatFromCatalog
+  catalogController.removeChatFromCatalog
 );
 router.post(
   '/deleteCatalog',
   checkToken.checkToken,
-  chatController.deleteCatalog
+  catalogController.deleteCatalog
 );
-router.post('/getCatalogs', checkToken.checkToken, chatController.getCatalogs);
-router.post('/sendEmail', contestController.sendEmailController);
+router.post('/getCatalogs', checkToken.checkToken, catalogController.getCatalogs);
+router.post('/sendEmail', offerController.sendEmailController);
 router.post('/getChat', checkToken.checkToken, chatController.getChat);
 
 
@@ -98,7 +103,7 @@ router.get(
   contestController.getContestById
 );
 router.get('/getUser', checkToken.checkAuth);
-router.get('/getAllOffers', contestController.getAllOffers);
+router.get('/getAllOffers', offerController.getAllOffers);
 router.get('/getPreview', checkToken.checkToken, chatController.getPreview);
 
 router.patch(
@@ -124,11 +129,11 @@ router.patch('/favorite', checkToken.checkToken, chatController.favoriteChat);
 router.patch(
   '/updateNameCatalog',
   checkToken.checkToken,
-  chatController.updateNameCatalog
+  catalogController.updateNameCatalog
 );
 router.patch(
   '/setModerationOfferStatus',
-  contestController.setModerationOfferStatus
+  offerController.setModerationOfferStatus
 );
 
 module.exports = router;
