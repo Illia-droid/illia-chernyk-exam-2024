@@ -8,7 +8,10 @@ import BackButton from '../../components/buttons/BackButton';
 import ProgressBar from '../../components/ProgressBar';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
+import ButtonsGroup from '../../components/buttons/ButtonsGroup';
 import styles from './ContestCreationPage.module.scss';
+
+import dataButtonsGroup from './dataButtonsGroup.json';
 
 const ContestCreationPage = ({ contestType, history, title }) => {
   const dispatch = useDispatch();
@@ -17,6 +20,8 @@ const ContestCreationPage = ({ contestType, history, title }) => {
     contestCreationStore: { contests },
     bundleStore: { bundle },
   } = useSelector((state) => state);
+
+  const { description: contentButtons } = dataButtonsGroup;
 
   useEffect(() => {
     if (!bundle) {
@@ -66,6 +71,9 @@ const ContestCreationPage = ({ contestType, history, title }) => {
               defaultData={contestData}
             />
           </div>
+          {contestType === 'name' && (
+            <ButtonsGroup content={contentButtons} idSelectedItem={1} />
+          )}
         </section>
         <section className={styles.footerButtonsContainer}>
           <div className={styles.lastContainer}>
