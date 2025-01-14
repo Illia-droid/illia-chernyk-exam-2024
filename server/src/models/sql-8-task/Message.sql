@@ -7,5 +7,6 @@ CREATE TABLE IF NOT EXISTS "messages" (
     "conversation_id" INT,
     "created_at" TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP, 
     "updated_at" TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY ("sender_id", "conversation_id") REFERENCES "users_to_conversations"("user_id", "conversation_id")
+     FOREIGN KEY ("sender_id") REFERENCES "users"("id"),
+     FOREIGN KEY ("conversation_id") REFERENCES "conversations"("id")
 );

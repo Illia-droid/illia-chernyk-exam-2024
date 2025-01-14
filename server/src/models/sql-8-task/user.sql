@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS "users" (
     "password" VARCHAR(255) NOT NULL,
     "email" VARCHAR(255) NOT NULL UNIQUE,
     "avatar" VARCHAR(255) NOT NULL DEFAULT 'anon.png',
-    "role" VARCHAR(50) NOT NULL CHECK (role IN ('customer', 'creator')),
+    "role" VARCHAR(50) NOT NULL CHECK (role IN ('customer', 'creator', 'moderator')),
     "balance" DECIMAL(10, 2) NOT NULL DEFAULT 0 CHECK (balance >= 0),
     "access_token" TEXT,
     "rating" FLOAT NOT NULL DEFAULT 0,
