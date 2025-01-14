@@ -45,7 +45,7 @@ const Header = ({ history }) => {
           <Avatar avatar={data.avatar} />
           <span>{`Hi, ${data.displayName}`}</span>
           <img src={`${STATIC_IMAGES_PATH}menu-down.png`} alt="menu" />
-          {!!amountExpEvents && (
+          {data.role === CUSTOMER && !!amountExpEvents && (
             <div className={styles.bell}>
               <img src="/bell.svg" alt="bell" />
               <span className={styles.number}>{amountExpEvents}</span>
