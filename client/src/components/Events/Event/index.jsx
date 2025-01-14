@@ -28,7 +28,7 @@ const formatSeconds = (seconds) => {
 };
 
 const Event = ({
-  event: { id, body, isExpired, deadline, createdAt, userHours },
+  event: { id, body, isExpired, deadline, createdAt, notificationAt },
 }) => {
   const [difference, setDifference] = useState(
     moment(deadline).diff(moment(), 'seconds')
@@ -39,19 +39,20 @@ const Event = ({
     const timerInterval = setInterval(() => {
       setDifference((prevDifference) => prevDifference - 1);
     }, 1000);
-    
+
     if (difference <= 0) {
       clearInterval(timerInterval);
       return null;
     }
-    if (!isExpired && difference <= userHours * 3600) {
+
+    if (!isExpired && moment().isSameOrAfter(notificationAt)) {
       dispatch(setIsExpired({ id }));
     }
 
     return () => {
       clearInterval(timerInterval);
     };
-  }, [id, dispatch, isExpired, userHours, difference]);
+  }, [id, dispatch, isExpired, notificationAt, difference]);
 
   const deadlineDifference = moment(deadline).diff(
     moment(createdAt),
@@ -74,6 +75,7 @@ const Event = ({
         <span className={styles.time}>
           {formatSeconds(difference) || 'complete!'}
         </span>
+        {isExpired && <img src="/bell.svg" alt="bell" width="25px" />}
         <button className={styles.butt} onClick={handleDelete}>
           <img src="/trash-can-svgrepo-com.svg" alt="trash" width="40px" />
         </button>

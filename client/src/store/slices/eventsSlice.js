@@ -32,14 +32,14 @@ const eventsSlice = createSlice({
   initialState,
   reducers: {
     createEvent(state, action) {
-      const { body, deadline, userHours } = action.payload;
+      const { body, deadline, notificationAt } = action.payload;
       const newTask = {
         id: uuidv4(),
         body,
         isExpired: false,
         deadline,
+        notificationAt,
         createdAt: new Date().toISOString(),
-        userHours,
       };
       state.events.push(newTask);
       saveState(state);

@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-import moment from 'moment';  
+import moment from 'moment';
 import valid from 'card-validator';
 
 const ContestSchema = yup.object({
@@ -233,12 +233,17 @@ const VALIDATION_SCHEMAS = {
       .required('Event name is required'),
     deadline: yup
       .date()
-      .min(moment().toDate(), 'Must be in the future')
+      .min(
+        moment().add(1, 'minute').format('yyyy-MM-DDTHH:mm'),
+        'Must be in the future'
+      )
       .required('Deadline is required'),
-    userHours: yup
-      .number()
-      .min(1, 'Must be at least 1 hour')
-      .max(24, 'Must be less than 24 hours')
+    notificationAt: yup
+      .date()
+      .min(
+        moment().format('yyyy-MM-DDTHH:mm'),
+        'Must be in the future'
+      )
       .required('Notification hours are required'),
   }),
 };

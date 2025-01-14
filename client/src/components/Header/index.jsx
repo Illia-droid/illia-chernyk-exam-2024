@@ -60,6 +60,13 @@ const Header = ({ history }) => {
                 </Link>
               </li>
             ))}
+            {data.role === CUSTOMER && (
+              <li>
+                <Link to="events" style={{ textDecoration: 'none' }}>
+                  <span>Events</span>
+                </Link>
+              </li>
+            )}
             <li>
               <span onClick={logOut}>Logout</span>
             </li>
