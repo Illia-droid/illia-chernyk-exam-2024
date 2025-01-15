@@ -16,7 +16,9 @@ export const getUser = createAsyncThunk(
   `${USER_SLICE_NAME}/getUser`,
   async (replace, { rejectWithValue }) => {
     try {
-      const { data } = await restController.getUser();
+      const {
+        data: { data },
+      } = await restController.getUser();
       controller.subscribe(data.id);
       if (replace) {
         replace('/');
@@ -48,17 +50,17 @@ export const updateUser = createAsyncThunk(
 );
 
 const reducers = {
-  clearUserStore: state => {
+  clearUserStore: (state) => {
     state.error = null;
     state.data = null;
   },
-  clearUserError: state => {
+  clearUserError: (state) => {
     state.error = null;
   },
 };
 
-const extraReducers = builder => {
-  builder.addCase(getUser.pending, state => {
+const extraReducers = (builder) => {
+  builder.addCase(getUser.pending, (state) => {
     state.isFetching = true;
     state.error = null;
     state.data = null;

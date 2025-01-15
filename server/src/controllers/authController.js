@@ -1,60 +1,53 @@
-const jwt = require('jsonwebtoken');
-const NotUniqueEmail = require('../errors/NotUniqueEmail');
-const userQueries = require('./queries/userQueries');
-const CONSTANTS = require('../constants');
+const createHTTPError = require('http-errors');
+const paths = require('../config/paths');
+const { User, RefreshToken } = require(`${paths.models}/index`);
+const { createSession, refreshSession } = require('../services/authSession');
+const UncorrectPassword = require('../errors/UncorrectPassword');
 
-module.exports.login = async (req, res, next) => {
+module.exports.signUp = async (req, res, next) => {
   try {
-    const foundUser = await userQueries.findUser({ email: req.body.email });
-    await userQueries.passwordCompare(req.body.password, foundUser.password);
-    const accessToken = jwt.sign(
-      {
-        firstName: foundUser.firstName,
-        userId: foundUser.id,
-        role: foundUser.role,
-        lastName: foundUser.lastName,
-        avatar: foundUser.avatar,
-        displayName: foundUser.displayName,
-        balance: foundUser.balance,
-        email: foundUser.email,
-        rating: foundUser.rating,
-      },
-      CONSTANTS.JWT_SECRET,
-      { expiresIn: CONSTANTS.ACCESS_TOKEN_TIME }
-    );
-    await userQueries.updateUser({ accessToken }, foundUser.id);
-    res.send({ token: accessToken });
-  } catch (err) {
-    next(err);
+    const { body } = req;
+    const user = await User.create(body);
+    if (user) {
+      const data = await createSession(user);
+      return res.status(201).send({ data });
+    }
+    next(createHTTPError(400, 'Bad request'));
+  } catch (error) {
+    next(error);
   }
 };
-module.exports.registration = async (req, res, next) => {
+module.exports.signIn = async (req, res, next) => {
   try {
-    const newUser = await userQueries.userCreation(
-      Object.assign(req.body, { password: req.hashPass })
-    );
-    const accessToken = jwt.sign(
-      {
-        firstName: newUser.firstName,
-        userId: newUser.id,
-        role: newUser.role,
-        lastName: newUser.lastName,
-        avatar: newUser.avatar,
-        displayName: newUser.displayName,
-        balance: newUser.balance,
-        email: newUser.email,
-        rating: newUser.rating,
-      },
-      CONSTANTS.JWT_SECRET,
-      { expiresIn: CONSTANTS.ACCESS_TOKEN_TIME }
-    );
-    await userQueries.updateUser({ accessToken }, newUser.id);
-    res.send({ token: accessToken });
-  } catch (err) {
-    if (err.name === 'SequelizeUniqueConstraintError') {
-      next(new NotUniqueEmail());
-    } else {
-      next(err);
+    const {
+      body: { email, password },
+    } = req;
+    const user = await User.findOne({ where: { email } });
+    if (user && (await user.comparePassword(password))) {
+      const data = await createSession(user);
+      return res.status(200).send({ data });
     }
+    return next(new UncorrectPassword(`Wrong email or password`));
+  } catch (error) {
+    next(error);
+  }
+};
+module.exports.refresh = async (req, res, next) => {
+  try {
+    const {
+      body: { refreshToken },
+    } = req;
+    const instanceRefreshToken = await RefreshToken.findOne({
+      where: {
+        value: refreshToken,
+      },
+    });
+    if (instanceRefreshToken) {
+      const data = await refreshSession(instanceRefreshToken);
+      return res.status(200).send({ data });
+    }
+    next(createHTTPError(400, 'Bad request'));
+  } catch (error) {
+    next(error);
   }
 };

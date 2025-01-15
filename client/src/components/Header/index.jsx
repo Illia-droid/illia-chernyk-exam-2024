@@ -62,7 +62,7 @@ const Header = ({ history }) => {
             ))}
             {data.role === CUSTOMER && (
               <li>
-                <Link to="events" style={{ textDecoration: 'none' }}>
+                <Link to="/events" style={{ textDecoration: 'none' }}>
                   <span>Events</span>
                 </Link>
               </li>

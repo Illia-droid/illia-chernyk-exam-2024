@@ -1,7 +1,7 @@
 import http from '../interceptor';
 
-export const registerRequest = (data) => http.post('registration', data);
-export const loginRequest = (data) => http.post('login', data);
+export const registerRequest = (data) => http.post('auth/sign-up', data);
+export const loginRequest = (data) => http.post('auth/sign-in', data);
 export const setNewOffer = (data) => http.post('setNewOffer', data);
 export const setOfferStatus = (data) => http.post('setOfferStatus', data);
 export const downloadContestFile = (data) =>
@@ -39,7 +39,6 @@ export const sendEmail = (data) =>
 export const getUser = () => http.get('getUser');
 export const getPreviewChat = () => http.get('getPreview');
 
-
 export const updateContest = (data) =>
   http.patch('updateContest', data, {
     headers: {
@@ -55,12 +54,10 @@ export const updateUser = (data) =>
   });
 export const changeChatFavorite = (data) => http.patch('favorite', data);
 export const changeChatBlock = (data) => http.patch('blackList', data);
-export const changeCatalogName = (data) => http.patch('updateNameCatalog', data);
+export const changeCatalogName = (data) =>
+  http.patch('updateNameCatalog', data);
 export const setModerationOfferStatus = (data) =>
   http.patch('setModerationOfferStatus', data);
-
-
-
 
 export const getContestById = (data) =>
   http.get('getContestById', {
@@ -70,5 +67,3 @@ export const getContestById = (data) =>
   });
 export const getAllOffers = ({ page, limit }) =>
   http.get(`getAllOffers`, { params: { page, limit } });
-
-
