@@ -31,6 +31,7 @@ services:
       - ./var/www/html/images:/var/www/html/images
       - ./server:/server
       - /server/node_modules
+      - ./.env:/server/.env
     restart: always
 
   mongo-dev:

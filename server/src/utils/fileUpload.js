@@ -5,7 +5,7 @@ const ServerError = require('../errors/ServerError');
 const { FILES_PATH } = require('../constants');
 
 const env = process.env.NODE_ENV || 'development';
-const devFilePath = path.resolve(__dirname, `../../${FILES_PATH}`);
+const devFilePath = path.resolve(__dirname, '..', '..', `${FILES_PATH}`);
 const filePath = env === 'production' ? '/var/www/html/images/' : devFilePath;
 
 if (!fs.existsSync(filePath)) {
