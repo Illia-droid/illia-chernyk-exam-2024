@@ -1,4 +1,6 @@
-const db = require('../models');
+const paths = require('../config/paths');
+const db = require(`${paths.models}/index`);
+
 const RightsError = require('../errors/RightsError');
 const ServerError = require('../errors/ServerError');
 const CONSTANTS = require('../constants');

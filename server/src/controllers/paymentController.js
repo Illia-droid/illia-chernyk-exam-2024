@@ -1,6 +1,7 @@
 const moment = require('moment');
 const { v4: uuid } = require('uuid');
-const db = require('../models');
+const paths = require('../config/paths');
+const db = require(`${paths.models}/index`);
 const userQueries = require('./queries/userQueries');
 const bankQueries = require('./queries/bankQueries');
 const CONSTANTS = require('../constants');

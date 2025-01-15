@@ -1,4 +1,5 @@
-const db = require('../../models');
+const paths = require('../../config/paths');
+const db = require(`${paths.models}/index`);
 const ServerError = require('../../errors/ServerError');
 
 module.exports.updateRating = async (data, predicate, transaction) => {

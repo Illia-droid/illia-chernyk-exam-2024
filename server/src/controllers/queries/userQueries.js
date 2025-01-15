@@ -1,11 +1,15 @@
-const db = require('../../models');
+const bcrypt = require('bcrypt');
+const paths = require('../../config/paths');
+const db = require(`${paths.models}/index`);
 const NotFound = require('../../errors/UserNotFoundError');
 const ServerError = require('../../errors/ServerError');
-const bcrypt = require('bcrypt');
 
 module.exports.updateUser = async (data, userId, transaction) => {
-  const [updatedCount, [updatedUser]] = await db.User.update(data,
-    { where: { id: userId }, returning: true, transaction });
+  const [updatedCount, [updatedUser]] = await db.User.update(data, {
+    where: { id: userId },
+    returning: true,
+    transaction,
+  });
   if (updatedCount !== 1) {
     throw new ServerError('cannot update user');
   }

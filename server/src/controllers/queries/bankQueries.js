@@ -1,4 +1,6 @@
-const db = require('../../models');
+const paths = require('../../config/paths');
+const db = require(`${paths.models}/index`);
+
 const BankDeclineError = require('../../errors/BankDeclineError');
 
 module.exports.updateBankBalance = async (data, predicate, transaction) => {

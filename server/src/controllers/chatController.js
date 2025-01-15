@@ -1,5 +1,6 @@
 const { Op } = require('sequelize');
-const db = require('../models');
+const paths = require('../config/paths');
+const db = require(`${paths.models}/index`);
 const userQueries = require('./queries/userQueries');
 const controller = require('../socketInit');
 

@@ -1,4 +1,5 @@
-const db = require('../models');
+const paths = require('../config/paths');
+const db = require(`${paths.models}/index`);
 
 module.exports.createCatalog = async (req, res, next) => {
   const { catalogName, chatId } = req.body;
