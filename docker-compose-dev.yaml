@@ -7,6 +7,8 @@ services:
 
     environment:
       NODE_ENV: development
+      NODE_OPTIONS: --openssl-legacy-provider
+
     depends_on:
       - server-dev
     volumes:
@@ -35,13 +37,13 @@ services:
     restart: always
 
   mongo-dev:
-    image: mongo:4.4.6-bionic
+    image: mongo:6.0
     ports:
       - "27017:27017"
     restart: always
 
   db-dev:
-    image: postgres:13.2-alpine
+    image: postgres:15.3-alpine
     environment:
       POSTGRES_PASSWORD: password
       POSTGRES_USER: postgres
