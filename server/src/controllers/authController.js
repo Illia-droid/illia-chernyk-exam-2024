@@ -1,6 +1,6 @@
 const createHTTPError = require('http-errors');
 const paths = require('../config/paths');
-const { User, RefreshToken } = require(`${paths.models}/index`);
+const { User } = require(`${paths.models}/index`);
 const { createSession, refreshSession } = require('../services/authSession');
 const UncorrectPassword = require('../errors/UncorrectPassword');
 
@@ -37,13 +37,9 @@ module.exports.refresh = async (req, res, next) => {
     const {
       body: { refreshToken },
     } = req;
-    const instanceRefreshToken = await RefreshToken.findOne({
-      where: {
-        value: refreshToken,
-      },
-    });
-    if (instanceRefreshToken) {
-      const data = await refreshSession(instanceRefreshToken);
+
+    if (refreshToken) {
+      const data = await refreshSession(refreshToken);
       return res.status(200).send({ data });
     }
     next(createHTTPError(400, 'Bad request'));

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Cookies from 'js-cookie';
 import CONTANTS from '../constants';
 import history from '../browserHistory';
 
@@ -10,7 +11,7 @@ let accessToken = window.localStorage.getItem(CONTANTS.ACCESS_TOKEN) || null;
 
 httpClient.interceptors.request.use(
   (config) => {
-    const refreshToken = window.localStorage.getItem(CONTANTS.REFRESH_TOKEN);
+    const refreshToken = Cookies.get(CONTANTS.REFRESH_TOKEN);
     if (refreshToken && accessToken) {
       config.headers = {
         ...config.headers,
@@ -35,13 +36,16 @@ httpClient.interceptors.response.use(
           data: { tokenPair },
         },
       } = response;
-      window.localStorage.setItem(CONTANTS.REFRESH_TOKEN, tokenPair.refresh);
-      window.localStorage.setItem(CONTANTS.ACCESS_TOKEN, tokenPair.access); 
+      Cookies.set(CONTANTS.REFRESH_TOKEN, tokenPair.refresh);
+      window.localStorage.setItem(CONTANTS.ACCESS_TOKEN, tokenPair.access);
       accessToken = tokenPair.access;
     }
     return response;
   },
   (err) => {
+    console.log(err);
+    console.log('err.response.status', err.response.status);
+
     if (
       err.response.status === 401 &&
       history.location.pathname !== '/login' &&
@@ -51,14 +55,14 @@ httpClient.interceptors.response.use(
       history.replace('/login');
       return;
     }
-    const refreshToken = window.localStorage.getItem(CONTANTS.REFRESH_TOKEN);
+    const refreshToken = Cookies.get(CONTANTS.REFRESH_TOKEN);
     if (refreshToken && err.response.status === 408) {
       return httpClient
         .post('/auth/refresh', { refreshToken })
         .then(({ data }) => {
           const { tokenPair } = data.data;
-          window.localStorage.setItem(CONTANTS.REFRESH_TOKEN, tokenPair.refresh);
-          window.localStorage.setItem(CONTANTS.ACCESS_TOKEN, tokenPair.access); // Сохраняем новый accessToken
+          Cookies.set(CONTANTS.REFRESH_TOKEN, tokenPair.refresh);
+          window.localStorage.setItem(CONTANTS.ACCESS_TOKEN, tokenPair.access);
           accessToken = tokenPair.access;
           err.config.headers['Authorization'] = `Bearer ${accessToken}`;
           return axios.request(err.config);
@@ -67,6 +71,5 @@ httpClient.interceptors.response.use(
     return Promise.reject(err);
   }
 );
-
 
 export default httpClient;

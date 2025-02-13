@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import classNames from 'classnames';
+import Cookies from 'js-cookie';
 import { clearUserStore } from '../../store/slices/userSlice';
 import { getUser } from '../../store/slices/userSlice';
 import Logo from '../Logo';
@@ -10,7 +11,8 @@ import CONSTANTS from '../../constants';
 import styles from './Header.module.scss';
 import navData from './navData.json';
 
-const { STATIC_IMAGES_PATH, CONTACT_PHONE, CUSTOMER } = CONSTANTS;
+const { STATIC_IMAGES_PATH, CONTACT_PHONE, CUSTOMER, REFRESH_TOKEN } =
+  CONSTANTS;
 
 const Header = ({ history }) => {
   const dispatch = useDispatch();
@@ -30,6 +32,7 @@ const Header = ({ history }) => {
 
   const logOut = () => {
     localStorage.clear();
+    Cookies.remove(REFRESH_TOKEN);
     dispatch(clearUserStore());
     history.replace('/login');
   };

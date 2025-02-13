@@ -20,7 +20,7 @@ module.exports.checkAuth = async (req, res, next) => {
     }
     next(createHTTPError(401, 'Need token'));
   } catch (err) {
-    next(new TokenError());
+    next(new TokenError('check auth error'));
   }
 };
 
@@ -36,7 +36,7 @@ module.exports.checkAccessToken = async (req, res, next) => {
     }
     return next(createHTTPError(401, 'Need token'));
   } catch (err) {
-    next(new TokenError());
+    next(new TokenError('access token error'));
   }
 };
 
@@ -48,6 +48,6 @@ module.exports.checkRefreshToken = async (req, res, next) => {
     req.tokenData = await verifyRefreshToken(refreshToken);
     return next();
   } catch (err) {
-    next(new TokenError());
+    next(new TokenError('refresh token error'));
   }
 };

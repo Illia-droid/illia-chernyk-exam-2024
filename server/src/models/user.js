@@ -64,10 +64,6 @@ module.exports = (sequelize, DataTypes) => {
           min: 0,
         },
       },
-      accessToken: {
-        type: DataTypes.TEXT,
-        allowNull: true,
-      },
       rating: {
         type: DataTypes.FLOAT,
         allowNull: false,
