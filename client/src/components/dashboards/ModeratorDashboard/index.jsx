@@ -17,10 +17,8 @@ const { publicURL } = CONSTANTS;
 
 const ModeratorDashboard = () => {
   const dispatch = useDispatch();
-
   const { contestByIdStore } = useSelector((state) => state);
   const { isShowOnFull, imagePath } = contestByIdStore;
-
   const { totalPages, isFetching } = useSelector((state) => state.moderator);
   const offers = useSelector((state) => state.moderator.offers);
   const limit = 8;
@@ -29,6 +27,7 @@ const ModeratorDashboard = () => {
 
   useEffect(() => {
     dispatch(getAllOffers({ page, limit }));
+
     return () => {
       dispatch(cleanAllOffers());
     };

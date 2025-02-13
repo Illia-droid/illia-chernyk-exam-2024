@@ -160,6 +160,17 @@ module.exports.getAllOffers = async (req, res) => {
             exclude: ['password', 'role', 'balance', 'accessToken'],
           },
         },
+        {
+          model: db.Contest,
+          required: true,
+          include: [
+            {
+              model: db.User,
+              required: true,
+              attributes: ['id', 'firstName', 'lastName', 'email', 'avatar'],
+            },
+          ],
+        },
       ],
     });
 
@@ -171,7 +182,7 @@ module.exports.getAllOffers = async (req, res) => {
       currentPage: parseInt(page, 10),
     });
   } catch (error) {
-    res.status(500).json({ error: 'Ошибка при получении офферов' });
+    res.status(500).json({ error: 'Error processing the offer status' });
   }
 };
 
