@@ -33,7 +33,9 @@ const Event = ({
   const [difference, setDifference] = useState(
     moment(deadline).diff(moment(), 'seconds')
   );
+  const [isEnded, setIsEnded] = useState(false);
   const dispatch = useDispatch();
+  console.log(isExpired);
 
   useEffect(() => {
     const timerInterval = setInterval(() => {
@@ -42,6 +44,7 @@ const Event = ({
 
     if (difference <= 0) {
       clearInterval(timerInterval);
+      setIsEnded(true);
       return null;
     }
 
@@ -64,10 +67,21 @@ const Event = ({
   const handleDelete = () => dispatch(deleteEvent({ id }));
 
   return (
-    <li className={styles.event}>
+    <li
+      className={styles.event}
+      style={{
+        ...(isEnded && { backgroundColor: 'rgba(255, 38, 0, 0.85)' }),
+        ...(isExpired &&
+          !isEnded && { backgroundColor: 'rgba(219, 189, 70, 0.854)' }),
+      }}
+    >
       <div
         className={styles.timer}
-        style={{ right: `${positionPercentage}%` }}
+        style={{
+          right: `${positionPercentage}%`,
+          ...(isExpired &&
+            !isEnded && { backgroundColor: 'rgba(157, 129, 19, 0.31)' }),
+        }}
       ></div>
 
       <p className={styles.eventName}>{body}</p>
