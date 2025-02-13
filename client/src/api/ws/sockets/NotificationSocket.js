@@ -1,5 +1,5 @@
 import React from 'react';
-import { toast } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 import WebSocket from './WebSocket';
 import Notification from '../../../components/Notification';
 
@@ -17,13 +17,13 @@ class NotificationSocket extends WebSocket {
 
   onChangeMark = () => {
     this.socket.on('changeMark', () => {
-      toast('Someone liked your offer');
+      toast.success('Someone liked your offer');
     });
   };
 
   onChangeOfferStatus = () => {
     this.socket.on('changeOfferStatus', (message) => {
-      toast(
+      toast.success(
         <Notification message={message.message} contestId={message.contestId} />
       );
     });
@@ -31,7 +31,7 @@ class NotificationSocket extends WebSocket {
 
   onEntryCreated = () => {
     this.socket.on('onEntryCreated', () => {
-      toast('New Entry');
+      toast.success('New Entry');
     });
   };
 

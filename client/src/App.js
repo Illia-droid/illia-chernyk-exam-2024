@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Toaster } from 'react-hot-toast';
 import { withAuth, withNotAuth } from './components/HOCs';
 import NotFound from './components/NotFound';
 import ChatContainer from './components/chat/ChatComponents/ChatContainer';
@@ -24,17 +23,7 @@ const { NAME_CONTEST, TAGLINE_CONTEST, LOGO_CONTEST } = CONSTANTS;
 const App = () => {
   return (
     <BrowserRouter>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnVisibilityChange
-        draggable
-        pauseOnHover
-      />
+      <Toaster />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/how-it-works" component={HowItWorksPage} />

@@ -5,9 +5,14 @@ import CONSTANTS from '../../constants.js';
 
 const { STATIC_IMAGES_PATH } = CONSTANTS;
 
-const Logo = ({ to, alt, ...props }) => (
+const Logo = ({
+  to = '/',
+  src = `${STATIC_IMAGES_PATH}blue-logo.png`,
+  alt = 'logo',
+  ...props
+}) => (
   <Link to={to}>
-    <img alt={alt} {...props} />
+    <img src={src} alt={alt} {...props} />
   </Link>
 );
 
@@ -16,12 +21,6 @@ Logo.propTypes = {
   to: PropTypes.string,
   src: PropTypes.string,
   alt: PropTypes.string,
-};
-
-Logo.defaultProps = {
-  to: '/',
-  src: `${STATIC_IMAGES_PATH}blue-logo.png`,
-  alt: 'logo',
 };
 
 export default Logo;

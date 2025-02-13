@@ -43,9 +43,6 @@ httpClient.interceptors.response.use(
     return response;
   },
   (err) => {
-    console.log(err);
-    console.log('err.response.status', err.response.status);
-
     if (
       err.response.status === 401 &&
       history.location.pathname !== '/login' &&
