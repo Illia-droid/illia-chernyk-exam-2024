@@ -72,7 +72,7 @@ const ContestCreationPage = ({ contestType, history, title }) => {
             />
           </div>
           {contestType === 'name' && (
-            <ButtonsGroup content={contentButtons} idSelectedItem={1} />
+            <ButtonsGroup content={contentButtons} idSelectedItem={2} />
           )}
         </section>
         <section className={styles.footerButtonsContainer}>
