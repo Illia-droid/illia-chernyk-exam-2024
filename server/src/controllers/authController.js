@@ -34,12 +34,10 @@ module.exports.signIn = async (req, res, next) => {
 };
 module.exports.refresh = async (req, res, next) => {
   try {
-    const {
-      body: { refreshToken },
-    } = req;
+    const { tokenData } = req;
 
-    if (refreshToken) {
-      const data = await refreshSession(refreshToken);
+    if (tokenData) {
+      const data = await refreshSession(tokenData);
       return res.status(200).send({ data });
     }
     next(createHTTPError(400, 'Bad request'));
